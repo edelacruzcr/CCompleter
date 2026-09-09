@@ -1,4 +1,4 @@
-# 📦 CCompleter - Biblioteca Completa de Snippets para C (VS Code / VSCodium)
+# CCompleter - Biblioteca Completa de Snippets para C (VS Code / VSCodium)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https.mit-license.org)
 [![VS Code](https://img.shields.io/badge/VS%20Code-Snippets-blue.svg)](https://code.visualstudio.com/)
@@ -8,17 +8,17 @@ Una colección exhaustiva, moderna y optimizada de **snippets de código para el
 
 ---
 
-## ⚡ Instalación Rápida en 1 Solo Comando (Global)
+## Instalación Rápida en 1 Solo Comando (Global)
 
 Puedes instalar todos estos snippets en tu VS Code / VSCodium automáticamente ejecutando un único comando en la terminal.
 
-### 🐧 Linux / 🍎 macOS / 🪟 WSL:
+### Linux / macOS / WSL:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/edelacruzcr/CCompleter/main/install.sh | bash
 ```
 
-### 🪟 Windows (PowerShell):
+### Windows (PowerShell):
 
 ```powershell
 iwr -useb https://raw.githubusercontent.com/edelacruzcr/CCompleter/main/install.ps1 | iex
@@ -26,7 +26,7 @@ iwr -useb https://raw.githubusercontent.com/edelacruzcr/CCompleter/main/install.
 
 ---
 
-## 💻 Instalación Manual
+## Instalación Manual
 
 Si prefieres agregarlos manualmente a VS Code:
 
@@ -38,9 +38,9 @@ Si prefieres agregarlos manualmente a VS Code:
 
 ---
 
-## 📚 Categorías y Prefijos Destacados
+## Categorías y Prefijos Destacados
 
-### 🟢 Includes y Estrutura Base
+### Includes y Estructura Base
 | Prefijo | Descripción |
 |---|---|
 | `main` | Estructura básica de `main(void)` |
@@ -48,7 +48,7 @@ Si prefieres agregarlos manualmente a VS Code:
 | `inc_todos` | Incluye `stdio.h`, `stdlib.h`, `string.h`, `stdbool.h`, `math.h` de una vez |
 | `inc_stdio`, `inc_stdlib`, `inc_string`, etc. | Inclusión de headers individuales |
 
-### 🔵 Variables y Tipos de Datos
+### Variables y Tipos de Datos
 | Prefijo | Descripción |
 |---|---|
 | `vint`, `vfloat`, `vdouble`, `vchar`, `vbool` | Declaración de variables básicas |
@@ -56,7 +56,7 @@ Si prefieres agregarlos manualmente a VS Code:
 | `vptr` | Declaración de puntero con inicialización a NULL |
 | `vconst`, `vstatic`, `vextern` | Modificadores de variables |
 
-### 🟡 Arrays y Memoria Dinámica
+### Arrays y Memoria Dinámica
 | Prefijo | Descripción |
 |---|---|
 | `array` | Declarar array estático |
@@ -67,7 +67,7 @@ Si prefieres agregarlos manualmente a VS Code:
 | `free` | Liberación segura de memoria (asigna NULL tras `free`) |
 | `free2d` | Liberación completa de matrices 2D |
 
-### 🔴 Bucles y Condicionales
+### Bucles y Condicionales
 | Prefijo | Descripción |
 |---|---|
 | `for` | Bucle `for` clásico |
@@ -77,7 +77,7 @@ Si prefieres agregarlos manualmente a VS Code:
 | `switch` | Estructura `switch-case` con `default` |
 | `ternario` | Operador ternario (`? :`) |
 
-### 🟣 Funciones, Structs, Enums y Punteros
+### Funciones, Structs, Enums y Punteros
 | Prefijo | Descripción |
 |---|---|
 | `func` | Declaración e implementación de función |
@@ -87,7 +87,7 @@ Si prefieres agregarlos manualmente a VS Code:
 | `ptr` | Puntero básico asignado a la dirección de una variable |
 | `ptr_func` | Puntero a función |
 
-### 🟠 Entrada / Salida y Archivos
+### Entrada / Salida y Archivos
 | Prefijo | Descripción |
 |---|---|
 | `printf_var`, `printf_int`, `printf_float`, `printf_str` | Salida formateada |
@@ -98,7 +98,7 @@ Si prefieres agregarlos manualmente a VS Code:
 
 ---
 
-## ⚙️ Configuración Recomendada en VS Code (`settings.json`)
+## Configuración Recomendada en VS Code (`settings.json`)
 
 Para una experiencia óptima con autocompletado de snippets, añade estas opciones a tu `settings.json`:
 
@@ -116,6 +116,6 @@ Para una experiencia óptima con autocompletado de snippets, añade estas opcion
 
 ---
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto está bajo la Licencia [MIT](LICENSE). Siéntete libre de modificarlo, compartirlo y mejorar tus flujos de desarrollo.

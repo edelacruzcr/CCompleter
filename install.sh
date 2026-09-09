@@ -1,20 +1,8 @@
 #!/usr/bin/env bash
 
-# ==============================================================================
 # Instalador automático de Snippets para C en VS Code / VSCodium
-# ==============================================================================
 
 set -e
-
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-YELLOW='\033[1;33m'
-RED='\033[0;31m'
-NC='\033[0m'
-
-echo -e "${BLUE}======================================================${NC}"
-echo -e "${BLUE}   🚀 Biblioteca Completa de Snippets C para VS Code  ${NC}"
-echo -e "${BLUE}======================================================${NC}"
 
 # Definir posibles rutas donde se guardan los snippets según OS y editor
 TARGET_DIRS=()
@@ -44,7 +32,7 @@ for DIR in "${TARGET_DIRS[@]}"; do
     PARENT_DIR=$(dirname "$DIR")
     if [ -d "$PARENT_DIR" ] || [ -d "$DIR" ]; then
         mkdir -p "$DIR"
-        echo -e "${YELLOW}📂 Instalando en:${NC} $DIR"
+        echo "Instalando en: $DIR"
         
         if [ -f "./c.json" ]; then
             cp "./c.json" "$DIR/c.json"
@@ -52,7 +40,7 @@ for DIR in "${TARGET_DIRS[@]}"; do
             curl -fsSL "$RAW_URL" -o "$DIR/c.json"
         fi
         
-        echo -e "${GREEN}✓ Instalado exitosamente en: $DIR/c.json${NC}"
+        echo "Instalado exitosamente en: $DIR/c.json"
         INSTALLED_COUNT=$((INSTALLED_COUNT + 1))
     fi
 done
@@ -65,8 +53,8 @@ if [ $INSTALLED_COUNT -eq 0 ]; then
     else
         curl -fsSL "$RAW_URL" -o "$FALLBACK_DIR/c.json"
     fi
-    echo -e "${GREEN}✓ Instalado en directorio por defecto: $FALLBACK_DIR/c.json${NC}"
+    echo "Instalado en directorio por defecto: $FALLBACK_DIR/c.json"
 fi
 
-echo -e "\n${GREEN}🎉 ¡Instalación finalizada con éxito!${NC}"
-echo -e "Abre cualquier archivo .c en VS Code y prueba escribiendo ${BLUE}main${NC} o ${BLUE}inc_todos${NC}.\n"
+echo -e "\nInstalación finalizada con éxito."
+echo -e "Abre cualquier archivo .c en VS Code y prueba escribiendo main o inc_todos.\n"

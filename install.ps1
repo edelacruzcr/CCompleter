@@ -1,12 +1,6 @@
-# ==============================================================================
 # Instalador automático de Snippets para C en VS Code / VSCodium (Windows PowerShell)
-# ==============================================================================
 
 $ErrorActionPreference = "Stop"
-
-Write-Host "======================================================" -ForegroundColor Cyan
-Write-Host "   🚀 Biblioteca Completa de Snippets C para VS Code  " -ForegroundColor Cyan
-Write-Host "======================================================" -ForegroundColor Cyan
 
 $CodeSnippetsPath = "$env:APPDATA\Code\User\snippets"
 $CodiumSnippetsPath = "$env:APPDATA\VSCodium\User\snippets"
@@ -31,7 +25,7 @@ foreach ($Path in $Paths) {
         } else {
             Invoke-WebRequest -Uri $RawUrl -OutFile $OutputFile
         }
-        Write-Host "✓ Instalado exitosamente en: $OutputFile" -ForegroundColor Green
+        Write-Host "Instalado exitosamente en: $OutputFile"
         $Installed = true
     }
 }
@@ -42,8 +36,8 @@ if (-not $Installed) {
     }
     $OutputFile = Join-Path -Path $CodeSnippetsPath -ChildPath "c.json"
     Invoke-WebRequest -Uri $RawUrl -OutFile $OutputFile
-    Write-Host "✓ Instalado en: $OutputFile" -ForegroundColor Green
+    Write-Host "Instalado en: $OutputFile"
 }
 
-Write-Host "`n🎉 ¡Instalación finalizada con éxito!" -ForegroundColor Green
-Write-Host "Abre cualquier archivo .c en VS Code y escribe 'main' o 'inc_todos'." -ForegroundColor Yellow
+Write-Host "`nInstalación finalizada con éxito."
+Write-Host "Abre cualquier archivo .c en VS Code y escribe 'main' o 'inc_todos'."
