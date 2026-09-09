@@ -1136,5 +1136,544 @@
     "prefix": ["cls", "limpiar_pantalla"],
     "body": ["system(\"clear\"); // Linux/Mac"],
     "description": "Limpiar la pantalla (Linux/Mac)"
+  },
+  "Lista enlazada simple (int)": {
+    "scope": "c,cpp",
+    "prefix": ["list", "lista", "linked"],
+    "body": [
+      "typedef struct Nodo {",
+      "\tint dato;",
+      "\tstruct Nodo *siguiente;",
+      "} Nodo;",
+      "",
+      "// Insertar al inicio",
+      "void insertar_inicio(Nodo **cabeza, int valor) {",
+      "\tNodo *nuevo = (Nodo*)malloc(sizeof(Nodo));",
+      "\tnuevo->dato = valor;",
+      "\tnuevo->siguiente = *cabeza;",
+      "\t*cabeza = nuevo;",
+      "}",
+      "",
+      "// Imprimir lista",
+      "void imprimir_lista(Nodo *cabeza) {",
+      "\tNodo *actual = cabeza;",
+      "\twhile (actual != NULL) {",
+      "\t\tprintf(\"%d -> \", actual->dato);",
+      "\t\tactual = actual->siguiente;",
+      "\t}",
+      "\tprintf(\"NULL\\n\");",
+      "}",
+      "",
+      "// Liberar lista",
+      "void liberar_lista(Nodo *cabeza) {",
+      "\tNodo *actual = cabeza;",
+      "\twhile (actual != NULL) {",
+      "\t\tNodo *temp = actual;",
+      "\t\tactual = actual->siguiente;",
+      "\t\tfree(temp);",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "Nodo *miLista = NULL;",
+      "insertar_inicio(&miLista, ${1:10});",
+      "insertar_inicio(&miLista, ${2:20});",
+      "imprimir_lista(miLista);",
+      "liberar_lista(miLista);"
+    ],
+    "description": "Lista enlazada de enteros con funciones básicas"
+  },
+
+  "Lista enlazada con menú de tipo": {
+    "scope": "c,cpp",
+    "prefix": ["list", "lista", "linked"],
+    "body": [
+      "${1|int,float,double,char*|}",
+      "typedef struct Nodo {",
+      "\t${1} dato;",
+      "\tstruct Nodo *siguiente;",
+      "} Nodo;",
+      "",
+      "// Insertar al inicio",
+      "void insertar_inicio(Nodo **cabeza, ${1} valor) {",
+      "\tNodo *nuevo = (Nodo*)malloc(sizeof(Nodo));",
+      "\tnuevo->dato = valor;",
+      "\tnuevo->siguiente = *cabeza;",
+      "\t*cabeza = nuevo;",
+      "}",
+      "",
+      "// Recorrer e imprimir",
+      "void imprimir_lista(Nodo *cabeza) {",
+      "\tNodo *actual = cabeza;",
+      "\twhile (actual != NULL) {",
+      "\t\tprintf(\"%${2|d,f,s|} -> \", actual->dato);",
+      "\t\tactual = actual->siguiente;",
+      "\t}",
+      "\tprintf(\"NULL\\n\");",
+      "}",
+      "",
+      "// Uso:",
+      "Nodo *miLista = NULL;",
+      "insertar_inicio(&miLista, ${3:valor1});",
+      "insertar_inicio(&miLista, ${4:valor2});",
+      "imprimir_lista(miLista);"
+    ],
+    "description": "Lista enlazada con tipo de dato seleccionable"
+  },
+
+
+  "For anidado (matriz)": {
+    "scope": "c,cpp",
+    "prefix": ["foranidado", "for2d", "for_matriz"],
+    "body": [
+      "for (int i = 0; i < ${1:filas}; i++) {",
+      "\tfor (int j = 0; j < ${2:columnas}; j++) {",
+      "\t\t${3:// Acceder a matriz[i][j]}",
+      "\t}",
+      "}"
+    ],
+    "description": "Doble bucle for para recorrer matrices"
+  },
+
+  "For anidado con inicialización": {
+    "scope": "c,cpp",
+    "prefix": ["foranidado_init", "matriz_init_for"],
+    "body": [
+      "for (int i = 0; i < ${1:filas}; i++) {",
+      "\tfor (int j = 0; j < ${2:columnas}; j++) {",
+      "\t\t${3:matriz}[i][j] = ${4:valor};",
+      "\t}",
+      "}"
+    ],
+    "description": "Inicializa una matriz con un valor usando fors anidados"
+  },
+
+  "Figuras con asteriscos (menú)": {
+    "scope": "c,cpp",
+    "prefix": ["figura", "patron", "asteriscos"],
+    "body": [
+      "${1|Cuadrado,Triángulo rectángulo,Triángulo equilátero,Pirámide,Rombo|}",
+      "int n = ${2:5}; // tamaño",
+      "",
+      "if (${1} == \"Cuadrado\") {",
+      "\tfor (int i = 0; i < n; i++) {",
+      "\t\tfor (int j = 0; j < n; j++) {",
+      "\t\t\tprintf(\"* \");",
+      "\t\t}",
+      "\t\tprintf(\"\\n\");",
+      "\t}",
+      "} else if (${1} == \"Triángulo rectángulo\") {",
+      "\tfor (int i = 1; i <= n; i++) {",
+      "\t\tfor (int j = 1; j <= i; j++) {",
+      "\t\t\tprintf(\"* \");",
+      "\t\t}",
+      "\t\tprintf(\"\\n\");",
+      "\t}",
+      "} else if (${1} == \"Triángulo equilátero\") {",
+      "\tfor (int i = 1; i <= n; i++) {",
+      "\t\tfor (int j = i; j < n; j++) {",
+      "\t\t\tprintf(\" \");",
+      "\t\t}",
+      "\t\tfor (int j = 1; j <= (2*i-1); j++) {",
+      "\t\t\tprintf(\"*\");",
+      "\t\t}",
+      "\t\tprintf(\"\\n\");",
+      "\t}",
+      "} else if (${1} == \"Pirámide\") {",
+      "\tfor (int i = 1; i <= n; i++) {",
+      "\t\tfor (int j = i; j < n; j++) printf(\" \");",
+      "\t\tfor (int j = 1; j <= (2*i-1); j++) printf(\"*\");",
+      "\t\tprintf(\"\\n\");",
+      "\t}",
+      "} else if (${1} == \"Rombo\") {",
+      "\tfor (int i = 1; i <= n; i++) {",
+      "\t\tfor (int j = i; j < n; j++) printf(\" \");",
+      "\t\tfor (int j = 1; j <= (2*i-1); j++) printf(\"*\");",
+      "\t\tprintf(\"\\n\");",
+      "\t}",
+      "\tfor (int i = n-1; i >= 1; i--) {",
+      "\t\tfor (int j = n; j > i; j--) printf(\" \");",
+      "\t\tfor (int j = 1; j <= (2*i-1); j++) printf(\"*\");",
+      "\t\tprintf(\"\\n\");",
+      "\t}",
+      "}"
+    ],
+    "description": "Genera código para dibujar figuras con asteriscos"
+  },
+
+  "Inicializar matriz 2D": {
+    "scope": "c,cpp",
+    "prefix": ["matriz_init", "init_matriz"],
+    "body": [
+      "${1:int} ${2:matriz}[${3:filas}][${4:columnas}];",
+      "for (int i = 0; i < ${3:filas}; i++) {",
+      "\tfor (int j = 0; j < ${4:columnas}; j++) {",
+      "\t\t${2:matriz}[i][j] = ${5:0};",
+      "\t}",
+      "}"
+    ],
+    "description": "Declara e inicializa una matriz con un valor"
+  },
+
+  "Imprimir matriz": {
+    "scope": "c,cpp",
+    "prefix": ["matriz_print", "imprimir_matriz"],
+    "body": [
+      "void imprimir_matriz(${1:int} matriz[][${2:columnas}], int filas) {",
+      "\tfor (int i = 0; i < filas; i++) {",
+      "\t\tfor (int j = 0; j < ${2:columnas}; j++) {",
+      "\t\t\tprintf(\"%d \", matriz[i][j]);",
+      "\t\t}",
+      "\t\tprintf(\"\\n\");",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "imprimir_matriz(${3:matriz}, ${4:filas});"
+    ],
+    "description": "Función para imprimir una matriz de enteros"
+  },
+
+  "Suma de matrices": {
+    "scope": "c,cpp",
+    "prefix": ["matriz_suma", "suma_matrices"],
+    "body": [
+      "void sumar_matrices(${1:int} A[][${2:cols}], ${1:int} B[][${2:cols}], ${1:int} C[][${2:cols}], int filas) {",
+      "\tfor (int i = 0; i < filas; i++) {",
+      "\t\tfor (int j = 0; j < ${2:cols}; j++) {",
+      "\t\t\tC[i][j] = A[i][j] + B[i][j];",
+      "\t\t}",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "sumar_matrices(A, B, C, ${3:filas});"
+    ],
+    "description": "Función para sumar dos matrices"
+  },
+
+  "Multiplicación de matrices": {
+    "scope": "c,cpp",
+    "prefix": ["matriz_multiplicar", "multiplicar_matrices"],
+    "body": [
+      "void multiplicar_matrices(${1:int} A[][${2:k}], ${1:int} B[][${3:n}], ${1:int} C[][${3:n}], int m, int k, int n) {",
+      "\tfor (int i = 0; i < m; i++) {",
+      "\t\tfor (int j = 0; j < n; j++) {",
+      "\t\t\tC[i][j] = 0;",
+      "\t\t\tfor (int x = 0; x < k; x++) {",
+      "\t\t\t\tC[i][j] += A[i][x] * B[x][j];",
+      "\t\t\t}",
+      "\t\t}",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "multiplicar_matrices(A, B, C, ${4:m}, ${2:k}, ${3:n});"
+    ],
+    "description": "Función para multiplicar dos matrices"
+  },
+
+
+  "Vector dinámico simple": {
+    "scope": "c,cpp",
+    "prefix": ["vector", "lista_simple"],
+    "body": [
+      "typedef struct {",
+      "\t${1|int,float,double,char*|} *datos;",
+      "\tint tamaño;",
+      "\tint capacidad;",
+      "} Vector;",
+      "",
+      "// Inicializar vector",
+      "void vector_init(Vector *v, int capacidad_inicial) {",
+      "\tv->datos = (${1}*)malloc(capacidad_inicial * sizeof(${1}));",
+      "\tv->tamaño = 0;",
+      "\tv->capacidad = capacidad_inicial;",
+      "}",
+      "",
+      "// Agregar elemento",
+      "void vector_agregar(Vector *v, ${1} valor) {",
+      "\tif (v->tamaño >= v->capacidad) {",
+      "\t\tv->capacidad *= 2;",
+      "\t\tv->datos = (${1}*)realloc(v->datos, v->capacidad * sizeof(${1}));",
+      "\t}",
+      "\tv->datos[v->tamaño++] = valor;",
+      "}",
+      "",
+      "// Obtener elemento",
+      "${1} vector_obtener(Vector *v, int indice) {",
+      "\tif (indice >= 0 && indice < v->tamaño) {",
+      "\t\treturn v->datos[indice];",
+      "\t}",
+      "\treturn (${1})0;",
+      "}",
+      "",
+      "// Liberar vector",
+      "void vector_liberar(Vector *v) {",
+      "\tfree(v->datos);",
+      "\tv->datos = NULL;",
+      "\tv->tamaño = v->capacidad = 0;",
+      "}",
+      "",
+      "// Uso:",
+      "Vector vec;",
+      "vector_init(&vec, 4);",
+      "vector_agregar(&vec, ${2:valor1});",
+      "vector_agregar(&vec, ${3:valor2});",
+      "printf(\"Elemento 0: %${4|d,f,s|}\\n\", vector_obtener(&vec, 0));",
+      "vector_liberar(&vec);"
+    ],
+    "description": "Vector dinámico genérico con funciones básicas"
+  },
+
+  "Ordenamiento burbuja (menú dirección)": {
+    "scope": "c,cpp",
+    "prefix": ["ordenar", "sort", "burbuja"],
+    "body": [
+      "void ordenar_burbuja(${1|int,float,double|} arr[], int n, int ascendente) {",
+      "\tfor (int i = 0; i < n-1; i++) {",
+      "\t\tfor (int j = 0; j < n-i-1; j++) {",
+      "\t\t\tif ((ascendente && arr[j] > arr[j+1]) || (!ascendente && arr[j] < arr[j+1])) {",
+      "\t\t\t\t${1} temp = arr[j];",
+      "\t\t\t\tarr[j] = arr[j+1];",
+      "\t\t\t\tarr[j+1] = temp;",
+      "\t\t\t}",
+      "\t\t}",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "${1} datos[] = {${2:5, 2, 8, 1, 9}};",
+      "int n = sizeof(datos)/sizeof(datos[0]);",
+      "ordenar_burbuja(datos, n, ${3:1}); // 1 ascendente, 0 descendente"
+    ],
+    "description": "Ordena un array con el método burbuja"
+  },
+
+  "Ordenamiento rápido (qsort)": {
+    "scope": "c,cpp",
+    "prefix": ["qsort", "ordenar_rapido"],
+    "body": [
+      "int comparar(const void *a, const void *b) {",
+      "\treturn (*(int*)a - *(int*)b); // ascendente",
+      "}",
+      "",
+      "// Uso:",
+      "int datos[] = {${1:5, 2, 8, 1, 9}};",
+      "int n = sizeof(datos)/sizeof(datos[0]);",
+      "qsort(datos, n, sizeof(int), comparar);"
+    ],
+    "description": "Ordena con qsort (requiere stdlib.h)"
+  },
+
+  "Búsqueda lineal": {
+    "scope": "c,cpp",
+    "prefix": ["busqueda_lineal", "buscar"],
+    "body": [
+      "int busqueda_lineal(${1|int,float,double|} arr[], int n, ${1} objetivo) {",
+      "\tfor (int i = 0; i < n; i++) {",
+      "\t\tif (arr[i] == objetivo) return i;",
+      "\t}",
+      "\treturn -1;",
+      "}",
+      "",
+      "// Uso:",
+      "int pos = busqueda_lineal(datos, n, ${2:objetivo});"
+    ],
+    "description": "Busca un elemento linealmente"
+  },
+
+  "Búsqueda binaria": {
+    "scope": "c,cpp",
+    "prefix": ["busqueda_binaria", "binary_search"],
+    "body": [
+      "int busqueda_binaria(int arr[], int izquierda, int derecha, int objetivo) {",
+      "\twhile (izquierda <= derecha) {",
+      "\t\tint medio = izquierda + (derecha - izquierda) / 2;",
+      "\t\tif (arr[medio] == objetivo) return medio;",
+      "\t\tif (arr[medio] < objetivo) izquierda = medio + 1;",
+      "\t\telse derecha = medio - 1;",
+      "\t}",
+      "\treturn -1;",
+      "}",
+      "",
+      "// Uso (array debe estar ordenado):",
+      "int pos = busqueda_binaria(datos, 0, n-1, ${1:objetivo});"
+    ],
+    "description": "Búsqueda binaria en array ordenado"
+  },
+
+  "Factorial": {
+    "scope": "c,cpp",
+    "prefix": ["factorial", "fact"],
+    "body": [
+      "int factorial(int n) {",
+      "\tif (n <= 1) return 1;",
+      "\treturn n * factorial(n - 1);",
+      "}",
+      "",
+      "// Uso:",
+      "int resultado = factorial(${1:5});"
+    ],
+    "description": "Función recursiva para calcular factorial"
+  },
+
+  "Fibonacci": {
+    "scope": "c,cpp",
+    "prefix": ["fibonacci", "fibo"],
+    "body": [
+      "int fibonacci(int n) {",
+      "\tif (n <= 1) return n;",
+      "\treturn fibonacci(n-1) + fibonacci(n-2);",
+      "}",
+      "",
+      "// Uso:",
+      "int resultado = fibonacci(${1:10});"
+    ],
+    "description": "Función recursiva de Fibonacci"
+  },
+
+  "Número primo": {
+    "scope": "c,cpp",
+    "prefix": ["primo", "es_primo"],
+    "body": [
+      "int es_primo(int n) {",
+      "\tif (n <= 1) return 0;",
+      "\tfor (int i = 2; i * i <= n; i++) {",
+      "\t\tif (n % i == 0) return 0;",
+      "\t}",
+      "\treturn 1;",
+      "}",
+      "",
+      "// Uso:",
+      "if (es_primo(${1:17})) printf(\"Es primo\\n\");"
+    ],
+    "description": "Verifica si un número es primo"
+  },
+
+  "Contar vocales": {
+    "scope": "c,cpp",
+    "prefix": ["contar_vocales", "vocales"],
+    "body": [
+      "int contar_vocales(const char *cadena) {",
+      "\tint contador = 0;",
+      "\tfor (int i = 0; cadena[i] != '\\0'; i++) {",
+      "\t\tchar c = tolower(cadena[i]);",
+      "\t\tif (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') contador++;",
+      "\t}",
+      "\treturn contador;",
+      "}",
+      "",
+      "// Uso:",
+      "int total = contar_vocales(\"${1:hola mundo}\");"
+    ],
+    "description": "Cuenta las vocales en una cadena"
+  },
+
+  "Convertir a mayúsculas": {
+    "scope": "c,cpp",
+    "prefix": ["toupper", "mayusculas"],
+    "body": [
+      "void a_mayusculas(char *cadena) {",
+      "\tfor (int i = 0; cadena[i]; i++) {",
+      "\t\tcadena[i] = toupper(cadena[i]);",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "char texto[] = \"${1:hola}\";",
+      "a_mayusculas(texto);"
+    ],
+    "description": "Convierte una cadena a mayúsculas (requiere ctype.h)"
+  },
+
+  "Convertir a minúsculas": {
+    "scope": "c,cpp",
+    "prefix": ["tolower", "minusculas"],
+    "body": [
+      "void a_minusculas(char *cadena) {",
+      "\tfor (int i = 0; cadena[i]; i++) {",
+      "\t\tcadena[i] = tolower(cadena[i]);",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "char texto[] = \"${1:HOLA}\";",
+      "a_minusculas(texto);"
+    ],
+    "description": "Convierte una cadena a minúsculas"
+  },
+
+  "Palíndromo": {
+    "scope": "c,cpp",
+    "prefix": ["palindromo", "es_palindromo"],
+    "body": [
+      "int es_palindromo(const char *cadena) {",
+      "\tint izquierda = 0;",
+      "\tint derecha = strlen(cadena) - 1;",
+      "\twhile (izquierda < derecha) {",
+      "\t\tif (cadena[izquierda] != cadena[derecha]) return 0;",
+      "\t\tizquierda++;",
+      "\t\tderecha--;",
+      "\t}",
+      "\treturn 1;",
+      "}",
+      "",
+      "// Uso:",
+      "if (es_palindromo(\"${1:anilina}\")) printf(\"Es palíndromo\\n\");"
+    ],
+    "description": "Verifica si una cadena es palíndromo"
+  },
+
+
+  "Intercambio con punteros": {
+    "scope": "c,cpp",
+    "prefix": ["swap_ptr", "intercambiar_ptr"],
+    "body": [
+      "void swap(${1|int,float,double,char*} *a, ${1} *b) {",
+      "\t${1} temp = *a;",
+      "\t*a = *b;",
+      "\t*b = temp;",
+      "}",
+      "",
+      "// Uso:",
+      "swap(&x, &y);"
+    ],
+    "description": "Función de intercambio usando punteros"
+  },
+
+  "Leer archivo completo a string": {
+    "scope": "c,cpp",
+    "prefix": ["leer_archivo_completo", "file_readall"],
+    "body": [
+      "char* leer_archivo_completo(const char *nombre_archivo) {",
+      "\tFILE *fp = fopen(nombre_archivo, \"r\");",
+      "\tif (fp == NULL) return NULL;",
+      "",
+      "\tfseek(fp, 0, SEEK_END);",
+      "\tlong tamaño = ftell(fp);",
+      "\tfseek(fp, 0, SEEK_SET);",
+      "",
+      "\tchar *contenido = (char*)malloc(tamaño + 1);",
+      "\tif (contenido == NULL) {",
+      "\t\tfclose(fp);",
+      "\t\treturn NULL;",
+      "\t}",
+      "",
+      "\tfread(contenido, 1, tamaño, fp);",
+      "\tcontenido[tamaño] = '\\0';",
+      "\tfclose(fp);",
+      "\treturn contenido;",
+      "}",
+      "",
+      "// Uso:",
+      "char *texto = leer_archivo_completo(\"${1:archivo.txt}\");",
+      "if (texto) {",
+      "\tprintf(\"%s\\n\", texto);",
+      "\tfree(texto);",
+      "}"
+    ],
+    "description": "Lee todo el contenido de un archivo y lo devuelve como string"
   }
 }
+
