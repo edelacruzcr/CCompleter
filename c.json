@@ -1674,6 +1674,466 @@
       "}"
     ],
     "description": "Lee todo el contenido de un archivo y lo devuelve como string"
+  },
+
+  "Lista doblemente enlazada": {
+    "scope": "c,cpp",
+    "prefix": ["dlist", "lista_doble"],
+    "body": [
+      "typedef struct NodoD {",
+      "\tint dato;",
+      "\tstruct NodoD *anterior;",
+      "\tstruct NodoD *siguiente;",
+      "} NodoD;",
+      "",
+      "// Insertar al inicio",
+      "void insertar_inicio_doble(NodoD **cabeza, int valor) {",
+      "\tNodoD *nuevo = (NodoD*)malloc(sizeof(NodoD));",
+      "\tnuevo->dato = valor;",
+      "\tnuevo->anterior = NULL;",
+      "\tnuevo->siguiente = *cabeza;",
+      "\tif (*cabeza != NULL) (*cabeza)->anterior = nuevo;",
+      "\t*cabeza = nuevo;",
+      "}",
+      "",
+      "// Imprimir hacia adelante",
+      "void imprimir_adelante(NodoD *cabeza) {",
+      "\tNodoD *actual = cabeza;",
+      "\twhile (actual != NULL) {",
+      "\t\tprintf(\"%d <-> \", actual->dato);",
+      "\t\tactual = actual->siguiente;",
+      "\t}",
+      "\tprintf(\"NULL\\n\");",
+      "}",
+      "",
+      "// Liberar lista",
+      "void liberar_doble(NodoD *cabeza) {",
+      "\tNodoD *actual = cabeza;",
+      "\twhile (actual != NULL) {",
+      "\t\tNodoD *temp = actual;",
+      "\t\tactual = actual->siguiente;",
+      "\t\tfree(temp);",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "NodoD *miLista = NULL;",
+      "insertar_inicio_doble(&miLista, ${1:10});",
+      "insertar_inicio_doble(&miLista, ${2:20});",
+      "imprimir_adelante(miLista);",
+      "liberar_doble(miLista);"
+    ],
+    "description": "Lista doblemente enlazada de enteros"
+  },
+
+  "Pila genérica (array)": {
+    "scope": "c,cpp",
+    "prefix": ["stack", "pila"],
+    "body": [
+      "typedef struct {",
+      "\t${1|int,float,double,char*|} *datos;",
+      "\tint tope;",
+      "\tint capacidad;",
+      "} Pila;",
+      "",
+      "// Inicializar pila",
+      "void pila_init(Pila *p, int capacidad) {",
+      "\tp->datos = (${1}*)malloc(capacidad * sizeof(${1}));",
+      "\tp->tope = -1;",
+      "\tp->capacidad = capacidad;",
+      "}",
+      "",
+      "// Apilar (push)",
+      "void pila_push(Pila *p, ${1} valor) {",
+      "\tif (p->tope < p->capacidad - 1) {",
+      "\t\tp->datos[++(p->tope)] = valor;",
+      "\t} else {",
+      "\t\tprintf(\"Pila llena\\n\");",
+      "\t}",
+      "}",
+      "",
+      "// Desapilar (pop)",
+      "${1} pila_pop(Pila *p) {",
+      "\tif (p->tope >= 0) {",
+      "\t\treturn p->datos[(p->tope)--];",
+      "\t} else {",
+      "\t\tprintf(\"Pila vacía\\n\");",
+      "\t\treturn (${1})0;",
+      "\t}",
+      "}",
+      "",
+      "// Liberar pila",
+      "void pila_liberar(Pila *p) {",
+      "\tfree(p->datos);",
+      "\tp->datos = NULL;",
+      "\tp->tope = -1;",
+      "\tp->capacidad = 0;",
+      "}",
+      "",
+      "// Uso:",
+      "Pila miPila;",
+      "pila_init(&miPila, ${2:10});",
+      "pila_push(&miPila, ${3:valor});",
+      "${1} elemento = pila_pop(&miPila);",
+      "pila_liberar(&miPila);"
+    ],
+    "description": "Pila genérica implementada con array"
+  },
+
+  "Cola genérica (array circular)": {
+    "scope": "c,cpp",
+    "prefix": ["queue", "cola"],
+    "body": [
+      "typedef struct {",
+      "\t${1|int,float,double,char*|} *datos;",
+      "\tint frente;",
+      "\tint final;",
+      "\tint tamaño;",
+      "\tint capacidad;",
+      "} Cola;",
+      "",
+      "// Inicializar cola",
+      "void cola_init(Cola *c, int capacidad) {",
+      "\tc->datos = (${1}*)malloc(capacidad * sizeof(${1}));",
+      "\tc->frente = 0;",
+      "\tc->final = -1;",
+      "\tc->tamaño = 0;",
+      "\tc->capacidad = capacidad;",
+      "}",
+      "",
+      "// Encolar",
+      "void cola_encolar(Cola *c, ${1} valor) {",
+      "\tif (c->tamaño < c->capacidad) {",
+      "\t\tc->final = (c->final + 1) % c->capacidad;",
+      "\t\tc->datos[c->final] = valor;",
+      "\t\tc->tamaño++;",
+      "\t} else {",
+      "\t\tprintf(\"Cola llena\\n\");",
+      "\t}",
+      "}",
+      "",
+      "// Desencolar",
+      "${1} cola_desencolar(Cola *c) {",
+      "\tif (c->tamaño > 0) {",
+      "\t\t${1} valor = c->datos[c->frente];",
+      "\t\tc->frente = (c->frente + 1) % c->capacidad;",
+      "\t\tc->tamaño--;",
+      "\t\treturn valor;",
+      "\t} else {",
+      "\t\tprintf(\"Cola vacía\\n\");",
+      "\t\treturn (${1})0;",
+      "\t}",
+      "}",
+      "",
+      "// Liberar cola",
+      "void cola_liberar(Cola *c) {",
+      "\tfree(c->datos);",
+      "\tc->datos = NULL;",
+      "\tc->frente = 0;",
+      "\tc->final = -1;",
+      "\tc->tamaño = 0;",
+      "\tc->capacidad = 0;",
+      "}",
+      "",
+      "// Uso:",
+      "Cola miCola;",
+      "cola_init(&miCola, ${2:10});",
+      "cola_encolar(&miCola, ${3:valor});",
+      "${1} elem = cola_desencolar(&miCola);",
+      "cola_liberar(&miCola);"
+    ],
+    "description": "Cola genérica implementada con array circular"
+  },
+
+  "Árbol binario de búsqueda (int)": {
+    "scope": "c,cpp",
+    "prefix": ["tree", "arbol"],
+    "body": [
+      "typedef struct NodoArbol {",
+      "\tint dato;",
+      "\tstruct NodoArbol *izquierda;",
+      "\tstruct NodoArbol *derecha;",
+      "} NodoArbol;",
+      "",
+      "// Insertar en BST",
+      "NodoArbol* insertar_bst(NodoArbol *raiz, int valor) {",
+      "\tif (raiz == NULL) {",
+      "\t\tNodoArbol *nuevo = (NodoArbol*)malloc(sizeof(NodoArbol));",
+      "\t\tnuevo->dato = valor;",
+      "\t\tnuevo->izquierda = nuevo->derecha = NULL;",
+      "\t\treturn nuevo;",
+      "\t}",
+      "\tif (valor < raiz->dato)",
+      "\t\traiz->izquierda = insertar_bst(raiz->izquierda, valor);",
+      "\telse if (valor > raiz->dato)",
+      "\t\traiz->derecha = insertar_bst(raiz->derecha, valor);",
+      "\treturn raiz;",
+      "}",
+      "",
+      "// Recorrido inorden",
+      "void inorden(NodoArbol *raiz) {",
+      "\tif (raiz != NULL) {",
+      "\t\tinorden(raiz->izquierda);",
+      "\t\tprintf(\"%d \", raiz->dato);",
+      "\t\tinorden(raiz->derecha);",
+      "\t}",
+      "}",
+      "",
+      "// Liberar árbol",
+      "void liberar_arbol(NodoArbol *raiz) {",
+      "\tif (raiz != NULL) {",
+      "\t\tliberar_arbol(raiz->izquierda);",
+      "\t\tliberar_arbol(raiz->derecha);",
+      "\t\tfree(raiz);",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "NodoArbol *raiz = NULL;",
+      "raiz = insertar_bst(raiz, ${1:50});",
+      "raiz = insertar_bst(raiz, ${2:30});",
+      "raiz = insertar_bst(raiz, ${3:70});",
+      "inorden(raiz);",
+      "liberar_arbol(raiz);"
+    ],
+    "description": "Árbol binario de búsqueda con inserción y recorrido"
+  },
+
+  "Operaciones con bits (menú)": {
+    "scope": "c,cpp",
+    "prefix": ["bits", "bitwise"],
+    "body": [
+      "${1|set,clear,toggle,check|}",
+      "// Función para ${1} bit",
+      "unsigned int ${1}_bit(unsigned int num, int pos) {",
+      "\tswitch (${1}) {",
+      "\t\tcase \"set\": return num | (1 << pos);",
+      "\t\tcase \"clear\": return num & ~(1 << pos);",
+      "\t\tcase \"toggle\": return num ^ (1 << pos);",
+      "\t\tcase \"check\": return (num & (1 << pos)) != 0;",
+      "\t}",
+      "\treturn num;",
+      "}",
+      "",
+      "// Uso:",
+      "unsigned int x = ${2:0};",
+      "x = set_bit(x, 3); // poner bit 3",
+      "if (check_bit(x, 3)) printf(\"Bit 3 activo\\n\");"
+    ],
+    "description": "Operaciones de manipulación de bits"
+  },
+
+  "Ordenamiento por inserción": {
+    "scope": "c,cpp",
+    "prefix": ["insertion_sort", "ordenar_insercion"],
+    "body": [
+      "void insertion_sort(${1|int,float,double|} arr[], int n) {",
+      "\tfor (int i = 1; i < n; i++) {",
+      "\t\t${1} clave = arr[i];",
+      "\t\tint j = i - 1;",
+      "\t\twhile (j >= 0 && arr[j] > clave) {",
+      "\t\t\tarr[j + 1] = arr[j];",
+      "\t\t\tj--;",
+      "\t\t}",
+      "\t\tarr[j + 1] = clave;",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "${1} datos[] = {${2:5, 2, 8, 1, 9}};",
+      "insertion_sort(datos, 5);"
+    ],
+    "description": "Ordena un array con el método de inserción"
+  },
+
+  "Ordenamiento por selección": {
+    "scope": "c,cpp",
+    "prefix": ["selection_sort", "ordenar_seleccion"],
+    "body": [
+      "void selection_sort(${1|int,float,double|} arr[], int n) {",
+      "\tfor (int i = 0; i < n-1; i++) {",
+      "\t\tint min_idx = i;",
+      "\t\tfor (int j = i+1; j < n; j++) {",
+      "\t\t\tif (arr[j] < arr[min_idx]) min_idx = j;",
+      "\t\t}",
+      "\t\t${1} temp = arr[min_idx];",
+      "\t\tarr[min_idx] = arr[i];",
+      "\t\tarr[i] = temp;",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "${1} datos[] = {${2:5, 2, 8, 1, 9}};",
+      "selection_sort(datos, 5);"
+    ],
+    "description": "Ordena un array con el método de selección"
+  },
+
+  "Macros MIN, MAX, SWAP": {
+    "scope": "c,cpp",
+    "prefix": ["macros", "min_max_swap"],
+    "body": [
+      "#define MIN(a, b) ((a) < (b) ? (a) : (b))",
+      "#define MAX(a, b) ((a) > (b) ? (a) : (b))",
+      "#define SWAP(a, b) do { __typeof__(a) temp = a; a = b; b = temp; } while(0)"
+    ],
+    "description": "Define macros útiles MIN, MAX y SWAP"
+  },
+
+  "memset": {
+    "scope": "c,cpp",
+    "prefix": ["memset", "llenar_memoria"],
+    "body": ["memset(${1:ptr}, ${2:valor}, ${3:num_bytes});"],
+    "description": "Llena un bloque de memoria con un valor"
+  },
+  "memcpy": {
+    "scope": "c,cpp",
+    "prefix": ["memcpy", "copiar_memoria"],
+    "body": ["memcpy(${1:destino}, ${2:origen}, ${3:num_bytes});"],
+    "description": "Copia un bloque de memoria"
+  },
+  "memmove": {
+    "scope": "c,cpp",
+    "prefix": ["memmove", "mover_memoria"],
+    "body": ["memmove(${1:destino}, ${2:origen}, ${3:num_bytes});"],
+    "description": "Copia memoria incluso si se solapan"
+  },
+  "memcmp": {
+    "scope": "c,cpp",
+    "prefix": ["memcmp", "comparar_memoria"],
+    "body": ["int ${1:res} = memcmp(${2:ptr1}, ${3:ptr2}, ${4:num_bytes});"],
+    "description": "Compara bloques de memoria"
+  },
+
+  "strcspn": {
+    "scope": "c,cpp",
+    "prefix": ["strcspn", "longitud_hasta"],
+    "body": [
+      "size_t ${1:len} = strcspn(${2:cadena}, \"${3:reject}\");"
+    ],
+    "description": "Calcula longitud hasta encontrar caracteres dados"
+  },
+  "strpbrk": {
+    "scope": "c,cpp",
+    "prefix": ["strpbrk", "buscar_cualquiera"],
+    "body": [
+      "char *${1:pos} = strpbrk(${2:cadena}, \"${3:buscar}\");",
+      "if (${1:pos} != NULL) {",
+      "\t${4:// Encontrado}",
+      "}"
+    ],
+    "description": "Busca la primera ocurrencia de cualquier carácter de un conjunto"
+  },
+
+  "Obtener fecha y hora actual": {
+    "scope": "c,cpp",
+    "prefix": ["fecha", "hora", "time_now"],
+    "body": [
+      "time_t ahora = time(NULL);",
+      "struct tm *tiempo = localtime(&ahora);",
+      "printf(\"Fecha: %04d-%02d-%02d\\n\", tiempo->tm_year + 1900, tiempo->tm_mon + 1, tiempo->tm_mday);",
+      "printf(\"Hora: %02d:%02d:%02d\\n\", tiempo->tm_hour, tiempo->tm_min, tiempo->tm_sec);"
+    ],
+    "description": "Muestra la fecha y hora actual"
+  },
+
+  "Patrón mariposa": {
+    "scope": "c,cpp",
+    "prefix": ["mariposa", "butterfly"],
+    "body": [
+      "int n = ${1:5}; // mitad",
+      "for (int i = 1; i <= n; i++) {",
+      "\tfor (int j = 1; j <= i; j++) printf(\"*\");",
+      "\tfor (int j = 1; j <= 2*(n-i); j++) printf(\" \");",
+      "\tfor (int j = 1; j <= i; j++) printf(\"*\");",
+      "\tprintf(\"\\n\");",
+      "}",
+      "for (int i = n; i >= 1; i--) {",
+      "\tfor (int j = 1; j <= i; j++) printf(\"*\");",
+      "\tfor (int j = 1; j <= 2*(n-i); j++) printf(\" \");",
+      "\tfor (int j = 1; j <= i; j++) printf(\"*\");",
+      "\tprintf(\"\\n\");",
+      "}"
+    ],
+    "description": "Dibuja un patrón de mariposa con asteriscos"
+  },
+
+  "Invertir string": {
+    "scope": "c,cpp",
+    "prefix": ["invertir_string", "reverse_string"],
+    "body": [
+      "void invertir_string(char *str) {",
+      "\tint n = strlen(str);",
+      "\tfor (int i = 0; i < n/2; i++) {",
+      "\t\tchar temp = str[i];",
+      "\t\tstr[i] = str[n-1-i];",
+      "\t\tstr[n-1-i] = temp;",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "char texto[] = \"${1:hola}\";",
+      "invertir_string(texto);"
+    ],
+    "description": "Invierte una cadena in-place"
+  },
+  "Invertir array": {
+    "scope": "c,cpp",
+    "prefix": ["invertir_array", "reverse_array"],
+    "body": [
+      "void invertir_array(${1|int,float,double|} arr[], int n) {",
+      "\tfor (int i = 0; i < n/2; i++) {",
+      "\t\t${1} temp = arr[i];",
+      "\t\tarr[i] = arr[n-1-i];",
+      "\t\tarr[n-1-i] = temp;",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "${1} datos[] = {${2:1, 2, 3, 4, 5}};",
+      "invertir_array(datos, 5);"
+    ],
+    "description": "Invierte un array de cualquier tipo"
+  },
+
+  "Eliminar duplicados (array ordenado)": {
+    "scope": "c,cpp",
+    "prefix": ["eliminar_duplicados", "unique_array"],
+    "body": [
+      "int eliminar_duplicados(${1|int,float,double|} arr[], int n) {",
+      "\tif (n == 0 || n == 1) return n;",
+      "\tint j = 0;",
+      "\tfor (int i = 0; i < n-1; i++) {",
+      "\t\tif (arr[i] != arr[i+1]) arr[j++] = arr[i];",
+      "\t}",
+      "\tarr[j++] = arr[n-1];",
+      "\treturn j;",
+      "}",
+      "",
+      "// Uso (requiere array ordenado):",
+      "${1} datos[] = {${2:1, 1, 2, 2, 3}};",
+      "int nuevo_tam = eliminar_duplicados(datos, 5);"
+    ],
+    "description": "Elimina duplicados en un array ordenado"
+  },
+
+  "Rotar array a la izquierda": {
+    "scope": "c,cpp",
+    "prefix": ["rotar_izquierda", "rotate_left"],
+    "body": [
+      "void rotar_izquierda(${1|int,float,double|} arr[], int n, int k) {",
+      "\tk = k % n;",
+      "\t${1} temp[k];",
+      "\tfor (int i = 0; i < k; i++) temp[i] = arr[i];",
+      "\tfor (int i = 0; i < n-k; i++) arr[i] = arr[i+k];",
+      "\tfor (int i = 0; i < k; i++) arr[n-k+i] = temp[i];",
+      "}",
+      "",
+      "// Uso:",
+      "${1} datos[] = {${2:1, 2, 3, 4, 5}};",
+      "rotar_izquierda(datos, 5, ${3:2});"
+    ],
+    "description": "Rota un array a la izquierda k posiciones"
   }
 }
 
