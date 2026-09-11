@@ -1,104 +1,186 @@
 {
-
   "Include Estándar stdio": {
     "scope": "c,cpp",
-    "prefix": ["#", "inc_stdio"],
-    "body": ["#include <stdio.h>"],
+    "prefix": [
+      "#",
+      "inc_stdio"
+    ],
+    "body": [
+      "#include <stdio.h>"
+    ],
     "description": "Incluir stdio.h"
   },
   "Include Estándar stdlib": {
     "scope": "c,cpp",
-    "prefix": ["#", "inc_stdlib"],
-    "body": ["#include <stdlib.h>"],
+    "prefix": [
+      "#",
+      "inc_stdlib"
+    ],
+    "body": [
+      "#include <stdlib.h>"
+    ],
     "description": "Incluir stdlib.h"
   },
   "Include Estándar string": {
     "scope": "c,cpp",
-    "prefix": ["#", "inc_string"],
-    "body": ["#include <string.h>"],
+    "prefix": [
+      "#",
+      "inc_string"
+    ],
+    "body": [
+      "#include <string.h>"
+    ],
     "description": "Incluir string.h"
   },
   "Include Estándar math": {
     "scope": "c,cpp",
-    "prefix": ["#", "inc_math"],
-    "body": ["#include <math.h>"],
+    "prefix": [
+      "#",
+      "inc_math"
+    ],
+    "body": [
+      "#include <math.h>"
+    ],
     "description": "Incluir math.h"
   },
   "Include Estándar bool": {
     "scope": "c,cpp",
-    "prefix": ["#", "inc_bool"],
-    "body": ["#include <stdbool.h>"],
+    "prefix": [
+      "#",
+      "inc_bool"
+    ],
+    "body": [
+      "#include <stdbool.h>"
+    ],
     "description": "Incluir stdbool.h"
   },
   "Include Estándar time": {
     "scope": "c,cpp",
-    "prefix": ["#", "inc_time"],
-    "body": ["#include <time.h>"],
+    "prefix": [
+      "#",
+      "inc_time"
+    ],
+    "body": [
+      "#include <time.h>"
+    ],
     "description": "Incluir time.h"
   },
   "Include Estándar assert": {
     "scope": "c,cpp",
-    "prefix": ["#", "inc_assert"],
-    "body": ["#include <assert.h>"],
+    "prefix": [
+      "#",
+      "inc_assert"
+    ],
+    "body": [
+      "#include <assert.h>"
+    ],
     "description": "Incluir assert.h"
   },
   "Include Estándar ctype": {
     "scope": "c,cpp",
-    "prefix": ["#", "inc_ctype"],
-    "body": ["#include <ctype.h>"],
+    "prefix": [
+      "#",
+      "inc_ctype"
+    ],
+    "body": [
+      "#include <ctype.h>"
+    ],
     "description": "Incluir ctype.h"
   },
   "Include Estándar errno": {
     "scope": "c,cpp",
-    "prefix": ["#", "inc_errno"],
-    "body": ["#include <errno.h>"],
+    "prefix": [
+      "#",
+      "inc_errno"
+    ],
+    "body": [
+      "#include <errno.h>"
+    ],
     "description": "Incluir errno.h"
   },
   "Include Estándar float": {
     "scope": "c,cpp",
-    "prefix": ["#", "inc_float"],
-    "body": ["#include <float.h>"],
+    "prefix": [
+      "#",
+      "inc_float"
+    ],
+    "body": [
+      "#include <float.h>"
+    ],
     "description": "Incluir float.h"
   },
   "Include Estándar limits": {
     "scope": "c,cpp",
-    "prefix": ["#", "inc_limits"],
-    "body": ["#include <limits.h>"],
+    "prefix": [
+      "#",
+      "inc_limits"
+    ],
+    "body": [
+      "#include <limits.h>"
+    ],
     "description": "Incluir limits.h"
   },
   "Include Estándar locale": {
     "scope": "c,cpp",
-    "prefix": ["#", "inc_locale"],
-    "body": ["#include <locale.h>"],
+    "prefix": [
+      "#",
+      "inc_locale"
+    ],
+    "body": [
+      "#include <locale.h>"
+    ],
     "description": "Incluir locale.h"
   },
   "Include Estándar signal": {
     "scope": "c,cpp",
-    "prefix": ["#", "inc_signal"],
-    "body": ["#include <signal.h>"],
+    "prefix": [
+      "#",
+      "inc_signal"
+    ],
+    "body": [
+      "#include <signal.h>"
+    ],
     "description": "Incluir signal.h"
   },
   "Include Estándar stdarg": {
     "scope": "c,cpp",
-    "prefix": ["#", "inc_stdarg"],
-    "body": ["#include <stdarg.h>"],
+    "prefix": [
+      "#",
+      "inc_stdarg"
+    ],
+    "body": [
+      "#include <stdarg.h>"
+    ],
     "description": "Incluir stdarg.h"
   },
   "Include Estándar stddef": {
     "scope": "c,cpp",
-    "prefix": ["#", "inc_stddef"],
-    "body": ["#include <stddef.h>"],
+    "prefix": [
+      "#",
+      "inc_stddef"
+    ],
+    "body": [
+      "#include <stddef.h>"
+    ],
     "description": "Incluir stddef.h"
   },
   "Include Estándar stdint": {
     "scope": "c,cpp",
-    "prefix": ["#", "inc_stdint"],
-    "body": ["#include <stdint.h>"],
+    "prefix": [
+      "#",
+      "inc_stdint"
+    ],
+    "body": [
+      "#include <stdint.h>"
+    ],
     "description": "Incluir stdint.h"
   },
   "Incluir Librería (menú)": {
     "scope": "c,cpp",
-    "prefix": ["#inc", "lib"],
+    "prefix": [
+      "#inc",
+      "lib"
+    ],
     "body": [
       "#include <${1|stdio.h,stdlib.h,string.h,math.h,stdbool.h,time.h,assert.h,ctype.h,errno.h,float.h,limits.h,locale.h,signal.h,stdarg.h,stddef.h,stdint.h|}>"
     ],
@@ -106,7 +188,10 @@
   },
   "Include Todos los Comunes": {
     "scope": "c,cpp",
-    "prefix": ["inc_todos", "includes_comunes"],
+    "prefix": [
+      "inc_todos",
+      "includes_comunes"
+    ],
     "body": [
       "#include <stdio.h>",
       "#include <stdlib.h>",
@@ -116,11 +201,12 @@
     ],
     "description": "Incluir headers más comunes de una vez"
   },
-
-
   "Main Básico": {
     "scope": "c,cpp",
-    "prefix": ["main", "principal"],
+    "prefix": [
+      "main",
+      "principal"
+    ],
     "body": [
       "#include <stdio.h>",
       "",
@@ -133,7 +219,10 @@
   },
   "Main con Argumentos": {
     "scope": "c,cpp",
-    "prefix": ["mainargs", "main_argc"],
+    "prefix": [
+      "mainargs",
+      "main_argc"
+    ],
     "body": [
       "#include <stdio.h>",
       "",
@@ -144,23 +233,44 @@
     ],
     "description": "Estructura main con argc y argv"
   },
-
-  
   "Comentario de Bloque": {
     "scope": "c,cpp",
-    "prefix": ["c", "co", "com", "comm", "commen", "comment", "comenta", "comentari", "comentario", "/*"],
-    "body": ["/*", " * ${1:Descripción}", " */"],
+    "prefix": [
+      "c",
+      "co",
+      "com",
+      "comm",
+      "commen",
+      "comment",
+      "comenta",
+      "comentari",
+      "comentario",
+      "/*"
+    ],
+    "body": [
+      "/*",
+      " * ${1:Descripción}",
+      " */"
+    ],
     "description": "Comentario de bloque"
   },
   "Comentario de Línea": {
     "scope": "c,cpp",
-    "prefix": ["com_linea", "//"],
-    "body": ["// ${1:Comentario}"],
+    "prefix": [
+      "com_linea",
+      "//"
+    ],
+    "body": [
+      "// ${1:Comentario}"
+    ],
     "description": "Comentario de línea"
   },
   "Comentario de Documentación": {
     "scope": "c,cpp",
-    "prefix": ["doc", "/**"],
+    "prefix": [
+      "doc",
+      "/**"
+    ],
     "body": [
       "/**",
       " * @brief ${1:Descripción breve}",
@@ -170,109 +280,194 @@
     ],
     "description": "Comentario de documentación estilo Doxygen"
   },
-
-  
   "Variable con tipo (menú)": {
     "scope": "c,cpp",
-    "prefix": [ "t", "ti", "tip", "tipo", "v", "var"],
-    "body": ["${1|int,float,double,char,bool,unsigned int,size_t|} ${2:nombre} = ${3:0};"],
+    "prefix": [
+      "t",
+      "ti",
+      "tip",
+      "tipo",
+      "v",
+      "var"
+    ],
+    "body": [
+      "${1|int,float,double,char,bool,unsigned int,size_t|} ${2:nombre} = ${3:0};"
+    ],
     "description": "Declarar variable de tipo común"
   },
   "Variable Int": {
     "scope": "c,cpp",
-    "prefix": ["vint", "int_var"],
-    "body": ["int ${1:nombre} = ${2:0};"],
+    "prefix": [
+      "vint",
+      "int_var"
+    ],
+    "body": [
+      "int ${1:nombre} = ${2:0};"
+    ],
     "description": "Declarar variable entera"
   },
   "Variable Float": {
     "scope": "c,cpp",
-    "prefix": ["vfloat", "float_var"],
-    "body": ["float ${1:nombre} = ${2:0.0f};"],
+    "prefix": [
+      "vfloat",
+      "float_var"
+    ],
+    "body": [
+      "float ${1:nombre} = ${2:0.0f};"
+    ],
     "description": "Declarar variable flotante"
   },
   "Variable Double": {
     "scope": "c,cpp",
-    "prefix": ["vdouble", "double_var"],
-    "body": ["double ${1:nombre} = ${2:0.0};"],
+    "prefix": [
+      "vdouble",
+      "double_var"
+    ],
+    "body": [
+      "double ${1:nombre} = ${2:0.0};"
+    ],
     "description": "Declarar variable double"
   },
   "Variable Char": {
     "scope": "c,cpp",
-    "prefix": ["vchar", "char_var"],
-    "body": ["char ${1:nombre} = '${2:a}';"],
+    "prefix": [
+      "vchar",
+      "char_var"
+    ],
+    "body": [
+      "char ${1:nombre} = '${2:a}';"
+    ],
     "description": "Declarar variable char"
   },
   "Variable Bool": {
     "scope": "c,cpp",
-    "prefix": ["vbool", "bool_var"],
-    "body": ["bool ${1:nombre} = ${2:true};"],
+    "prefix": [
+      "vbool",
+      "bool_var"
+    ],
+    "body": [
+      "bool ${1:nombre} = ${2:true};"
+    ],
     "description": "Declarar variable booleana"
   },
   "Variable String (array)": {
     "scope": "c,cpp",
-    "prefix": ["vstring", "str_var"],
-    "body": ["char ${1:nombre}[${2:100}] = \"${3:texto}\";"],
+    "prefix": [
+      "vstring",
+      "str_var"
+    ],
+    "body": [
+      "char ${1:nombre}[${2:100}] = \"${3:texto}\";"
+    ],
     "description": "Declarar cadena como array de caracteres"
   },
   "Variable Puntero": {
     "scope": "c,cpp",
-    "prefix": ["vptr", "puntero"],
-    "body": ["${1:tipo} *${2:nombre} = ${3:NULL};"],
+    "prefix": [
+      "vptr",
+      "puntero"
+    ],
+    "body": [
+      "${1:tipo} *${2:nombre} = ${3:NULL};"
+    ],
     "description": "Declarar puntero de cualquier tipo"
   },
   "Variable Constante": {
     "scope": "c,cpp",
-    "prefix": ["vconst", "constante"],
-    "body": ["const ${1:tipo} ${2:NOMBRE} = ${3:valor};"],
+    "prefix": [
+      "vconst",
+      "constante"
+    ],
+    "body": [
+      "const ${1:tipo} ${2:NOMBRE} = ${3:valor};"
+    ],
     "description": "Declarar constante"
   },
   "Variable Estática": {
     "scope": "c,cpp",
-    "prefix": ["vstatic", "static_var"],
-    "body": ["static ${1:tipo} ${2:nombre} = ${3:valor};"],
+    "prefix": [
+      "vstatic",
+      "static_var"
+    ],
+    "body": [
+      "static ${1:tipo} ${2:nombre} = ${3:valor};"
+    ],
     "description": "Declarar variable estática"
   },
   "Variable Extern": {
     "scope": "c,cpp",
-    "prefix": ["vextern", "extern_var"],
-    "body": ["extern ${1:tipo} ${2:nombre};"],
+    "prefix": [
+      "vextern",
+      "extern_var"
+    ],
+    "body": [
+      "extern ${1:tipo} ${2:nombre};"
+    ],
     "description": "Declarar variable externa"
   },
   "Variable unsigned int": {
     "scope": "c,cpp",
-    "prefix": ["vuint", "unsigned_int"],
-    "body": ["unsigned int ${1:nombre} = ${2:0};"],
+    "prefix": [
+      "vuint",
+      "unsigned_int"
+    ],
+    "body": [
+      "unsigned int ${1:nombre} = ${2:0};"
+    ],
     "description": "Declarar entero sin signo"
   },
   "Variable size_t": {
     "scope": "c,cpp",
-    "prefix": ["vsize", "size_t_var"],
-    "body": ["size_t ${1:nombre} = ${2:0};"],
+    "prefix": [
+      "vsize",
+      "size_t_var"
+    ],
+    "body": [
+      "size_t ${1:nombre} = ${2:0};"
+    ],
     "description": "Declarar size_t"
   },
   "Múltiples variables enteras": {
     "scope": "c,cpp",
-    "prefix": ["vints", "multi_int"],
-    "body": ["int ${1:a} = 0, ${2:b} = 0, ${3:c} = 0;"],
+    "prefix": [
+      "vints",
+      "multi_int"
+    ],
+    "body": [
+      "int ${1:a} = 0, ${2:b} = 0, ${3:c} = 0;"
+    ],
     "description": "Declarar varias variables enteras"
   },
-
-  
   "Array Estático": {
     "scope": "c,cpp",
-    "prefix": ["a", "ar", "arr", "array"],
-    "body": ["${1|int,float,double,char|} ${2:nombre}[${3:100}];"],
+    "prefix": [
+      "a",
+      "ar",
+      "arr",
+      "array"
+    ],
+    "body": [
+      "${1|int,float,double,char|} ${2:nombre}[${3:100}];"
+    ],
     "description": "Declarar array estático"
   },
   "Array Inicializado": {
     "scope": "c,cpp",
-    "prefix": ["array_init", "arr_init"],
-    "body": ["${1:tipo} ${2:nombre}[] = {${3:1, 2, 3, 4, 5}};"],
+    "prefix": [
+      "array_init",
+      "arr_init"
+    ],
+    "body": [
+      "${1:tipo} ${2:nombre}[] = {${3:1, 2, 3, 4, 5}};"
+    ],
     "description": "Declarar array con inicialización"
   },
   "Array Dinámico (malloc)": {
     "scope": "c,cpp",
-    "prefix": ["array_malloc", "arr_dyn"],
+    "prefix": [
+      "array_malloc",
+      "arr_dyn"
+    ],
     "body": [
       "${1:tipo} *${2:nombre} = (${1:tipo}*)malloc(${3:tamaño} * sizeof(${1:tipo}));",
       "if (${2:nombre} == NULL) {",
@@ -284,7 +479,10 @@
   },
   "Array Dinámico (calloc)": {
     "scope": "c,cpp",
-    "prefix": ["array_calloc", "arr_calloc"],
+    "prefix": [
+      "array_calloc",
+      "arr_calloc"
+    ],
     "body": [
       "${1:tipo} *${2:nombre} = (${1:tipo}*)calloc(${3:tamaño}, sizeof(${1:tipo}));",
       "if (${2:nombre} == NULL) {",
@@ -296,13 +494,21 @@
   },
   "Array 2D Estático": {
     "scope": "c,cpp",
-    "prefix": ["array2d", "matriz"],
-    "body": ["${1:tipo} ${2:nombre}[${3:filas}][${4:columnas}];"],
+    "prefix": [
+      "array2d",
+      "matriz"
+    ],
+    "body": [
+      "${1:tipo} ${2:nombre}[${3:filas}][${4:columnas}];"
+    ],
     "description": "Declarar matriz 2D estática"
   },
   "Array 2D Dinámico": {
     "scope": "c,cpp",
-    "prefix": ["array2d_malloc", "matriz_dyn"],
+    "prefix": [
+      "array2d_malloc",
+      "matriz_dyn"
+    ],
     "body": [
       "${1:tipo} **${2:nombre} = (${1:tipo}**)malloc(${3:filas} * sizeof(${1:tipo}*));",
       "for (int i = 0; i < ${3:filas}; i++) {",
@@ -313,13 +519,21 @@
   },
   "Array de Caracteres": {
     "scope": "c,cpp",
-    "prefix": ["str_array", "char_array"],
-    "body": ["char ${1:nombre}[${2:100}];"],
+    "prefix": [
+      "str_array",
+      "char_array"
+    ],
+    "body": [
+      "char ${1:nombre}[${2:100}];"
+    ],
     "description": "Declarar array de caracteres (string)"
   },
   "Recorrer Array con for": {
     "scope": "c,cpp",
-    "prefix": ["for_array", "recorrer_array"],
+    "prefix": [
+      "for_array",
+      "recorrer_array"
+    ],
     "body": [
       "for (int i = 0; i < ${1:tamaño}; i++) {",
       "\t${2:// Acceder a array[i]}",
@@ -327,68 +541,134 @@
     ],
     "description": "Bucle for para recorrer array"
   },
-
-  
-  "Asignación de memoria (menú)": {
+  "Asignar Memoria (Tipos rápidos)": {
     "scope": "c,cpp",
-    "prefix": [ "m", "ma", "mal", "mall", "malloc", "mem", "asignar_memoria"],
-    "body": [
-      "${1|malloc,calloc,realloc|}",
-      "if (${1} == \"malloc\") {",
-      "\t${2:tipo} *${3:ptr} = (${2:tipo}*)malloc(${4:tamaño} * sizeof(${2:tipo}));",
-      "} else if (${1} == \"calloc\") {",
-      "\t${2:tipo} *${3:ptr} = (${2:tipo}*)calloc(${4:tamaño}, sizeof(${2:tipo}));",
-      "} else {",
-      "\t${2:tipo} *${3:ptr} = (${2:tipo}*)realloc(${5:ptr_original}, ${4:tamaño} * sizeof(${2:tipo}));",
-      "}",
-      "if (${3:ptr} == NULL) {",
-      "\tperror(\"Error de memoria\");",
-      "\texit(1);",
-      "}"
+    "prefix": [
+      "m",
+      "ma",
+      "mal",
+      "mall",
+      "malloc",
+      "mem",
+      "asignar_memoria"
     ],
-    "description": "Asignar memoria eligiendo función"
+    "body": [
+      "/*",
+      " * MALLOC: Asignación de Memoria Dinámica (Memory Allocation)",
+      " * -----------------------------------------------------------",
+      " * Esta función reserva un bloque de memoria en el Heap.",
+      " * Los valores en este bloque NO se inicializan (contienen \"basura\").",
+      " *",
+      " * INSTRUCCIONES:",
+      " * 1. Selecciona el TIPO de dato (int, float, struct...).",
+      " * 2. Nombra tu puntero (ej. ptr, arreglo, datos).",
+      " * 3. Indica la CANTIDAD de elementos a reservar.",
+      " */",
+      "${1|int,float,double,char,long,short,unsigned int,size_t,struct Nodo,void|} *${2:ptr} = (${1}*)malloc(${3:cantidad} * sizeof(${1}));",
+      "",
+      "// SIEMPRE verificar que la memoria se asignó correctamente",
+      "if (${2:ptr} == NULL) {",
+      "\tperror(\"Error crítico: No se pudo asignar memoria para $2\");",
+      "\texit(EXIT_FAILURE); // Terminar el programa de forma segura",
+      "}",
+      "",
+      "// TODO: No olvides usar free(${2:ptr}); cuando termines de usarlo."
+    ],
+    "description": "Asignar memoria dinámica con tipos predefinidos y guía detallada"
   },
   "malloc con Cast": {
     "scope": "c,cpp",
-    "prefix": ["malloc"],
+    "prefix": [
+      "malloc"
+    ],
     "body": [
-      "${1:tipo} *${2:ptr} = (${1:tipo}*)malloc(sizeof(${1:tipo}));",
+      "/*",
+      " * MALLOC (1 solo elemento)",
+      " * ------------------------",
+      " * Reserva memoria para exactamente UN elemento del tipo elegido.",
+      " */",
+      "${1|int,float,double,char,long,short,unsigned int,size_t,struct Nodo,void|} *${2:ptr} = (${1}*)malloc(sizeof(${1}));",
+      "",
       "if (${2:ptr} == NULL) {",
-      "\tperror(\"Error en malloc\");",
-      "\texit(1);",
+      "\tperror(\"Error: Falla en malloc para $2\");",
+      "\texit(EXIT_FAILURE);",
       "}"
     ],
-    "description": "Asignar memoria para un elemento con verificación"
+    "description": "Asignar memoria para un solo elemento con documentación"
   },
   "calloc con Cast": {
     "scope": "c,cpp",
-    "prefix": ["calloc"],
+    "prefix": [
+      "calloc"
+    ],
     "body": [
-      "${1:tipo} *${2:ptr} = (${1:tipo}*)calloc(${3:cantidad}, sizeof(${1:tipo}));",
+      "/*",
+      " * CALLOC: Asignación Contigua (Contiguous Allocation)",
+      " * ---------------------------------------------------",
+      " * A diferencia de malloc, CALLOC inicializa todos los bits a CERO (0).",
+      " * Esto es perfecto cuando creas arrays, matrices o estructuras ",
+      " * y necesitas que estén limpios por defecto.",
+      " *",
+      " * INSTRUCCIONES:",
+      " * 1. TIPO de dato.",
+      " * 2. PUNTERO donde se guarda la dirección.",
+      " * 3. CANTIDAD de elementos (el tamaño se calcula automáticamente con sizeof).",
+      " */",
+      "${1|int,float,double,char,long,short,unsigned int,size_t,struct Nodo,void|} *${2:ptr} = (${1}*)calloc(${3:cantidad}, sizeof(${1}));",
+      "",
       "if (${2:ptr} == NULL) {",
-      "\tperror(\"Error en calloc\");",
-      "\texit(1);",
+      "\tperror(\"Error crítico: Falló calloc al inicializar $2\");",
+      "\texit(EXIT_FAILURE);",
       "}"
     ],
-    "description": "Asignar memoria para varios elementos inicializados a cero"
+    "description": "Asignar memoria inicializada a cero (calloc) con guía"
   },
   "realloc con Cast": {
     "scope": "c,cpp",
-    "prefix": ["realloc"],
-    "body": [
-      "${1:tipo} *${2:temp} = (${1:tipo}*)realloc(${3:ptr}, ${4:nuevo_tamaño} * sizeof(${1:tipo}));",
-      "if (${2:temp} == NULL) {",
-      "\tperror(\"Error en realloc\");",
-      "\texit(1);",
-      "}",
-      "${3:ptr} = ${2:temp};"
+    "prefix": [
+      "realloc"
     ],
-    "description": "Reasignar memoria con verificación y manejo seguro"
+    "body": [
+      "/*",
+      " * REALLOC: Reasignación de Memoria (Re-Allocation)",
+      " * -------------------------------------------------",
+      " * Se usa para agrandar o achicar un bloque de memoria que ya",
+      " * fue asignado previamente con malloc o calloc.",
+      " *",
+      " * ¡REGLA DE ORO DE SEGURIDAD!",
+      " * NUNCA asignes el resultado directamente a tu puntero original.",
+      " * Si realloc falla y devuelve NULL, sobrescribirás tu puntero ",
+      " * original perdiendo acceso a la memoria anterior (Fuga de Memoria).",
+      " * Por eso usamos un puntero temporal (*temp).",
+      " */",
+      "${1|int,float,double,char,long,short,unsigned int,size_t,struct Nodo,void|} *${2:temp} = (${1}*)realloc(${3:ptr_original}, ${4:nuevo_tamaño_total} * sizeof(${1}));",
+      "",
+      "if (${2:temp} == NULL) {",
+      "\tperror(\"Error: No se pudo redimensionar la memoria para $3\");",
+      "\t// TODO: Decide si debes liberar la memoria original antes de salir",
+      "\t// free(${3:ptr_original}); ",
+      "\texit(EXIT_FAILURE);",
+      "}",
+      "",
+      "// Si todo salió bien, actualizamos el puntero original",
+      "${3:ptr_original} = ${2:temp};"
+    ],
+    "description": "Reasignar memoria de forma segura con documentación completa"
   },
   "free Seguro": {
     "scope": "c,cpp",
-    "prefix": ["free", "liberar_memoria"],
+    "prefix": [
+      "free",
+      "liberar_memoria"
+    ],
     "body": [
+      "/*",
+      " * FREE SEGURO: Liberación de memoria",
+      " * -----------------------------------",
+      " * Siempre debemos liberar la memoria solicitada al sistema operativo.",
+      " * Asignar NULL después de liberar evita los 'dangling pointers' ",
+      " * (punteros colgantes que apuntan a basura).",
+      " */",
       "if (${1:ptr} != NULL) {",
       "\tfree(${1:ptr});",
       "\t${1:ptr} = NULL;",
@@ -398,8 +678,18 @@
   },
   "malloc para String": {
     "scope": "c,cpp",
-    "prefix": ["malloc_str", "string_malloc"],
+    "prefix": [
+      "malloc_str",
+      "string_malloc"
+    ],
     "body": [
+      "/*",
+      " * MALLOC PARA STRINGS",
+      " * -------------------",
+      " * Los strings en C necesitan 1 byte extra para el carácter NULO '\\0'",
+      " * que indica el final de la cadena.",
+      " * Por eso siempre sumamos + 1 a la longitud.",
+      " */",
       "char *${1:str} = (char*)malloc((${2:longitud} + 1) * sizeof(char));",
       "if (${1:str} == NULL) {",
       "\tperror(\"Error al asignar memoria para string\");",
@@ -410,8 +700,17 @@
   },
   "strdup (duplicar cadena)": {
     "scope": "c,cpp",
-    "prefix": ["strdup", "duplicar_string"],
+    "prefix": [
+      "strdup",
+      "duplicar_string"
+    ],
     "body": [
+      "/*",
+      " * STRDUP: String Duplicate",
+      " * ------------------------",
+      " * strdup internamente hace un malloc y copia la cadena.",
+      " * Como usa malloc, TÚ eres responsable de hacerle free() después.",
+      " */",
       "char *${1:dest} = strdup(${2:origen});",
       "if (${1:dest} == NULL) {",
       "\tperror(\"Error en strdup\");",
@@ -422,8 +721,18 @@
   },
   "Liberar matriz 2D": {
     "scope": "c,cpp",
-    "prefix": ["free2d", "liberar_matriz"],
+    "prefix": [
+      "free2d",
+      "liberar_matriz"
+    ],
     "body": [
+      "/*",
+      " * LIBERAR MATRIZ 2D",
+      " * -----------------",
+      " * En una matriz dinámica (doble puntero), primero debemos liberar",
+      " * cada fila individualmente, y POR ÚLTIMO liberar la estructura",
+      " * principal que contenía los punteros de las filas.",
+      " */",
       "for (int i = 0; i < ${1:filas}; i++) {",
       "\tfree(${2:matriz}[i]);",
       "}",
@@ -432,11 +741,12 @@
     ],
     "description": "Liberar memoria de matriz 2D"
   },
-
-
   "Bucle for (menú)": {
     "scope": "c,cpp",
-    "prefix": ["for", "bucle_for"],
+    "prefix": [
+      "for",
+      "bucle_for"
+    ],
     "body": [
       "${1|Clásico,Descendente,Con paso,Infinito|}",
       "switch (${1}) {",
@@ -466,19 +776,36 @@
   },
   "Bucle while": {
     "scope": "c,cpp",
-    "prefix": ["while", "bucle_while"],
-    "body": ["while (${1:condicion}) {", "\t${2:// Código}", "}"],
+    "prefix": [
+      "while",
+      "bucle_while"
+    ],
+    "body": [
+      "while (${1:condicion}) {",
+      "\t${2:// Código}",
+      "}"
+    ],
     "description": "Bucle while"
   },
   "Bucle do-while": {
     "scope": "c,cpp",
-    "prefix": ["dowhile", "do_while"],
-    "body": ["do {", "\t${1:// Código}", "} while (${2:condicion});"],
+    "prefix": [
+      "dowhile",
+      "do_while"
+    ],
+    "body": [
+      "do {",
+      "\t${1:// Código}",
+      "} while (${2:condicion});"
+    ],
     "description": "Bucle do-while"
   },
   "Bucle con break": {
     "scope": "c,cpp",
-    "prefix": ["for_break", "bucle_break"],
+    "prefix": [
+      "for_break",
+      "bucle_break"
+    ],
     "body": [
       "for (int ${1:i} = 0; ${1:i} < ${2:limite}; ${1:i}++) {",
       "\tif (${3:condicion_para_salir}) break;",
@@ -489,7 +816,10 @@
   },
   "Bucle con continue": {
     "scope": "c,cpp",
-    "prefix": ["for_continue", "bucle_continue"],
+    "prefix": [
+      "for_continue",
+      "bucle_continue"
+    ],
     "body": [
       "for (int ${1:i} = 0; ${1:i} < ${2:limite}; ${1:i}++) {",
       "\tif (${3:condicion_saltar}) continue;",
@@ -498,11 +828,12 @@
     ],
     "description": "Bucle for con salto condicional"
   },
-
-
   "Condicional (menú)": {
     "scope": "c,cpp",
-    "prefix": ["if", "condicional"],
+    "prefix": [
+      "if",
+      "condicional"
+    ],
     "body": [
       "${1|Simple,If-else,If-else if-else|}",
       "if (${2:condicion}) {",
@@ -519,13 +850,24 @@
   },
   "Operador ternario": {
     "scope": "c,cpp",
-    "prefix": ["ternario", "condicional_ternario"],
-    "body": ["${1:variable} = (${2:condicion}) ? ${3:valor_verdadero} : ${4:valor_falso};"],
+    "prefix": [
+      "ternario",
+      "condicional_ternario"
+    ],
+    "body": [
+      "${1:variable} = (${2:condicion}) ? ${3:valor_verdadero} : ${4:valor_falso};"
+    ],
     "description": "Operador ternario"
   },
   "Switch-case": {
     "scope": "c,cpp",
-    "prefix": [ "sw", "swi", "swit", "switch", "seleccion"],
+    "prefix": [
+      "sw",
+      "swi",
+      "swit",
+      "switch",
+      "seleccion"
+    ],
     "body": [
       "switch (${1:variable}) {",
       "\tcase ${2:VALOR1}:",
@@ -541,10 +883,13 @@
     ],
     "description": "Estructura switch-case"
   },
-
   "Definir función (menú retorno)": {
     "scope": "c,cpp",
-    "prefix": ["fn", "func", "funcion"],
+    "prefix": [
+      "fn",
+      "func",
+      "funcion"
+    ],
     "body": [
       "${1|void,int,float,double,char,char*|} ${2:nombre}(${3:parametros}) {",
       "\t${4:// código}",
@@ -555,13 +900,21 @@
   },
   "Prototipo de función": {
     "scope": "c,cpp",
-    "prefix": ["proto", "prototipo"],
-    "body": ["${1:tipo_retorno} ${2:nombre_funcion}(${3:parametros});"],
+    "prefix": [
+      "proto",
+      "prototipo"
+    ],
+    "body": [
+      "${1:tipo_retorno} ${2:nombre_funcion}(${3:parametros});"
+    ],
     "description": "Declarar prototipo de función"
   },
   "Función estática": {
     "scope": "c,cpp",
-    "prefix": ["funcstatic", "funcion_static"],
+    "prefix": [
+      "funcstatic",
+      "funcion_static"
+    ],
     "body": [
       "static ${1:tipo_retorno} ${2:nombre_funcion}(${3:parametros}) {",
       "\t${4:// Código}",
@@ -572,7 +925,10 @@
   },
   "Función inline": {
     "scope": "c,cpp",
-    "prefix": ["funcinline", "funcion_inline"],
+    "prefix": [
+      "funcinline",
+      "funcion_inline"
+    ],
     "body": [
       "static inline ${1:tipo_retorno} ${2:nombre_funcion}(${3:parametros}) {",
       "\t${4:// Código}",
@@ -581,11 +937,17 @@
     ],
     "description": "Función inline"
   },
-
-  
   "Struct simple": {
     "scope": "c,cpp",
-    "prefix": [ "s", "st", "str", "stru", "struc", "struct", "estructura"],
+    "prefix": [
+      "s",
+      "st",
+      "str",
+      "stru",
+      "struc",
+      "struct",
+      "estructura"
+    ],
     "body": [
       "typedef struct {",
       "\t${1:int id};",
@@ -597,7 +959,10 @@
   },
   "Unión": {
     "scope": "c,cpp",
-    "prefix": ["union", "union_tipo"],
+    "prefix": [
+      "union",
+      "union_tipo"
+    ],
     "body": [
       "typedef union {",
       "\t${1:int entero};",
@@ -609,27 +974,45 @@
   },
   "Inicializar struct": {
     "scope": "c,cpp",
-    "prefix": ["struct_init", "init_struct"],
-    "body": ["${1:NombreStruct} ${2:variable} = {${3:0}, ${4:\"\"}, ${5:0.0}};"],
+    "prefix": [
+      "struct_init",
+      "init_struct"
+    ],
+    "body": [
+      "${1:NombreStruct} ${2:variable} = {${3:0}, ${4:\"\"}, ${5:0.0}};"
+    ],
     "description": "Inicializar estructura con valores"
   },
   "Acceder a miembro de struct": {
     "scope": "c,cpp",
-    "prefix": ["struct_member", "acceder_miembro"],
-    "body": ["${1:variable}.${2:miembro} = ${3:valor};"],
+    "prefix": [
+      "struct_member",
+      "acceder_miembro"
+    ],
+    "body": [
+      "${1:variable}.${2:miembro} = ${3:valor};"
+    ],
     "description": "Acceder a miembro (operador punto)"
   },
   "Acceder a miembro por puntero": {
     "scope": "c,cpp",
-    "prefix": ["struct_ptr", "acceder_ptr_struct"],
-    "body": ["${1:puntero}->${2:miembro} = ${3:valor};"],
+    "prefix": [
+      "struct_ptr",
+      "acceder_ptr_struct"
+    ],
+    "body": [
+      "${1:puntero}->${2:miembro} = ${3:valor};"
+    ],
     "description": "Acceder a miembro por puntero (operador flecha)"
   },
-
-  
   "Enum simple": {
     "scope": "c,cpp",
-    "prefix": [ "e", "en", "enum", "enumeracion"],
+    "prefix": [
+      "e",
+      "en",
+      "enum",
+      "enumeracion"
+    ],
     "body": [
       "typedef enum {",
       "\t${1:OPCION1},",
@@ -639,60 +1022,115 @@
     ],
     "description": "Definir enumeración"
   },
-
-
   "Puntero básico": {
     "scope": "c,cpp",
-    "prefix": [ "p", "pu", "pun", "punte", "punter", "puntero", "ptr", "puntero_basico"],
-    "body": ["${1:tipo} *${2:ptr} = &${3:variable};"],
+    "prefix": [
+      "p",
+      "pu",
+      "pun",
+      "punte",
+      "punter",
+      "puntero",
+      "ptr",
+      "puntero_basico"
+    ],
+    "body": [
+      "${1:tipo} *${2:ptr} = &${3:variable};"
+    ],
     "description": "Declarar puntero y asignar dirección"
   },
   "Puntero NULL": {
     "scope": "c,cpp",
-    "prefix": ["ptr_null", "puntero_null"],
-    "body": ["${1:tipo} *${2:ptr} = NULL;"],
+    "prefix": [
+      "ptr_null",
+      "puntero_null"
+    ],
+    "body": [
+      "${1:tipo} *${2:ptr} = NULL;"
+    ],
     "description": "Inicializar puntero a NULL"
   },
   "Puntero a puntero": {
     "scope": "c,cpp",
-    "prefix": ["ptr2", "puntero_doble"],
-    "body": ["${1:tipo} **${2:ptr} = &${3:puntero_simple};"],
+    "prefix": [
+      "ptr2",
+      "puntero_doble"
+    ],
+    "body": [
+      "${1:tipo} **${2:ptr} = &${3:puntero_simple};"
+    ],
     "description": "Puntero a puntero"
   },
   "Puntero a constante": {
     "scope": "c,cpp",
-    "prefix": ["ptr_const", "puntero_constante"],
-    "body": ["const ${1:tipo} *${2:ptr} = &${3:variable};"],
+    "prefix": [
+      "ptr_const",
+      "puntero_constante"
+    ],
+    "body": [
+      "const ${1:tipo} *${2:ptr} = &${3:variable};"
+    ],
     "description": "Puntero a dato constante"
   },
   "Constante puntero": {
     "scope": "c,cpp",
-    "prefix": ["const_ptr", "constante_puntero"],
-    "body": ["${1:tipo} * const ${2:ptr} = &${3:variable};"],
+    "prefix": [
+      "const_ptr",
+      "constante_puntero"
+    ],
+    "body": [
+      "${1:tipo} * const ${2:ptr} = &${3:variable};"
+    ],
     "description": "Puntero constante"
   },
   "Puntero a función": {
     "scope": "c,cpp",
-    "prefix": ["ptr_func", "puntero_a_funcion"],
-    "body": ["${1:tipo_retorno} (*${2:nombre})(${3:parametros}) = ${4:&funcion};"],
+    "prefix": [
+      "ptr_func",
+      "puntero_a_funcion"
+    ],
+    "body": [
+      "${1:tipo_retorno} (*${2:nombre})(${3:parametros}) = ${4:&funcion};"
+    ],
     "description": "Declarar puntero a función"
   },
-
   "printf (menú formato)": {
     "scope": "c,cpp",
-    "prefix": ["p","pr","pri","print", "printf"],
-    "body": ["printf(\"${1|%d,%f,%.2f,%s,%c,%p|}\\n\", ${2:variable});"],
+    "prefix": [
+      "p",
+      "pr",
+      "pri",
+      "print",
+      "printf"
+    ],
+    "body": [
+      "printf(\"${1|%d,%f,%.2f,%s,%c,%p|}\\n\", ${2:variable});"
+    ],
     "description": "printf con formato seleccionable"
   },
   "printf básico": {
     "scope": "c,cpp",
-    "prefix": ["p","pr","pri","print","printf_basico","imprimir", "printf"],
-    "body": ["printf(\"${1:texto}\\n\");"],
+    "prefix": [
+      "p",
+      "pr",
+      "pri",
+      "print",
+      "printf_basico",
+      "imprimir",
+      "printf"
+    ],
+    "body": [
+      "printf(\"${1:texto}\\n\");"
+    ],
     "description": "Imprimir texto con salto de línea"
   },
   "scanf (menú formato)": {
     "scope": "c,cpp",
-    "prefix": [ "sc", "scan", "scanf"],
+    "prefix": [
+      "sc",
+      "scan",
+      "scanf"
+    ],
     "body": [
       "printf(\"${1:mensaje}: \");",
       "scanf(\"${2|%d,%f,%lf,%s,%c|}\", &${3:variable});"
@@ -701,19 +1139,35 @@
   },
   "puts": {
     "scope": "c,cpp",
-    "prefix": ["puts", "imprimir_linea"],
-    "body": ["puts(\"${1:texto}\");"],
+    "prefix": [
+      "puts",
+      "imprimir_linea"
+    ],
+    "body": [
+      "puts(\"${1:texto}\");"
+    ],
     "description": "Imprimir cadena con salto de línea automático"
   },
   "getchar": {
     "scope": "c,cpp",
-    "prefix": ["getchar", "leer_caracter"],
-    "body": ["char ${1:c} = getchar();"],
+    "prefix": [
+      "getchar",
+      "leer_caracter"
+    ],
+    "body": [
+      "char ${1:c} = getchar();"
+    ],
     "description": "Leer un carácter"
   },
   "fgets seguro": {
     "scope": "c,cpp",
-    "prefix": [ "f", "fg", "fge", "fgets", "leer_linea_segura"],
+    "prefix": [
+      "f",
+      "fg",
+      "fge",
+      "fgets",
+      "leer_linea_segura"
+    ],
     "body": [
       "printf(\"${1:Ingresa texto}: \");",
       "if (fgets(${2:buffer}, sizeof(${2:buffer}), stdin) != NULL) {",
@@ -725,14 +1179,27 @@
   },
   "Limpiar buffer de entrada": {
     "scope": "c,cpp",
-    "prefix": [ "f", "fl", "flu", "flus", "flush_input", "limpiar_buffer"],
-    "body": ["while (getchar() != '\\n');"],
+    "prefix": [
+      "f",
+      "fl",
+      "flu",
+      "flus",
+      "flush_input",
+      "limpiar_buffer"
+    ],
+    "body": [
+      "while (getchar() != '\\n');"
+    ],
     "description": "Limpiar buffer de entrada"
   },
-
   "Operación de string (menú)": {
     "scope": "c,cpp",
-    "prefix": ["s", "st", "str", "string"],
+    "prefix": [
+      "s",
+      "st",
+      "str",
+      "string"
+    ],
     "body": [
       "${1|strcpy,strncpy,strcat,strlen,strcmp,strchr,strstr,strtok|}",
       "// Uso según selección:",
@@ -742,13 +1209,32 @@
   },
   "strcpy": {
     "scope": "c,cpp",
-    "prefix": ["sc", "str", "string", "stc", "strc", "strcpy", "copiar_string"],
-    "body": ["strcpy(${1:destino}, ${2:origen});"],
+    "prefix": [
+      "sc",
+      "str",
+      "string",
+      "stc",
+      "strc",
+      "strcpy",
+      "copiar_string"
+    ],
+    "body": [
+      "strcpy(${1:destino}, ${2:origen});"
+    ],
     "description": "Copiar cadena (sin verificación de tamaño)"
   },
   "strncpy seguro": {
     "scope": "c,cpp",
-    "prefix": [ "s", "st", "str", "string", "scn", "strn", "strncpy", "copiar_string_seguro"],
+    "prefix": [
+      "s",
+      "st",
+      "str",
+      "string",
+      "scn",
+      "strn",
+      "strncpy",
+      "copiar_string_seguro"
+    ],
     "body": [
       "strncpy(${1:destino}, ${2:origen}, sizeof(${1:destino}) - 1);",
       "${1:destino}[sizeof(${1:destino}) - 1] = '\\0';"
@@ -757,19 +1243,47 @@
   },
   "strcat": {
     "scope": "c,cpp",
-    "prefix": ["sca", "str", "string", "stc", "strc", "strca", "strcat", "concatenar"],
-    "body": ["strcat(${1:destino}, ${2:origen});"],
+    "prefix": [
+      "sca",
+      "str",
+      "string",
+      "stc",
+      "strc",
+      "strca",
+      "strcat",
+      "concatenar"
+    ],
+    "body": [
+      "strcat(${1:destino}, ${2:origen});"
+    ],
     "description": "Concatenar cadenas"
   },
   "strlen": {
     "scope": "c,cpp",
-    "prefix": ["st", "str", "string", "stl", "strl", "strle", "strlen", "longitud_string"],
-    "body": ["size_t ${1:len} = strlen(${2:cadena});"],
+    "prefix": [
+      "st",
+      "str",
+      "string",
+      "stl",
+      "strl",
+      "strle",
+      "strlen",
+      "longitud_string"
+    ],
+    "body": [
+      "size_t ${1:len} = strlen(${2:cadena});"
+    ],
     "description": "Obtener longitud de cadena"
   },
   "strcmp": {
     "scope": "c,cpp",
-    "prefix": ["smc","stc","str","strcmp", "comparar_strings"],
+    "prefix": [
+      "smc",
+      "stc",
+      "str",
+      "strcmp",
+      "comparar_strings"
+    ],
     "body": [
       "if (strcmp(${1:cadena1}, ${2:cadena2}) == 0) {",
       "\t${3:// Son iguales}",
@@ -779,7 +1293,16 @@
   },
   "strchr": {
     "scope": "c,cpp",
-    "prefix": ["sch", "stc", "str", "string", "strc", "strch", "strchr", "buscar_caracter"],
+    "prefix": [
+      "sch",
+      "stc",
+      "str",
+      "string",
+      "strc",
+      "strch",
+      "strchr",
+      "buscar_caracter"
+    ],
     "body": [
       "char *${1:pos} = strchr(${2:cadena}, '${3:c}');",
       "if (${1:pos} != NULL) {",
@@ -790,7 +1313,12 @@
   },
   "strstr": {
     "scope": "c,cpp",
-    "prefix": ["sts","str","strstr", "buscar_subcadena"],
+    "prefix": [
+      "sts",
+      "str",
+      "strstr",
+      "buscar_subcadena"
+    ],
     "body": [
       "char *${1:pos} = strstr(${2:cadena}, \"${3:subcadena}\");",
       "if (${1:pos} != NULL) {",
@@ -801,7 +1329,12 @@
   },
   "strtok": {
     "scope": "c,cpp",
-    "prefix": ["stot", "stro", "strtok", "dividir_cadena"],
+    "prefix": [
+      "stot",
+      "stro",
+      "strtok",
+      "dividir_cadena"
+    ],
     "body": [
       "char *${1:token} = strtok(${2:cadena}, \"${3:delimitadores}\");",
       "while (${1:token} != NULL) {",
@@ -813,33 +1346,62 @@
   },
   "sprintf": {
     "scope": "c,cpp",
-    "prefix": ["spf", "sp", "spri", "sprin", "spri", "sprintf", "formatear_string"],
-    "body": ["sprintf(${1:buffer}, \"${2:formato}\", ${3:variables});"],
+    "prefix": [
+      "spf",
+      "sp",
+      "spri",
+      "sprin",
+      "spri",
+      "sprintf",
+      "formatear_string"
+    ],
+    "body": [
+      "sprintf(${1:buffer}, \"${2:formato}\", ${3:variables});"
+    ],
     "description": "Formatear string en buffer"
   },
   "snprintf seguro": {
     "scope": "c,cpp",
-    "prefix": ["snprintf", "formatear_string_seguro"],
-    "body": ["snprintf(${1:buffer}, sizeof(${1:buffer}), \"${2:formato}\", ${3:variables});"],
+    "prefix": [
+      "snprintf",
+      "formatear_string_seguro"
+    ],
+    "body": [
+      "snprintf(${1:buffer}, sizeof(${1:buffer}), \"${2:formato}\", ${3:variables});"
+    ],
     "description": "Formatear string en buffer de forma segura"
   },
   "atoi": {
     "scope": "c,cpp",
-    "prefix": ["atoi", "string_a_int"],
-    "body": ["int ${1:num} = atoi(${2:cadena});"],
+    "prefix": [
+      "atoi",
+      "string_a_int"
+    ],
+    "body": [
+      "int ${1:num} = atoi(${2:cadena});"
+    ],
     "description": "Convertir cadena a entero"
   },
   "atof": {
     "scope": "c,cpp",
-    "prefix": ["atof", "string_a_float"],
-    "body": ["double ${1:num} = atof(${2:cadena});"],
+    "prefix": [
+      "atof",
+      "string_a_float"
+    ],
+    "body": [
+      "double ${1:num} = atof(${2:cadena});"
+    ],
     "description": "Convertir cadena a double"
   },
-
-
   "Abrir archivo (menú modo)": {
     "scope": "c,cpp",
-    "prefix": [ "f","fop", "fo", "fopen", "abrir_archivo"],
+    "prefix": [
+      "f",
+      "fop",
+      "fo",
+      "fopen",
+      "abrir_archivo"
+    ],
     "body": [
       "FILE *${1:fp} = fopen(\"${2:archivo}\", \"${3|r,w,a,rb,wb,ab|}\");",
       "if (${1:fp} == NULL) {",
@@ -853,25 +1415,59 @@
   },
   "fclose": {
     "scope": "c,cpp",
-    "prefix": [ "f","foc", "fc", "fclose", "cerrar_archivo"],
-    "body": ["fclose(${1:fp});"],
+    "prefix": [
+      "f",
+      "foc",
+      "fc",
+      "fclose",
+      "cerrar_archivo"
+    ],
+    "body": [
+      "fclose(${1:fp});"
+    ],
     "description": "Cerrar archivo"
   },
   "fprintf": {
     "scope": "c,cpp",
-    "prefix": [ "fp","fpe","fper","fperf", "fpri", "fprin", "fprintf", "escribir_archivo"],
-    "body": ["fprintf(${1:fp}, \"${2:formato}\\n\", ${3:variables});"],
+    "prefix": [
+      "fp",
+      "fpe",
+      "fper",
+      "fperf",
+      "fpri",
+      "fprin",
+      "fprintf",
+      "escribir_archivo"
+    ],
+    "body": [
+      "fprintf(${1:fp}, \"${2:formato}\\n\", ${3:variables});"
+    ],
     "description": "Escribir en archivo con formato"
   },
   "fscanf": {
     "scope": "c,cpp",
-    "prefix": [ "fsc", "fsca", "fsca", "fscas", "fscanf", "leer_archivo"],
-    "body": ["fscanf(${1:fp}, \"${2:formato}\", &${3:variable});"],
+    "prefix": [
+      "fsc",
+      "fsca",
+      "fsca",
+      "fscas",
+      "fscanf",
+      "leer_archivo"
+    ],
+    "body": [
+      "fscanf(${1:fp}, \"${2:formato}\", &${3:variable});"
+    ],
     "description": "Leer de archivo con formato"
   },
   "fgets de archivo": {
     "scope": "c,cpp",
-    "prefix": [ "fg", "fge", "fget", "fgets_file", "leer_linea_archivo"],
+    "prefix": [
+      "fg",
+      "fge",
+      "fget",
+      "fgets_file",
+      "leer_linea_archivo"
+    ],
     "body": [
       "char ${1:buffer}[${2:1024}];",
       "while (fgets(${1:buffer}, sizeof(${1:buffer}), ${3:fp}) != NULL) {",
@@ -882,7 +1478,10 @@
   },
   "fread": {
     "scope": "c,cpp",
-    "prefix": ["fread", "leer_binario"],
+    "prefix": [
+      "fread",
+      "leer_binario"
+    ],
     "body": [
       "size_t ${1:leidos} = fread(${2:buffer}, sizeof(${3:tipo}), ${4:cantidad}, ${5:fp});",
       "if (${1:leidos} != ${4:cantidad}) {",
@@ -893,7 +1492,10 @@
   },
   "fwrite": {
     "scope": "c,cpp",
-    "prefix": ["fwrite", "escribir_binario"],
+    "prefix": [
+      "fwrite",
+      "escribir_binario"
+    ],
     "body": [
       "size_t ${1:escritos} = fwrite(${2:buffer}, sizeof(${3:tipo}), ${4:cantidad}, ${5:fp});",
       "if (${1:escritos} != ${4:cantidad}) {",
@@ -904,14 +1506,23 @@
   },
   "Verificar fin de archivo": {
     "scope": "c,cpp",
-    "prefix": ["feof", "fin_archivo"],
-    "body": ["if (feof(${1:fp})) {", "\t${2:// Final}",
-      "}"],
+    "prefix": [
+      "feof",
+      "fin_archivo"
+    ],
+    "body": [
+      "if (feof(${1:fp})) {",
+      "\t${2:// Final}",
+      "}"
+    ],
     "description": "Verificar fin de archivo"
   },
   "Eliminar archivo": {
     "scope": "c,cpp",
-    "prefix": ["remove", "eliminar_archivo"],
+    "prefix": [
+      "remove",
+      "eliminar_archivo"
+    ],
     "body": [
       "if (remove(\"${1:archivo}\") == 0) {",
       "\t${2:// Eliminado}",
@@ -923,7 +1534,10 @@
   },
   "Renombrar archivo": {
     "scope": "c,cpp",
-    "prefix": ["rename", "renombrar_archivo"],
+    "prefix": [
+      "rename",
+      "renombrar_archivo"
+    ],
     "body": [
       "if (rename(\"${1:viejo}\", \"${2:nuevo}\") == 0) {",
       "\t${3:// Renombrado}",
@@ -933,52 +1547,89 @@
     ],
     "description": "Renombrar archivo"
   },
-
   "pow": {
     "scope": "c,cpp",
-    "prefix": ["pow", "potencia"],
-    "body": ["double ${1:resultado} = pow(${2:base}, ${3:exponente});"],
+    "prefix": [
+      "pow",
+      "potencia"
+    ],
+    "body": [
+      "double ${1:resultado} = pow(${2:base}, ${3:exponente});"
+    ],
     "description": "Calcular potencia"
   },
   "sqrt": {
     "scope": "c,cpp",
-    "prefix": ["sqrt", "raiz_cuadrada"],
-    "body": ["double ${1:raiz} = sqrt(${2:numero});"],
+    "prefix": [
+      "sqrt",
+      "raiz_cuadrada"
+    ],
+    "body": [
+      "double ${1:raiz} = sqrt(${2:numero});"
+    ],
     "description": "Calcular raíz cuadrada"
   },
   "abs": {
     "scope": "c,cpp",
-    "prefix": ["abs", "valor_absoluto"],
-    "body": ["int ${1:resultado} = abs(${2:numero});"],
+    "prefix": [
+      "abs",
+      "valor_absoluto"
+    ],
+    "body": [
+      "int ${1:resultado} = abs(${2:numero});"
+    ],
     "description": "Valor absoluto de entero"
   },
   "fabs": {
     "scope": "c,cpp",
-    "prefix": ["fabs", "fabsoluto"],
-    "body": ["double ${1:resultado} = fabs(${2:numero});"],
+    "prefix": [
+      "fabs",
+      "fabsoluto"
+    ],
+    "body": [
+      "double ${1:resultado} = fabs(${2:numero});"
+    ],
     "description": "Valor absoluto de double"
   },
   "ceil": {
     "scope": "c,cpp",
-    "prefix": ["ceil", "redondear_arriba"],
-    "body": ["double ${1:resultado} = ceil(${2:numero});"],
+    "prefix": [
+      "ceil",
+      "redondear_arriba"
+    ],
+    "body": [
+      "double ${1:resultado} = ceil(${2:numero});"
+    ],
     "description": "Redondear hacia arriba"
   },
   "floor": {
     "scope": "c,cpp",
-    "prefix": ["floor", "redondear_abajo"],
-    "body": ["double ${1:resultado} = floor(${2:numero});"],
+    "prefix": [
+      "floor",
+      "redondear_abajo"
+    ],
+    "body": [
+      "double ${1:resultado} = floor(${2:numero});"
+    ],
     "description": "Redondear hacia abajo"
   },
   "round": {
     "scope": "c,cpp",
-    "prefix": ["round", "redondear"],
-    "body": ["double ${1:resultado} = round(${2:numero});"],
+    "prefix": [
+      "round",
+      "redondear"
+    ],
+    "body": [
+      "double ${1:resultado} = round(${2:numero});"
+    ],
     "description": "Redondear al entero más cercano"
   },
   "Número aleatorio (rand)": {
     "scope": "c,cpp",
-    "prefix": ["rand", "aleatorio"],
+    "prefix": [
+      "rand",
+      "aleatorio"
+    ],
     "body": [
       "srand(time(NULL));",
       "int ${1:num} = rand() % ${2:maximo};"
@@ -987,35 +1638,55 @@
   },
   "Número aleatorio en rango": {
     "scope": "c,cpp",
-    "prefix": ["rand_range", "aleatorio_rango"],
+    "prefix": [
+      "rand_range",
+      "aleatorio_rango"
+    ],
     "body": [
       "srand(time(NULL));",
       "int ${1:num} = ${2:min} + rand() % (${3:max} - ${2:min} + 1);"
     ],
     "description": "Generar aleatorio en rango [min, max]"
   },
-
   "perror": {
     "scope": "c,cpp",
-    "prefix": ["perror", "error_sistema"],
-    "body": ["perror(\"${1:mensaje_de_error}\");"],
+    "prefix": [
+      "perror",
+      "error_sistema"
+    ],
+    "body": [
+      "perror(\"${1:mensaje_de_error}\");"
+    ],
     "description": "Imprimir error del sistema"
   },
   "exit con código": {
     "scope": "c,cpp",
-    "prefix": ["exit", "salir_programa"],
-    "body": ["exit(${1:codigo_de_error});"],
+    "prefix": [
+      "exit",
+      "salir_programa"
+    ],
+    "body": [
+      "exit(${1:codigo_de_error});"
+    ],
     "description": "Terminar programa con código de error"
   },
   "assert": {
     "scope": "c,cpp",
-    "prefix": ["assert", "verificar_condicion"],
-    "body": ["assert(${1:condicion});"],
+    "prefix": [
+      "assert",
+      "verificar_condicion"
+    ],
+    "body": [
+      "assert(${1:condicion});"
+    ],
     "description": "Verificar condición (requiere assert.h)"
   },
   "errno check": {
     "scope": "c,cpp",
-    "prefix": ["errno", "verificar_errno"],
+    "prefix": [
+      "errno",
+      "verificar_errno"
+    ],
     "body": [
       "if (errno != 0) {",
       "\tperror(\"Error detectado\");",
@@ -1024,29 +1695,53 @@
     ],
     "description": "Verificar errno"
   },
-
-
   "Define constante": {
     "scope": "c,cpp",
-    "prefix": ["#","#d","#de","#def","#defi","#defin","#define", "constante_macro"],
-    "body": ["#define ${1:NOMBRE} ${2:valor}"],
+    "prefix": [
+      "#",
+      "#d",
+      "#de",
+      "#def",
+      "#defi",
+      "#defin",
+      "#define",
+      "constante_macro"
+    ],
+    "body": [
+      "#define ${1:NOMBRE} ${2:valor}"
+    ],
     "description": "Definir macro constante"
   },
   "Define función macro": {
     "scope": "c,cpp",
-    "prefix": ["define_func", "macro_funcion"],
-    "body": ["#define ${1:NOMBRE}(${2:parametros}) (${3:expresion})"],
+    "prefix": [
+      "define_func",
+      "macro_funcion"
+    ],
+    "body": [
+      "#define ${1:NOMBRE}(${2:parametros}) (${3:expresion})"
+    ],
     "description": "Definir macro tipo función"
   },
   "Ifdef": {
     "scope": "c,cpp",
-    "prefix": ["ifdef", "condicional_compilacion"],
-    "body": ["#ifdef ${1:NOMBRE}", "\t${2:// Código}", "#endif"],
+    "prefix": [
+      "ifdef",
+      "condicional_compilacion"
+    ],
+    "body": [
+      "#ifdef ${1:NOMBRE}",
+      "\t${2:// Código}",
+      "#endif"
+    ],
     "description": "Compilación condicional con ifdef"
   },
   "Ifndef": {
     "scope": "c,cpp",
-    "prefix": ["ifndef", "guardia_header"],
+    "prefix": [
+      "ifndef",
+      "guardia_header"
+    ],
     "body": [
       "#ifndef ${1:HEADER_H}",
       "#define ${1:HEADER_H}",
@@ -1059,65 +1754,109 @@
   },
   "Pragma once": {
     "scope": "c,cpp",
-    "prefix": ["pragma_once", "header_once"],
-    "body": ["#pragma once"],
+    "prefix": [
+      "pragma_once",
+      "header_once"
+    ],
+    "body": [
+      "#pragma once"
+    ],
     "description": "Alternativa a guardia de header"
   },
-
-  
   "Cast explícito": {
     "scope": "c,cpp",
-    "prefix": ["cast", "conversion_tipo"],
-    "body": ["(${1:tipo})${2:variable}"],
+    "prefix": [
+      "cast",
+      "conversion_tipo"
+    ],
+    "body": [
+      "(${1:tipo})${2:variable}"
+    ],
     "description": "Conversión explícita de tipo"
   },
   "Cast a int": {
     "scope": "c,cpp",
-    "prefix": ["cast_int", "convertir_int"],
-    "body": ["(int)${1:variable}"],
+    "prefix": [
+      "cast_int",
+      "convertir_int"
+    ],
+    "body": [
+      "(int)${1:variable}"
+    ],
     "description": "Convertir a entero"
   },
   "Cast a double": {
     "scope": "c,cpp",
-    "prefix": ["cast_double", "convertir_double"],
-    "body": ["(double)${1:variable}"],
+    "prefix": [
+      "cast_double",
+      "convertir_double"
+    ],
+    "body": [
+      "(double)${1:variable}"
+    ],
     "description": "Convertir a double"
   },
   "Cast a char*": {
     "scope": "c,cpp",
-    "prefix": ["cast_charptr", "convertir_charptr"],
-    "body": ["(char*)${1:puntero}"],
+    "prefix": [
+      "cast_charptr",
+      "convertir_charptr"
+    ],
+    "body": [
+      "(char*)${1:puntero}"
+    ],
     "description": "Convertir a puntero a char"
   },
-
-  
   "sizeof": {
     "scope": "c,cpp",
-    "prefix": ["sizeof", "tamaño_de"],
-    "body": ["sizeof(${1:variable_o_tipo})"],
+    "prefix": [
+      "sizeof",
+      "tamaño_de"
+    ],
+    "body": [
+      "sizeof(${1:variable_o_tipo})"
+    ],
     "description": "Obtener tamaño en bytes"
   },
   "Incrementar": {
     "scope": "c,cpp",
-    "prefix": ["inc", "incrementar"],
-    "body": ["${1:variable}++;"],
+    "prefix": [
+      "inc",
+      "incrementar"
+    ],
+    "body": [
+      "${1:variable}++;"
+    ],
     "description": "Incrementar variable en 1"
   },
   "Decrementar": {
     "scope": "c,cpp",
-    "prefix": ["dec", "decrementar"],
-    "body": ["${1:variable}--;"],
+    "prefix": [
+      "dec",
+      "decrementar"
+    ],
+    "body": [
+      "${1:variable}--;"
+    ],
     "description": "Decrementar variable en 1"
   },
   "Operador suma asignación": {
     "scope": "c,cpp",
-    "prefix": ["sum_asig", "mas_igual"],
-    "body": ["${1:variable} += ${2:valor};"],
+    "prefix": [
+      "sum_asig",
+      "mas_igual"
+    ],
+    "body": [
+      "${1:variable} += ${2:valor};"
+    ],
     "description": "Suma y asigna"
   },
   "Intercambio de variables": {
     "scope": "c,cpp",
-    "prefix": ["swap", "intercambiar"],
+    "prefix": [
+      "swap",
+      "intercambiar"
+    ],
     "body": [
       "${1:tipo} temp = ${2:a};",
       "${2:a} = ${3:b};",
@@ -1127,19 +1866,33 @@
   },
   "Pausa del sistema": {
     "scope": "c,cpp",
-    "prefix": ["system_pause", "pausa"],
-    "body": ["system(\"pause\"); // Windows"],
+    "prefix": [
+      "system_pause",
+      "pausa"
+    ],
+    "body": [
+      "system(\"pause\"); // Windows"
+    ],
     "description": "Pausar la consola (Windows)"
   },
   "Limpiar pantalla": {
     "scope": "c,cpp",
-    "prefix": ["cls", "limpiar_pantalla"],
-    "body": ["system(\"clear\"); // Linux/Mac"],
+    "prefix": [
+      "cls",
+      "limpiar_pantalla"
+    ],
+    "body": [
+      "system(\"clear\"); // Linux/Mac"
+    ],
     "description": "Limpiar la pantalla (Linux/Mac)"
   },
   "Lista enlazada simple (int)": {
     "scope": "c,cpp",
-    "prefix": ["list", "lista", "linked"],
+    "prefix": [
+      "list",
+      "lista",
+      "linked"
+    ],
     "body": [
       "typedef struct Nodo {",
       "\tint dato;",
@@ -1183,10 +1936,13 @@
     ],
     "description": "Lista enlazada de enteros con funciones básicas"
   },
-
   "Lista enlazada con menú de tipo": {
     "scope": "c,cpp",
-    "prefix": ["list", "lista", "linked"],
+    "prefix": [
+      "list",
+      "lista",
+      "linked"
+    ],
     "body": [
       "${1|int,float,double,char*|}",
       "typedef struct Nodo {",
@@ -1220,11 +1976,13 @@
     ],
     "description": "Lista enlazada con tipo de dato seleccionable"
   },
-
-
   "For anidado (matriz)": {
     "scope": "c,cpp",
-    "prefix": ["foranidado", "for2d", "for_matriz"],
+    "prefix": [
+      "foranidado",
+      "for2d",
+      "for_matriz"
+    ],
     "body": [
       "for (int i = 0; i < ${1:filas}; i++) {",
       "\tfor (int j = 0; j < ${2:columnas}; j++) {",
@@ -1234,10 +1992,12 @@
     ],
     "description": "Doble bucle for para recorrer matrices"
   },
-
   "For anidado con inicialización": {
     "scope": "c,cpp",
-    "prefix": ["foranidado_init", "matriz_init_for"],
+    "prefix": [
+      "foranidado_init",
+      "matriz_init_for"
+    ],
     "body": [
       "for (int i = 0; i < ${1:filas}; i++) {",
       "\tfor (int j = 0; j < ${2:columnas}; j++) {",
@@ -1247,10 +2007,13 @@
     ],
     "description": "Inicializa una matriz con un valor usando fors anidados"
   },
-
   "Figuras con asteriscos (menú)": {
     "scope": "c,cpp",
-    "prefix": ["figura", "patron", "asteriscos"],
+    "prefix": [
+      "figura",
+      "patron",
+      "asteriscos"
+    ],
     "body": [
       "${1|Cuadrado,Triángulo rectángulo,Triángulo equilátero,Pirámide,Rombo|}",
       "int n = ${2:5}; // tamaño",
@@ -1300,10 +2063,12 @@
     ],
     "description": "Genera código para dibujar figuras con asteriscos"
   },
-
   "Inicializar matriz 2D": {
     "scope": "c,cpp",
-    "prefix": ["matriz_init", "init_matriz"],
+    "prefix": [
+      "matriz_init",
+      "init_matriz"
+    ],
     "body": [
       "${1:int} ${2:matriz}[${3:filas}][${4:columnas}];",
       "for (int i = 0; i < ${3:filas}; i++) {",
@@ -1314,10 +2079,12 @@
     ],
     "description": "Declara e inicializa una matriz con un valor"
   },
-
   "Imprimir matriz": {
     "scope": "c,cpp",
-    "prefix": ["matriz_print", "imprimir_matriz"],
+    "prefix": [
+      "matriz_print",
+      "imprimir_matriz"
+    ],
     "body": [
       "void imprimir_matriz(${1:int} matriz[][${2:columnas}], int filas) {",
       "\tfor (int i = 0; i < filas; i++) {",
@@ -1333,10 +2100,12 @@
     ],
     "description": "Función para imprimir una matriz de enteros"
   },
-
   "Suma de matrices": {
     "scope": "c,cpp",
-    "prefix": ["matriz_suma", "suma_matrices"],
+    "prefix": [
+      "matriz_suma",
+      "suma_matrices"
+    ],
     "body": [
       "void sumar_matrices(${1:int} A[][${2:cols}], ${1:int} B[][${2:cols}], ${1:int} C[][${2:cols}], int filas) {",
       "\tfor (int i = 0; i < filas; i++) {",
@@ -1351,10 +2120,12 @@
     ],
     "description": "Función para sumar dos matrices"
   },
-
   "Multiplicación de matrices": {
     "scope": "c,cpp",
-    "prefix": ["matriz_multiplicar", "multiplicar_matrices"],
+    "prefix": [
+      "matriz_multiplicar",
+      "multiplicar_matrices"
+    ],
     "body": [
       "void multiplicar_matrices(${1:int} A[][${2:k}], ${1:int} B[][${3:n}], ${1:int} C[][${3:n}], int m, int k, int n) {",
       "\tfor (int i = 0; i < m; i++) {",
@@ -1372,11 +2143,12 @@
     ],
     "description": "Función para multiplicar dos matrices"
   },
-
-
   "Vector dinámico simple": {
     "scope": "c,cpp",
-    "prefix": ["vector", "lista_simple"],
+    "prefix": [
+      "vector",
+      "lista_simple"
+    ],
     "body": [
       "typedef struct {",
       "\t${1|int,float,double,char*|} *datos;",
@@ -1425,10 +2197,13 @@
     ],
     "description": "Vector dinámico genérico con funciones básicas"
   },
-
   "Ordenamiento burbuja (menú dirección)": {
     "scope": "c,cpp",
-    "prefix": ["ordenar", "sort", "burbuja"],
+    "prefix": [
+      "ordenar",
+      "sort",
+      "burbuja"
+    ],
     "body": [
       "void ordenar_burbuja(${1|int,float,double|} arr[], int n, int ascendente) {",
       "\tfor (int i = 0; i < n-1; i++) {",
@@ -1449,10 +2224,12 @@
     ],
     "description": "Ordena un array con el método burbuja"
   },
-
   "Ordenamiento rápido (qsort)": {
     "scope": "c,cpp",
-    "prefix": ["qsort", "ordenar_rapido"],
+    "prefix": [
+      "qsort",
+      "ordenar_rapido"
+    ],
     "body": [
       "int comparar(const void *a, const void *b) {",
       "\treturn (*(int*)a - *(int*)b); // ascendente",
@@ -1465,10 +2242,12 @@
     ],
     "description": "Ordena con qsort (requiere stdlib.h)"
   },
-
   "Búsqueda lineal": {
     "scope": "c,cpp",
-    "prefix": ["busqueda_lineal", "buscar"],
+    "prefix": [
+      "busqueda_lineal",
+      "buscar"
+    ],
     "body": [
       "int busqueda_lineal(${1|int,float,double|} arr[], int n, ${1} objetivo) {",
       "\tfor (int i = 0; i < n; i++) {",
@@ -1482,10 +2261,12 @@
     ],
     "description": "Busca un elemento linealmente"
   },
-
   "Búsqueda binaria": {
     "scope": "c,cpp",
-    "prefix": ["busqueda_binaria", "binary_search"],
+    "prefix": [
+      "busqueda_binaria",
+      "binary_search"
+    ],
     "body": [
       "int busqueda_binaria(int arr[], int izquierda, int derecha, int objetivo) {",
       "\twhile (izquierda <= derecha) {",
@@ -1502,10 +2283,12 @@
     ],
     "description": "Búsqueda binaria en array ordenado"
   },
-
   "Factorial": {
     "scope": "c,cpp",
-    "prefix": ["factorial", "fact"],
+    "prefix": [
+      "factorial",
+      "fact"
+    ],
     "body": [
       "int factorial(int n) {",
       "\tif (n <= 1) return 1;",
@@ -1517,10 +2300,12 @@
     ],
     "description": "Función recursiva para calcular factorial"
   },
-
   "Fibonacci": {
     "scope": "c,cpp",
-    "prefix": ["fibonacci", "fibo"],
+    "prefix": [
+      "fibonacci",
+      "fibo"
+    ],
     "body": [
       "int fibonacci(int n) {",
       "\tif (n <= 1) return n;",
@@ -1532,10 +2317,12 @@
     ],
     "description": "Función recursiva de Fibonacci"
   },
-
   "Número primo": {
     "scope": "c,cpp",
-    "prefix": ["primo", "es_primo"],
+    "prefix": [
+      "primo",
+      "es_primo"
+    ],
     "body": [
       "int es_primo(int n) {",
       "\tif (n <= 1) return 0;",
@@ -1550,10 +2337,12 @@
     ],
     "description": "Verifica si un número es primo"
   },
-
   "Contar vocales": {
     "scope": "c,cpp",
-    "prefix": ["contar_vocales", "vocales"],
+    "prefix": [
+      "contar_vocales",
+      "vocales"
+    ],
     "body": [
       "int contar_vocales(const char *cadena) {",
       "\tint contador = 0;",
@@ -1569,10 +2358,12 @@
     ],
     "description": "Cuenta las vocales en una cadena"
   },
-
   "Convertir a mayúsculas": {
     "scope": "c,cpp",
-    "prefix": ["toupper", "mayusculas"],
+    "prefix": [
+      "toupper",
+      "mayusculas"
+    ],
     "body": [
       "void a_mayusculas(char *cadena) {",
       "\tfor (int i = 0; cadena[i]; i++) {",
@@ -1586,10 +2377,12 @@
     ],
     "description": "Convierte una cadena a mayúsculas (requiere ctype.h)"
   },
-
   "Convertir a minúsculas": {
     "scope": "c,cpp",
-    "prefix": ["tolower", "minusculas"],
+    "prefix": [
+      "tolower",
+      "minusculas"
+    ],
     "body": [
       "void a_minusculas(char *cadena) {",
       "\tfor (int i = 0; cadena[i]; i++) {",
@@ -1603,10 +2396,12 @@
     ],
     "description": "Convierte una cadena a minúsculas"
   },
-
   "Palíndromo": {
     "scope": "c,cpp",
-    "prefix": ["palindromo", "es_palindromo"],
+    "prefix": [
+      "palindromo",
+      "es_palindromo"
+    ],
     "body": [
       "int es_palindromo(const char *cadena) {",
       "\tint izquierda = 0;",
@@ -1624,11 +2419,12 @@
     ],
     "description": "Verifica si una cadena es palíndromo"
   },
-
-
   "Intercambio con punteros": {
     "scope": "c,cpp",
-    "prefix": ["swap_ptr", "intercambiar_ptr"],
+    "prefix": [
+      "swap_ptr",
+      "intercambiar_ptr"
+    ],
     "body": [
       "void swap(${1|int,float,double,char*} *a, ${1} *b) {",
       "\t${1} temp = *a;",
@@ -1641,10 +2437,12 @@
     ],
     "description": "Función de intercambio usando punteros"
   },
-
   "Leer archivo completo a string": {
     "scope": "c,cpp",
-    "prefix": ["leer_archivo_completo", "file_readall"],
+    "prefix": [
+      "leer_archivo_completo",
+      "file_readall"
+    ],
     "body": [
       "char* leer_archivo_completo(const char *nombre_archivo) {",
       "\tFILE *fp = fopen(nombre_archivo, \"r\");",
@@ -1675,10 +2473,12 @@
     ],
     "description": "Lee todo el contenido de un archivo y lo devuelve como string"
   },
-
   "Lista doblemente enlazada": {
     "scope": "c,cpp",
-    "prefix": ["dlist", "lista_doble"],
+    "prefix": [
+      "dlist",
+      "lista_doble"
+    ],
     "body": [
       "typedef struct NodoD {",
       "\tint dato;",
@@ -1725,10 +2525,12 @@
     ],
     "description": "Lista doblemente enlazada de enteros"
   },
-
   "Pila genérica (array)": {
     "scope": "c,cpp",
-    "prefix": ["stack", "pila"],
+    "prefix": [
+      "stack",
+      "pila"
+    ],
     "body": [
       "typedef struct {",
       "\t${1|int,float,double,char*|} *datos;",
@@ -1779,10 +2581,12 @@
     ],
     "description": "Pila genérica implementada con array"
   },
-
   "Cola genérica (array circular)": {
     "scope": "c,cpp",
-    "prefix": ["queue", "cola"],
+    "prefix": [
+      "queue",
+      "cola"
+    ],
     "body": [
       "typedef struct {",
       "\t${1|int,float,double,char*|} *datos;",
@@ -1844,10 +2648,12 @@
     ],
     "description": "Cola genérica implementada con array circular"
   },
-
   "Árbol binario de búsqueda (int)": {
     "scope": "c,cpp",
-    "prefix": ["tree", "arbol"],
+    "prefix": [
+      "tree",
+      "arbol"
+    ],
     "body": [
       "typedef struct NodoArbol {",
       "\tint dato;",
@@ -1898,10 +2704,12 @@
     ],
     "description": "Árbol binario de búsqueda con inserción y recorrido"
   },
-
   "Operaciones con bits (menú)": {
     "scope": "c,cpp",
-    "prefix": ["bits", "bitwise"],
+    "prefix": [
+      "bits",
+      "bitwise"
+    ],
     "body": [
       "${1|set,clear,toggle,check|}",
       "// Función para ${1} bit",
@@ -1922,10 +2730,12 @@
     ],
     "description": "Operaciones de manipulación de bits"
   },
-
   "Ordenamiento por inserción": {
     "scope": "c,cpp",
-    "prefix": ["insertion_sort", "ordenar_insercion"],
+    "prefix": [
+      "insertion_sort",
+      "ordenar_insercion"
+    ],
     "body": [
       "void insertion_sort(${1|int,float,double|} arr[], int n) {",
       "\tfor (int i = 1; i < n; i++) {",
@@ -1945,10 +2755,12 @@
     ],
     "description": "Ordena un array con el método de inserción"
   },
-
   "Ordenamiento por selección": {
     "scope": "c,cpp",
-    "prefix": ["selection_sort", "ordenar_seleccion"],
+    "prefix": [
+      "selection_sort",
+      "ordenar_seleccion"
+    ],
     "body": [
       "void selection_sort(${1|int,float,double|} arr[], int n) {",
       "\tfor (int i = 0; i < n-1; i++) {",
@@ -1968,10 +2780,12 @@
     ],
     "description": "Ordena un array con el método de selección"
   },
-
   "Macros MIN, MAX, SWAP": {
     "scope": "c,cpp",
-    "prefix": ["macros", "min_max_swap"],
+    "prefix": [
+      "macros",
+      "min_max_swap"
+    ],
     "body": [
       "#define MIN(a, b) ((a) < (b) ? (a) : (b))",
       "#define MAX(a, b) ((a) > (b) ? (a) : (b))",
@@ -1979,35 +2793,56 @@
     ],
     "description": "Define macros útiles MIN, MAX y SWAP"
   },
-
   "memset": {
     "scope": "c,cpp",
-    "prefix": ["memset", "llenar_memoria"],
-    "body": ["memset(${1:ptr}, ${2:valor}, ${3:num_bytes});"],
+    "prefix": [
+      "memset",
+      "llenar_memoria"
+    ],
+    "body": [
+      "memset(${1:ptr}, ${2:valor}, ${3:num_bytes});"
+    ],
     "description": "Llena un bloque de memoria con un valor"
   },
   "memcpy": {
     "scope": "c,cpp",
-    "prefix": ["memcpy", "copiar_memoria"],
-    "body": ["memcpy(${1:destino}, ${2:origen}, ${3:num_bytes});"],
+    "prefix": [
+      "memcpy",
+      "copiar_memoria"
+    ],
+    "body": [
+      "memcpy(${1:destino}, ${2:origen}, ${3:num_bytes});"
+    ],
     "description": "Copia un bloque de memoria"
   },
   "memmove": {
     "scope": "c,cpp",
-    "prefix": ["memmove", "mover_memoria"],
-    "body": ["memmove(${1:destino}, ${2:origen}, ${3:num_bytes});"],
+    "prefix": [
+      "memmove",
+      "mover_memoria"
+    ],
+    "body": [
+      "memmove(${1:destino}, ${2:origen}, ${3:num_bytes});"
+    ],
     "description": "Copia memoria incluso si se solapan"
   },
   "memcmp": {
     "scope": "c,cpp",
-    "prefix": ["memcmp", "comparar_memoria"],
-    "body": ["int ${1:res} = memcmp(${2:ptr1}, ${3:ptr2}, ${4:num_bytes});"],
+    "prefix": [
+      "memcmp",
+      "comparar_memoria"
+    ],
+    "body": [
+      "int ${1:res} = memcmp(${2:ptr1}, ${3:ptr2}, ${4:num_bytes});"
+    ],
     "description": "Compara bloques de memoria"
   },
-
   "strcspn": {
     "scope": "c,cpp",
-    "prefix": ["strcspn", "longitud_hasta"],
+    "prefix": [
+      "strcspn",
+      "longitud_hasta"
+    ],
     "body": [
       "size_t ${1:len} = strcspn(${2:cadena}, \"${3:reject}\");"
     ],
@@ -2015,7 +2850,10 @@
   },
   "strpbrk": {
     "scope": "c,cpp",
-    "prefix": ["strpbrk", "buscar_cualquiera"],
+    "prefix": [
+      "strpbrk",
+      "buscar_cualquiera"
+    ],
     "body": [
       "char *${1:pos} = strpbrk(${2:cadena}, \"${3:buscar}\");",
       "if (${1:pos} != NULL) {",
@@ -2024,10 +2862,13 @@
     ],
     "description": "Busca la primera ocurrencia de cualquier carácter de un conjunto"
   },
-
   "Obtener fecha y hora actual": {
     "scope": "c,cpp",
-    "prefix": ["fecha", "hora", "time_now"],
+    "prefix": [
+      "fecha",
+      "hora",
+      "time_now"
+    ],
     "body": [
       "time_t ahora = time(NULL);",
       "struct tm *tiempo = localtime(&ahora);",
@@ -2036,10 +2877,12 @@
     ],
     "description": "Muestra la fecha y hora actual"
   },
-
   "Patrón mariposa": {
     "scope": "c,cpp",
-    "prefix": ["mariposa", "butterfly"],
+    "prefix": [
+      "mariposa",
+      "butterfly"
+    ],
     "body": [
       "int n = ${1:5}; // mitad",
       "for (int i = 1; i <= n; i++) {",
@@ -2057,10 +2900,12 @@
     ],
     "description": "Dibuja un patrón de mariposa con asteriscos"
   },
-
   "Invertir string": {
     "scope": "c,cpp",
-    "prefix": ["invertir_string", "reverse_string"],
+    "prefix": [
+      "invertir_string",
+      "reverse_string"
+    ],
     "body": [
       "void invertir_string(char *str) {",
       "\tint n = strlen(str);",
@@ -2079,7 +2924,10 @@
   },
   "Invertir array": {
     "scope": "c,cpp",
-    "prefix": ["invertir_array", "reverse_array"],
+    "prefix": [
+      "invertir_array",
+      "reverse_array"
+    ],
     "body": [
       "void invertir_array(${1|int,float,double|} arr[], int n) {",
       "\tfor (int i = 0; i < n/2; i++) {",
@@ -2095,10 +2943,12 @@
     ],
     "description": "Invierte un array de cualquier tipo"
   },
-
   "Eliminar duplicados (array ordenado)": {
     "scope": "c,cpp",
-    "prefix": ["eliminar_duplicados", "unique_array"],
+    "prefix": [
+      "eliminar_duplicados",
+      "unique_array"
+    ],
     "body": [
       "int eliminar_duplicados(${1|int,float,double|} arr[], int n) {",
       "\tif (n == 0 || n == 1) return n;",
@@ -2116,10 +2966,12 @@
     ],
     "description": "Elimina duplicados en un array ordenado"
   },
-
   "Rotar array a la izquierda": {
     "scope": "c,cpp",
-    "prefix": ["rotar_izquierda", "rotate_left"],
+    "prefix": [
+      "rotar_izquierda",
+      "rotate_left"
+    ],
     "body": [
       "void rotar_izquierda(${1|int,float,double|} arr[], int n, int k) {",
       "\tk = k % n;",
@@ -2135,7 +2987,6 @@
     ],
     "description": "Rota un array a la izquierda k posiciones"
   },
-
   "React useState": {
     "prefix": "usestate",
     "body": [
@@ -2143,7 +2994,6 @@
     ],
     "description": "Hook useState de React: [estado, setEstado] = useState(valorInicial)"
   },
-
   "React useState con tipo TypeScript": {
     "prefix": "usestatets",
     "body": [
@@ -2151,7 +3001,6 @@
     ],
     "description": "Hook useState de React con tipo TypeScript"
   },
-
   "React useState booleano": {
     "prefix": "usestatebool",
     "body": [
@@ -2159,13 +3008,301 @@
     ],
     "description": "Hook useState de React para booleanos"
   },
-
   "React useState objeto": {
     "prefix": "usestateobj",
     "body": [
       "const [${1:datos}, set${1/(.*)/${1:/capitalize}/}] = useState<${2:Tipo}>(${3:{\n\t$4\n}});"
     ],
     "description": "Hook useState de React para objetos con tipo"
+  },
+  "Malloc Avanzado (Array + Recorrido)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "malloc_avanzado"
+    ],
+    "body": [
+      "// TODO: Definir el tipo de dato y la cantidad de elementos necesarios",
+      "${1:tipo} *${2:array} = (${1:tipo}*)malloc(${3:cantidad} * sizeof(${1:tipo}));",
+      "if (${2:array} == NULL) {",
+      "\tperror(\"Error asignando memoria para $2\");",
+      "\texit(EXIT_FAILURE);",
+      "}",
+      "",
+      "// TODO: Llenar o procesar los datos del array",
+      "for (size_t i = 0; i < ${3:cantidad}; i++) {",
+      "\t${2:array}[i] = ${4:0}; // Inicialización por defecto",
+      "}",
+      "",
+      "// TODO: No olvidar liberar la memoria cuando ya no se use",
+      "// free(${2:array});"
+    ],
+    "description": "Malloc avanzado con verificación y recorrido inicial"
+  },
+  "Realloc Seguro Avanzado": {
+    "scope": "c,cpp",
+    "prefix": [
+      "realloc_avanzado"
+    ],
+    "body": [
+      "// TODO: Especificar la nueva cantidad de elementos requerida",
+      "${1:tipo} *temp = (${1:tipo}*)realloc(${2:ptr_existente}, ${3:nueva_cantidad} * sizeof(${1:tipo}));",
+      "if (temp == NULL) {",
+      "\tperror(\"Error al redimensionar memoria para $2\");",
+      "\t// TODO: Manejar el error (el puntero original $2 sigue intacto, liberarlo si es necesario)",
+      "\t// free(${2:ptr_existente});",
+      "\texit(EXIT_FAILURE);",
+      "}",
+      "${2:ptr_existente} = temp;"
+    ],
+    "description": "Realloc con puntero temporal para evitar fugas de memoria"
+  },
+  "Punteros: Aritmética": {
+    "scope": "c,cpp",
+    "prefix": [
+      "puntero_aritmetica"
+    ],
+    "body": [
+      "/*",
+      " * ARITMÉTICA DE PUNTEROS",
+      " * ----------------------",
+      " * En lugar de usar índices como array[i], sumamos directamente",
+      " * posiciones a la dirección de memoria: *(ptr + i).",
+      " * El compilador sabe cuántos bytes saltar según el TIPO del puntero.",
+      " */",
+      "// TODO: Reemplazar el tamaño y los tipos por los reales",
+      "${1:tipo} array[${2:5}] = {0};",
+      "${1:tipo} *ptr = array;",
+      "for (int i = 0; i < ${2:5}; i++) {",
+      "\t// TODO: Realizar operaciones utilizando aritmética de punteros",
+      "\t*(ptr + i) = ${3:i + 1};",
+      "\tprintf(\"Elemento %d: %d\\n\", i, *(ptr + i));",
+      "}"
+    ],
+    "description": "Ejemplo de aritmética de punteros para recorrer arreglos"
+  },
+  "Punteros: Matriz Dinámica 2D (Doble Puntero)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "matriz_dinamica_2d"
+    ],
+    "body": [
+      "/*",
+      " * MATRIZ DINÁMICA 2D (DOBLE PUNTERO **)",
+      " * -------------------------------------",
+      " * Un array de arrays. Primero reservamos memoria para un array",
+      " * de punteros (las filas). Luego, para cada fila, reservamos",
+      " * memoria para sus elementos (las columnas).",
+      " */",
+      "// TODO: Especificar número de filas y columnas",
+      "int filas = ${1:3}, columnas = ${2:4};",
+      "${3:int} **matriz = (${3:int}**)malloc(filas * sizeof(${3:int}*));",
+      "if (matriz == NULL) {",
+      "\tperror(\"Error reservando filas\");",
+      "\texit(EXIT_FAILURE);",
+      "}",
+      "",
+      "for (int i = 0; i < filas; i++) {",
+      "\tmatriz[i] = (${3:int}*)malloc(columnas * sizeof(${3:int}));",
+      "\tif (matriz[i] == NULL) {",
+      "\t\tperror(\"Error reservando columnas\");",
+      "\t\t// TODO: Liberar memoria previamente reservada para evitar fugas",
+      "\t\texit(EXIT_FAILURE);",
+      "\t}",
+      "}",
+      "",
+      "// TODO: No olvides crear una función para liberar la matriz (usando free por cada fila y luego la matriz en sí)"
+    ],
+    "description": "Reserva de memoria para matriz bidimensional usando puntero doble"
+  },
+  "Lista Simple (Estructura y Nodo)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "lista_simple_struct"
+    ],
+    "body": [
+      "/*",
+      " * LISTA ENLAZADA SIMPLE: ESTRUCTURA",
+      " * ---------------------------------",
+      " * Una lista enlazada es dinámica y crece o decrece en tiempo de ejecución.",
+      " * Cada elemento (Nodo) contiene un 'dato' y un puntero 'siguiente'",
+      " * que guarda la dirección de memoria del próximo nodo en la lista.",
+      " * El último nodo siempre debe apuntar a NULL.",
+      " */",
+      "// TODO: Personalizar los datos que contendrá el nodo de la lista",
+      "typedef struct ${1:Nodo} {",
+      "\t${2:int} ${3:dato}; // Dato almacenado",
+      "\tstruct ${1:Nodo} *siguiente; // Puntero al siguiente nodo",
+      "} ${1:Nodo};",
+      "",
+      "// TODO: Completar la lógica de creación del nuevo nodo",
+      "${1:Nodo}* crear_${1:Nodo}(${2:int} ${3:dato}) {",
+      "\t${1:Nodo} *nuevo = (${1:Nodo}*)malloc(sizeof(${1:Nodo}));",
+      "\tif (nuevo == NULL) {",
+      "\t\tperror(\"Error creando nodo\");",
+      "\t\texit(EXIT_FAILURE);",
+      "\t}",
+      "\tnuevo->${3:dato} = ${3:dato};",
+      "\tnuevo->siguiente = NULL;",
+      "\treturn nuevo;",
+      "}"
+    ],
+    "description": "Estructura base para una lista enlazada simple"
+  },
+  "Lista Simple (Insertar al final)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "lista_simple_insertar"
+    ],
+    "body": [
+      "/*",
+      " * LISTA SIMPLE: INSERTAR AL FINAL (PUSH BACK)",
+      " * -------------------------------------------",
+      " * 1. Creamos el nuevo nodo.",
+      " * 2. Si la lista está vacía (*cabeza == NULL), el nuevo nodo ES la cabeza.",
+      " * 3. Si no, recorremos la lista hasta encontrar el último nodo (siguiente == NULL)",
+      " *    y lo enlazamos al nuevo nodo.",
+      " * NOTA: Usamos puntero doble (**cabeza) para poder modificar el puntero original.",
+      " */",
+      "// TODO: Validar los parámetros y la inserción del nuevo elemento",
+      "void insertar_final(${1:Nodo} **cabeza, ${2:int} ${3:dato}) {",
+      "\t${1:Nodo} *nuevo = crear_${1:Nodo}(${3:dato});",
+      "\tif (*cabeza == NULL) {",
+      "\t\t*cabeza = nuevo;",
+      "\t\treturn;",
+      "\t}",
+      "\t",
+      "\t${1:Nodo} *actual = *cabeza;",
+      "\twhile (actual->siguiente != NULL) {",
+      "\t\tactual = actual->siguiente;",
+      "\t}",
+      "\tactual->siguiente = nuevo;",
+      "}"
+    ],
+    "description": "Insertar un nodo al final de una lista simple"
+  },
+  "Lista Simple (Recorrer e Imprimir)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "lista_simple_imprimir"
+    ],
+    "body": [
+      "/*",
+      " * LISTA SIMPLE: RECORRIDO (TRAVERSAL)",
+      " * -----------------------------------",
+      " * Usamos un puntero temporal (actual) para saltar de nodo en nodo.",
+      " * El bucle termina cuando llegamos a NULL (fin de la lista).",
+      " */",
+      "// TODO: Modificar la cadena de formato del printf según el tipo de dato",
+      "void imprimir_lista(${1:Nodo} *cabeza) {",
+      "\t${1:Nodo} *actual = cabeza;",
+      "\twhile (actual != NULL) {",
+      "\t\tprintf(\"%d -> \", actual->${2:dato});",
+      "\t\tactual = actual->siguiente;",
+      "\t}",
+      "\tprintf(\"NULL\\n\");",
+      "}"
+    ],
+    "description": "Recorrer e imprimir una lista simple"
+  },
+  "Lista Doble (Estructura y Nodo)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "lista_doble_struct"
+    ],
+    "body": [
+      "/*",
+      " * LISTA DOBLEMENTE ENLAZADA: ESTRUCTURA",
+      " * -------------------------------------",
+      " * Similar a la lista simple, pero cada nodo guarda DOS referencias:",
+      " * una al nodo 'siguiente' y otra al nodo 'anterior'.",
+      " * Esto permite recorrer la lista en ambas direcciones.",
+      " */",
+      "// TODO: Definir qué datos guardará el nodo doble",
+      "typedef struct ${1:NodoDoble} {",
+      "\t${2:int} ${3:dato};",
+      "\tstruct ${1:NodoDoble} *siguiente;",
+      "\tstruct ${1:NodoDoble} *anterior;",
+      "} ${1:NodoDoble};",
+      "",
+      "// TODO: Implementar lógica adicional de inicialización si la estructura crece",
+      "${1:NodoDoble}* crear_${1:NodoDoble}(${2:int} ${3:dato}) {",
+      "\t${1:NodoDoble} *nuevo = (${1:NodoDoble}*)malloc(sizeof(${1:NodoDoble}));",
+      "\tif (nuevo == NULL) {",
+      "\t\tperror(\"Error al crear nodo doble\");",
+      "\t\texit(EXIT_FAILURE);",
+      "\t}",
+      "\tnuevo->${3:dato} = ${3:dato};",
+      "\tnuevo->siguiente = NULL;",
+      "\tnuevo->anterior = NULL;",
+      "\treturn nuevo;",
+      "}"
+    ],
+    "description": "Estructura para una lista doblemente enlazada"
+  },
+  "Lista Doble (Insertar al final)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "lista_doble_insertar"
+    ],
+    "body": [
+      "/*",
+      " * LISTA DOBLE: INSERTAR AL FINAL",
+      " * ------------------------------",
+      " * Al insertar al final, debemos asegurarnos de actualizar",
+      " * ambos enlaces: el 'siguiente' del último nodo actual,",
+      " * y el 'anterior' del nuevo nodo insertado.",
+      " */",
+      "// TODO: Lógica para insertar un nodo doble al final",
+      "void insertar_final_doble(${1:NodoDoble} **cabeza, ${2:int} ${3:dato}) {",
+      "\t${1:NodoDoble} *nuevo = crear_${1:NodoDoble}(${3:dato});",
+      "\tif (*cabeza == NULL) {",
+      "\t\t*cabeza = nuevo;",
+      "\t\treturn;",
+      "\t}",
+      "\t${1:NodoDoble} *actual = *cabeza;",
+      "\twhile (actual->siguiente != NULL) {",
+      "\t\tactual = actual->siguiente;",
+      "\t}",
+      "\tactual->siguiente = nuevo;",
+      "\tnuevo->anterior = actual;",
+      "}"
+    ],
+    "description": "Insertar un nodo al final de una lista doble"
+  },
+  "Lista Doble (Recorrer e Imprimir bidireccional)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "lista_doble_imprimir"
+    ],
+    "body": [
+      "/*",
+      " * LISTA DOBLE: RECORRIDO BIDIRECCIONAL",
+      " * ------------------------------------",
+      " * Demuestra la ventaja de las listas dobles.",
+      " * Primero avanzamos hasta el final (siguiente), guardamos el último nodo,",
+      " * y luego regresamos hasta el principio usando (anterior).",
+      " */",
+      "// TODO: Ajustar los especificadores de formato según el tipo del dato",
+      "void imprimir_lista_doble(${1:NodoDoble} *cabeza) {",
+      "\t${1:NodoDoble} *actual = cabeza;",
+      "\t${1:NodoDoble} *ultimo = NULL;",
+      "\t",
+      "\tprintf(\"Adelante: \");",
+      "\twhile (actual != NULL) {",
+      "\t\tprintf(\"%d <-> \", actual->${2:dato});",
+      "\t\tultimo = actual;",
+      "\t\tactual = actual->siguiente;",
+      "\t}",
+      "\tprintf(\"NULL\\n\");",
+      "\t",
+      "\tprintf(\"Atrás: \");",
+      "\twhile (ultimo != NULL) {",
+      "\t\tprintf(\"%d <-> \", ultimo->${2:dato});",
+      "\t\tultimo = ultimo->anterior;",
+      "\t}",
+      "\tprintf(\"NULL\\n\");",
+      "}"
+    ],
+    "description": "Imprime la lista doble hacia adelante y hacia atrás"
   }
 }
-
