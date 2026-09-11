@@ -4042,7 +4042,7 @@
     " * SOLUCIÓN:",
     " * 1. Comprobar el valor de retorno de scanf.",
     " * 2. Limpiar el buffer con getchar() hasta el '\\n'.",
-    " * 3. Ignorar la opción inválida."
+    " * 3. Ignorar la opción inválida.",
     " */",
     "int ${1:opcion} = -1;",
     "do {",
