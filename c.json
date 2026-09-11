@@ -541,6 +541,236 @@
     ],
     "description": "Bucle for para recorrer array"
   },
+  "For anidado (matriz)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "foranidado",
+      "for2d",
+      "for_matriz"
+    ],
+    "body": [
+      "for (int i = 0; i < ${1:filas}; i++) {",
+      "\tfor (int j = 0; j < ${2:columnas}; j++) {",
+      "\t\t${3:// Acceder a matriz[i][j]}",
+      "\t}",
+      "}"
+    ],
+    "description": "Doble bucle for para recorrer matrices"
+  },
+  "For anidado con inicialización": {
+    "scope": "c,cpp",
+    "prefix": [
+      "foranidado_init",
+      "matriz_init_for"
+    ],
+    "body": [
+      "for (int i = 0; i < ${1:filas}; i++) {",
+      "\tfor (int j = 0; j < ${2:columnas}; j++) {",
+      "\t\t${3:matriz}[i][j] = ${4:valor};",
+      "\t}",
+      "}"
+    ],
+    "description": "Inicializa una matriz con un valor usando fors anidados"
+  },
+  "Inicializar matriz 2D": {
+    "scope": "c,cpp",
+    "prefix": [
+      "matriz_init",
+      "init_matriz"
+    ],
+    "body": [
+      "${1:int} ${2:matriz}[${3:filas}][${4:columnas}];",
+      "for (int i = 0; i < ${3:filas}; i++) {",
+      "\tfor (int j = 0; j < ${4:columnas}; j++) {",
+      "\t\t${2:matriz}[i][j] = ${5:0};",
+      "\t}",
+      "}"
+    ],
+    "description": "Declara e inicializa una matriz con un valor"
+  },
+  "Imprimir matriz": {
+    "scope": "c,cpp",
+    "prefix": [
+      "matriz_print",
+      "imprimir_matriz"
+    ],
+    "body": [
+      "void imprimir_matriz(${1:int} matriz[][${2:columnas}], int filas) {",
+      "\tfor (int i = 0; i < filas; i++) {",
+      "\t\tfor (int j = 0; j < ${2:columnas}; j++) {",
+      "\t\t\tprintf(\"%d \", matriz[i][j]);",
+      "\t\t}",
+      "\t\tprintf(\"\\n\");",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "imprimir_matriz(${3:matriz}, ${4:filas});"
+    ],
+    "description": "Función para imprimir una matriz de enteros"
+  },
+  "Suma de matrices": {
+    "scope": "c,cpp",
+    "prefix": [
+      "matriz_suma",
+      "suma_matrices"
+    ],
+    "body": [
+      "void sumar_matrices(${1:int} A[][${2:cols}], ${1:int} B[][${2:cols}], ${1:int} C[][${2:cols}], int filas) {",
+      "\tfor (int i = 0; i < filas; i++) {",
+      "\t\tfor (int j = 0; j < ${2:cols}; j++) {",
+      "\t\t\tC[i][j] = A[i][j] + B[i][j];",
+      "\t\t}",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "sumar_matrices(A, B, C, ${3:filas});"
+    ],
+    "description": "Función para sumar dos matrices"
+  },
+  "Multiplicación de matrices": {
+    "scope": "c,cpp",
+    "prefix": [
+      "matriz_multiplicar",
+      "multiplicar_matrices"
+    ],
+    "body": [
+      "void multiplicar_matrices(${1:int} A[][${2:k}], ${1:int} B[][${3:n}], ${1:int} C[][${3:n}], int m, int k, int n) {",
+      "\tfor (int i = 0; i < m; i++) {",
+      "\t\tfor (int j = 0; j < n; j++) {",
+      "\t\t\tC[i][j] = 0;",
+      "\t\t\tfor (int x = 0; x < k; x++) {",
+      "\t\t\t\tC[i][j] += A[i][x] * B[x][j];",
+      "\t\t\t}",
+      "\t\t}",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "multiplicar_matrices(A, B, C, ${4:m}, ${2:k}, ${3:n});"
+    ],
+    "description": "Función para multiplicar dos matrices"
+  },
+  "Vector dinámico simple": {
+    "scope": "c,cpp",
+    "prefix": [
+      "vector",
+      "lista_simple"
+    ],
+    "body": [
+      "typedef struct {",
+      "\t${1|int,float,double,char*|} *datos;",
+      "\tint tamaño;",
+      "\tint capacidad;",
+      "} Vector;",
+      "",
+      "// Inicializar vector",
+      "void vector_init(Vector *v, int capacidad_inicial) {",
+      "\tv->datos = (${1}*)malloc(capacidad_inicial * sizeof(${1}));",
+      "\tv->tamaño = 0;",
+      "\tv->capacidad = capacidad_inicial;",
+      "}",
+      "",
+      "// Agregar elemento",
+      "void vector_agregar(Vector *v, ${1} valor) {",
+      "\tif (v->tamaño >= v->capacidad) {",
+      "\t\tv->capacidad *= 2;",
+      "\t\tv->datos = (${1}*)realloc(v->datos, v->capacidad * sizeof(${1}));",
+      "\t}",
+      "\tv->datos[v->tamaño++] = valor;",
+      "}",
+      "",
+      "// Obtener elemento",
+      "${1} vector_obtener(Vector *v, int indice) {",
+      "\tif (indice >= 0 && indice < v->tamaño) {",
+      "\t\treturn v->datos[indice];",
+      "\t}",
+      "\treturn (${1})0;",
+      "}",
+      "",
+      "// Liberar vector",
+      "void vector_liberar(Vector *v) {",
+      "\tfree(v->datos);",
+      "\tv->datos = NULL;",
+      "\tv->tamaño = v->capacidad = 0;",
+      "}",
+      "",
+      "// Uso:",
+      "Vector vec;",
+      "vector_init(&vec, 4);",
+      "vector_agregar(&vec, ${2:valor1});",
+      "vector_agregar(&vec, ${3:valor2});",
+      "printf(\"Elemento 0: %${4|d,f,s|}\\n\", vector_obtener(&vec, 0));",
+      "vector_liberar(&vec);"
+    ],
+    "description": "Vector dinámico genérico con funciones básicas"
+  },
+  "Invertir array": {
+    "scope": "c,cpp",
+    "prefix": [
+      "invertir_array",
+      "reverse_array"
+    ],
+    "body": [
+      "void invertir_array(${1|int,float,double|} arr[], int n) {",
+      "\tfor (int i = 0; i < n/2; i++) {",
+      "\t\t${1} temp = arr[i];",
+      "\t\tarr[i] = arr[n-1-i];",
+      "\t\tarr[n-1-i] = temp;",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "${1} datos[] = {${2:1, 2, 3, 4, 5}};",
+      "invertir_array(datos, 5);"
+    ],
+    "description": "Invierte un array de cualquier tipo"
+  },
+  "Eliminar duplicados (array ordenado)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "eliminar_duplicados",
+      "unique_array"
+    ],
+    "body": [
+      "int eliminar_duplicados(${1|int,float,double|} arr[], int n) {",
+      "\tif (n == 0 || n == 1) return n;",
+      "\tint j = 0;",
+      "\tfor (int i = 0; i < n-1; i++) {",
+      "\t\tif (arr[i] != arr[i+1]) arr[j++] = arr[i];",
+      "\t}",
+      "\tarr[j++] = arr[n-1];",
+      "\treturn j;",
+      "}",
+      "",
+      "// Uso (requiere array ordenado):",
+      "${1} datos[] = {${2:1, 1, 2, 2, 3}};",
+      "int nuevo_tam = eliminar_duplicados(datos, 5);"
+    ],
+    "description": "Elimina duplicados en un array ordenado"
+  },
+  "Rotar array a la izquierda": {
+    "scope": "c,cpp",
+    "prefix": [
+      "rotar_izquierda",
+      "rotate_left"
+    ],
+    "body": [
+      "void rotar_izquierda(${1|int,float,double|} arr[], int n, int k) {",
+      "\tk = k % n;",
+      "\t${1} temp[k];",
+      "\tfor (int i = 0; i < k; i++) temp[i] = arr[i];",
+      "\tfor (int i = 0; i < n-k; i++) arr[i] = arr[i+k];",
+      "\tfor (int i = 0; i < k; i++) arr[n-k+i] = temp[i];",
+      "}",
+      "",
+      "// Uso:",
+      "${1} datos[] = {${2:1, 2, 3, 4, 5}};",
+      "rotar_izquierda(datos, 5, ${3:2});"
+    ],
+    "description": "Rota un array a la izquierda k posiciones"
+  },
   "Asignar Memoria (Tipos rápidos)": {
     "scope": "c,cpp",
     "prefix": [
@@ -741,6 +971,47 @@
     ],
     "description": "Liberar memoria de matriz 2D"
   },
+  "Malloc Avanzado (Array + Recorrido)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "malloc_avanzado"
+    ],
+    "body": [
+      "// TODO: Definir el tipo de dato y la cantidad de elementos necesarios",
+      "${1:tipo} *${2:array} = (${1:tipo}*)malloc(${3:cantidad} * sizeof(${1:tipo}));",
+      "if (${2:array} == NULL) {",
+      "\tperror(\"Error asignando memoria para $2\");",
+      "\texit(EXIT_FAILURE);",
+      "}",
+      "",
+      "// TODO: Llenar o procesar los datos del array",
+      "for (size_t i = 0; i < ${3:cantidad}; i++) {",
+      "\t${2:array}[i] = ${4:0}; // Inicialización por defecto",
+      "}",
+      "",
+      "// TODO: No olvidar liberar la memoria cuando ya no se use",
+      "// free(${2:array});"
+    ],
+    "description": "Malloc avanzado con verificación y recorrido inicial"
+  },
+  "Realloc Seguro Avanzado": {
+    "scope": "c,cpp",
+    "prefix": [
+      "realloc_avanzado"
+    ],
+    "body": [
+      "// TODO: Especificar la nueva cantidad de elementos requerida",
+      "${1:tipo} *temp = (${1:tipo}*)realloc(${2:ptr_existente}, ${3:nueva_cantidad} * sizeof(${1:tipo}));",
+      "if (temp == NULL) {",
+      "\tperror(\"Error al redimensionar memoria para $2\");",
+      "\t// TODO: Manejar el error (el puntero original $2 sigue intacto, liberarlo si es necesario)",
+      "\t// free(${2:ptr_existente});",
+      "\texit(EXIT_FAILURE);",
+      "}",
+      "${2:ptr_existente} = temp;"
+    ],
+    "description": "Realloc con puntero temporal para evitar fugas de memoria"
+  },
   "Bucle for (menú)": {
     "scope": "c,cpp",
     "prefix": [
@@ -937,6 +1208,87 @@
     ],
     "description": "Función inline"
   },
+  "Define constante": {
+    "scope": "c,cpp",
+    "prefix": [
+      "#",
+      "#d",
+      "#de",
+      "#def",
+      "#defi",
+      "#defin",
+      "#define",
+      "constante_macro"
+    ],
+    "body": [
+      "#define ${1:NOMBRE} ${2:valor}"
+    ],
+    "description": "Definir macro constante"
+  },
+  "Define función macro": {
+    "scope": "c,cpp",
+    "prefix": [
+      "define_func",
+      "macro_funcion"
+    ],
+    "body": [
+      "#define ${1:NOMBRE}(${2:parametros}) (${3:expresion})"
+    ],
+    "description": "Definir macro tipo función"
+  },
+  "Ifdef": {
+    "scope": "c,cpp",
+    "prefix": [
+      "ifdef",
+      "condicional_compilacion"
+    ],
+    "body": [
+      "#ifdef ${1:NOMBRE}",
+      "\t${2:// Código}",
+      "#endif"
+    ],
+    "description": "Compilación condicional con ifdef"
+  },
+  "Ifndef": {
+    "scope": "c,cpp",
+    "prefix": [
+      "ifndef",
+      "guardia_header"
+    ],
+    "body": [
+      "#ifndef ${1:HEADER_H}",
+      "#define ${1:HEADER_H}",
+      "",
+      "${2:// Contenido}",
+      "",
+      "#endif"
+    ],
+    "description": "Guardia de header"
+  },
+  "Pragma once": {
+    "scope": "c,cpp",
+    "prefix": [
+      "pragma_once",
+      "header_once"
+    ],
+    "body": [
+      "#pragma once"
+    ],
+    "description": "Alternativa a guardia de header"
+  },
+  "Macros MIN, MAX, SWAP": {
+    "scope": "c,cpp",
+    "prefix": [
+      "macros",
+      "min_max_swap"
+    ],
+    "body": [
+      "#define MIN(a, b) ((a) < (b) ? (a) : (b))",
+      "#define MAX(a, b) ((a) > (b) ? (a) : (b))",
+      "#define SWAP(a, b) do { __typeof__(a) temp = a; a = b; b = temp; } while(0)"
+    ],
+    "description": "Define macros útiles MIN, MAX y SWAP"
+  },
   "Struct simple": {
     "scope": "c,cpp",
     "prefix": [
@@ -1082,6 +1434,82 @@
       "${1:tipo} * const ${2:ptr} = &${3:variable};"
     ],
     "description": "Puntero constante"
+  },
+  "Intercambio con punteros": {
+    "scope": "c,cpp",
+    "prefix": [
+      "swap_ptr",
+      "intercambiar_ptr"
+    ],
+    "body": [
+      "void swap(${1|int,float,double,char*} *a, ${1} *b) {",
+      "\t${1} temp = *a;",
+      "\t*a = *b;",
+      "\t*b = temp;",
+      "}",
+      "",
+      "// Uso:",
+      "swap(&x, &y);"
+    ],
+    "description": "Función de intercambio usando punteros"
+  },
+  "Punteros: Aritmética": {
+    "scope": "c,cpp",
+    "prefix": [
+      "puntero_aritmetica"
+    ],
+    "body": [
+      "/*",
+      " * ARITMÉTICA DE PUNTEROS",
+      " * ----------------------",
+      " * En lugar de usar índices como array[i], sumamos directamente",
+      " * posiciones a la dirección de memoria: *(ptr + i).",
+      " * El compilador sabe cuántos bytes saltar según el TIPO del puntero.",
+      " */",
+      "// TODO: Reemplazar el tamaño y los tipos por los reales",
+      "${1:tipo} array[${2:5}] = {0};",
+      "${1:tipo} *ptr = array;",
+      "for (int i = 0; i < ${2:5}; i++) {",
+      "\t// TODO: Realizar operaciones utilizando aritmética de punteros",
+      "\t*(ptr + i) = ${3:i + 1};",
+      "\tprintf(\"Elemento %d: %d\\n\", i, *(ptr + i));",
+      "}"
+    ],
+    "description": "Ejemplo de aritmética de punteros para recorrer arreglos"
+  },
+  "Punteros: Matriz Dinámica 2D (Doble Puntero)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "matriz_dinamica_2d"
+    ],
+    "body": [
+      "/*",
+      " * MATRIZ DINÁMICA 2D (DOBLE PUNTERO **)",
+      " * -------------------------------------",
+      " * Un array de arrays. Primero reservamos memoria para un array",
+      " * de punteros (las filas). Luego, para cada fila, reservamos",
+      " * memoria para sus elementos (las columnas).",
+      " */",
+      "// TODO: Especificar número de filas y columnas",
+      "int filas = ${1:3}, columnas = ${2:4};",
+      "${3:int} **matriz = (${3:int}**)malloc(filas * sizeof(${3:int}*));",
+      "if (matriz == NULL) {",
+      "\tperror(\"Error reservando filas\");",
+      "\texit(EXIT_FAILURE);",
+      "}",
+      "",
+      "for (int i = 0; i < filas; i++) {",
+      "\tmatriz[i] = (${3:int}*)malloc(columnas * sizeof(${3:int}));",
+      "\tif (matriz[i] == NULL) {",
+      "\t\tperror(\"Error reservando columnas\");",
+      "\t\t// TODO: Liberar memoria previamente reservada para evitar fugas",
+      "\t\texit(EXIT_FAILURE);",
+      "\t}",
+      "}",
+      "",
+      "// TODO: No olvides crear una función para liberar la matriz (usando free por cada fila y luego la matriz en sí)"
+    ],
+    "description": "Reserva de memoria para matriz bidimensional usando puntero doble"
   },
   "Puntero a función": {
     "scope": "c,cpp",
@@ -1259,6 +1687,474 @@
     ],
     "description": "Función comparadora Callback para ordenar datos con qsort"
   },
+  "Puntero a función con Struct (por valor)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "ptr_func_struct_valor",
+      "puntero_funcion_struct"
+    ],
+    "body": [
+      "/*",
+      " * PUNTERO A FUNCIÓN CON STRUCT (PASO POR VALOR)",
+      " * ---------------------------------------------",
+      " * La función recibe una COPIA de la struct.",
+      " * Útil cuando solo necesitas LEER sus datos.",
+      " *",
+      " * REGLAS:",
+      " * 1. La firma del puntero debe coincidir EXACTAMENTE con la función:",
+      " *    tipo_retorno (*nombre)(tipos_de_parametros);",
+      " * 2. Al invocar, se pasa la struct COMPLETA, NO sus campos sueltos.",
+      " * 3. Los paréntesis alrededor de (*nombre) son OBLIGATORIOS.",
+      " */",
+      "",
+      "typedef struct {",
+      "\t${1:char *nombre};",
+      "\t${2:int edad};",
+      "} ${3:Persona};",
+      "",
+      "// Función compatible",
+      "${4:void} ${5:mostrar}(${3:Persona} ${6:p}) {",
+      "\tprintf(\"Nombre: %s | Edad: %d\\n\", ${6:p}.${1:nombre}, ${6:p}.${2:edad});",
+      "}",
+      "",
+      "int main(void) {",
+      "\t${3:Persona} ${7:persona1} = {${8:\"Ana\"}, ${9:25}};",
+      "\t${4:void} (*${10:ptr})(${3:Persona}) = ${5:mostrar};",
+      "\t${10:ptr}(${7:persona1}); // ¡Se pasa la struct completa, no los campos!",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "Puntero a función que recibe una struct por valor (copia). Caso típico del problema de Elvis."
+  },
+  "Puntero a función con Struct (por puntero)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "ptr_func_struct_ptr",
+      "puntero_funcion_struct_ptr"
+    ],
+    "body": [
+      "/*",
+      " * PUNTERO A FUNCIÓN CON STRUCT (PASO POR PUNTERO)",
+      " * -----------------------------------------------",
+      " * La función recibe la DIRECCIÓN de la struct.",
+      " * Permite MODIFICAR sus campos desde dentro.",
+      " * Dentro se usa el operador flecha (->) para acceder a los miembros.",
+      " *",
+      " * VENTAJA: no se copia la struct (más eficiente en structs grandes).",
+      " */",
+      "",
+      "typedef struct {",
+      "\t${1:char *nombre};",
+      "\t${2:int edad};",
+      "} ${3:Persona};",
+      "",
+      "${4:void} ${5:cumplir_anios}(${3:Persona} *${6:p}) {",
+      "\t${6:p}->${2:edad}++;",
+      "\tprintf(\"%s ahora tiene %d\\n\", ${6:p}->${1:nombre}, ${6:p}->${2:edad});",
+      "}",
+      "",
+      "int main(void) {",
+      "\t${3:Persona} ${7:p1} = {${8:\"Elvis\"}, ${9:18}};",
+      "\t${4:void} (*${10:ptr})(${3:Persona} *) = ${5:cumplir_anios};",
+      "\t${10:ptr}(&${7:p1}); // Se pasa la DIRECCIÓN",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "Puntero a función que recibe puntero a struct (permite modificar campos)"
+  },
+  "Puntero a función vs Typedef (comparación)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "ptr_func_vs_typedef",
+      "comparar_ptr_func"
+    ],
+    "body": [
+      "/*",
+      " * PUNTERO A FUNCIÓN: SIN TYPEDEF vs CON TYPEDEF",
+      " * ---------------------------------------------",
+      " * Ambas formas son equivalentes. La versión con typedef es",
+      " * MUCHO más legible cuando se repite muchas veces.",
+      " *",
+      " * Sintaxis SIN typedef: tipo_ret (*nombre)(params);",
+      " * Sintaxis CON typedef: typedef tipo_ret (*Alias)(params);",
+      " *                       Alias nombre;",
+      " */",
+      "",
+      "// Función de ejemplo",
+      "${1:int} ${2:sumar}(${3:int a, int b}) { return a + b; }",
+      "",
+      "// --- Forma 1: SIN typedef (verbosa) ---",
+      "${1:int} (*${4:ptr1})(${3:int, int}) = ${2:sumar};",
+      "",
+      "// --- Forma 2: CON typedef (recomendada) ---",
+      "typedef ${1:int} (*${5:Operacion})(int, int);",
+      "${5:Operacion} ${6:ptr2} = ${2:sumar};",
+      "",
+      "// Ambas invocaciones son idénticas",
+      "printf(\"%d\\n\", ${4:ptr1}(2, 3));",
+      "printf(\"%d\\n\", ${6:ptr2}(2, 3));"
+    ],
+    "description": "Comparación clara entre declarar un puntero a función con y sin typedef"
+  },
+  "Función que recibe un Callback": {
+    "scope": "c,cpp",
+    "prefix": [
+      "funcion_recibe_callback",
+      "orden_superior",
+      "higher_order"
+    ],
+    "body": [
+      "/*",
+      " * FUNCIÓN DE ORDEN SUPERIOR (recibe un callback)",
+      " * ----------------------------------------------",
+      " * Una función que recibe OTRA función como parámetro.",
+      " * Permite inyectar comportamiento dinámicamente.",
+      " *",
+      " * USO TÍPICO: procesar cada elemento de un array",
+      " * sin saber de antemano QUÉ hacer con cada uno.",
+      " *",
+      " * PASOS:",
+      " * 1. Definir un typedef para el callback (más limpio).",
+      " * 2. Escribir la función que recibe el callback.",
+      " * 3. Pasar funciones compatibles al invocar.",
+      " */",
+      "",
+      "// 1. Firma del callback",
+      "typedef ${1:void} (*${2:Accion})(int ${3:elemento});",
+      "",
+      "// 2. Función de orden superior",
+      "void ${4:procesar_array}(int *${5:arr}, size_t ${6:n}, ${2:Accion} ${7:callback}) {",
+      "\tfor (size_t i = 0; i < ${6:n}; i++) {",
+      "\t\t${7:callback}(${5:arr}[i]); // Se ejecuta el callback en cada elemento",
+      "\t}",
+      "}",
+      "",
+      "// 3. Callbacks concretos",
+      "void ${8:imprimir}(int x)  { printf(\"%d \", x); }",
+      "void ${9:duplicar}(int x)  { printf(\"%d \", x * 2); }",
+      "",
+      "int main(void) {",
+      "\tint datos[] = {1, 2, 3, 4, 5};",
+      "\t${4:procesar_array}(datos, 5, ${8:imprimir});",
+      "\tprintf(\"\\n\");",
+      "\t${4:procesar_array}(datos, 5, ${9:duplicar});",
+      "\tprintf(\"\\n\");",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "Función de orden superior que recibe un callback para inyectar comportamiento"
+  },
+  "Callback con contexto (void *user_data)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "callback_contexto",
+      "callback_user_data"
+    ],
+    "body": [
+      "/*",
+      " * CALLBACK CON CONTEXTO (void *user_data)",
+      " * ----------------------------------------",
+      " * A veces el callback necesita datos externos (configuración, acumulador, etc.).",
+      " * Se le pasa un void* que el callback castea al tipo real.",
+      " *",
+      " * Es el patrón usado por librerías como GTK, libcurl, pthread, etc.",
+      " *",
+      " * VENTAJA: la misma función callback puede usarse con distinto contexto.",
+      " */",
+      "",
+      "typedef void (*${1:Callback})(int ${2:elemento}, void *${3:contexto});",
+      "",
+      "void ${4:procesar}(int *${5:arr}, size_t ${6:n}, ${1:Callback} ${7:cb}, void *${8:ctx}) {",
+      "\tfor (size_t i = 0; i < ${6:n}; i++) {",
+      "\t\t${7:cb}(${5:arr}[i], ${8:ctx});",
+      "\t}",
+      "}",
+      "",
+      "// Callback que usa el contexto para acumular",
+      "void ${9:acumular}(int x, void *${10:ctx}) {",
+      "\tint *${11:suma} = (int*)${10:ctx};",
+      "\t*${11:suma} += x;",
+      "}",
+      "",
+      "int main(void) {",
+      "\tint datos[] = {1, 2, 3, 4, 5};",
+      "\tint total = 0;",
+      "\t${4:procesar}(datos, 5, ${9:acumular}, &total);",
+      "\tprintf(\"Total: %d\\n\", total);",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "Callback con void *user_data para pasar contexto (patrón de librerías reales)"
+  },
+  "Función que RETORNA un puntero a función": {
+    "scope": "c,cpp",
+    "prefix": [
+      "funcion_retorna_ptr_func",
+      "factory_puntero_funcion"
+    ],
+    "body": [
+      "/*",
+      " * FUNCIÓN QUE RETORNA UN PUNTERO A FUNCIÓN",
+      " * -----------------------------------------",
+      " * Sintaxis complicada de leer, por eso conviene usar typedef.",
+      " *",
+      " * SIN typedef: tipo_ret (*nombre(params_selector))(params_funcion);",
+      " * CON typedef: Alias seleccionar(params_selector);",
+      " *",
+      " * Se usa para FÁBRICAS (factory): elegir qué función devolver según",
+      " * una condición (ej. operación matemática según un carácter).",
+      " */",
+      "",
+      "// 1. Typedef para simplificar",
+      "typedef ${1:double} (*${2:Operacion})(double, double);",
+      "",
+      "double ${3:sumar}(double a, double b) { return a + b; }",
+      "double ${4:restar}(double a, double b) { return a - b; }",
+      "",
+      "// 2. Función que devuelve un puntero a función",
+      "${2:Operacion} ${5:elegir_operacion}(char ${6:op}) {",
+      "\tswitch (${6:op}) {",
+      "\t\tcase '+': return ${3:sumar};",
+      "\t\tcase '-': return ${4:restar};",
+      "\t\tdefault:  return NULL;",
+      "\t}",
+      "}",
+      "",
+      "int main(void) {",
+      "\t${2:Operacion} ${7:op} = ${5:elegir_operacion}('+');",
+      "\tif (${7:op} != NULL) {",
+      "\t\tprintf(\"Resultado: %.2f\\n\", ${7:op}(10, 3));",
+      "\t}",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "Función que devuelve un puntero a función (patrón factory)"
+  },
+  "Manejador de eventos con punteros a función": {
+    "scope": "c,cpp",
+    "prefix": [
+      "manejador_eventos",
+      "event_handler"
+    ],
+    "body": [
+      "/*",
+      " * MANEJADOR DE EVENTOS (Event Handler)",
+      " * -------------------------------------",
+      " * Simula un sistema de eventos (clic, tecla, etc.) usando punteros",
+      " * a función almacenados en una tabla.",
+      " *",
+      " * VENTAJA: agregar eventos nuevos = solo añadir una función y una entrada.",
+      " * NO se modifica la lógica de dispatch.",
+      " */",
+      "",
+      "typedef enum { ${1:EVENTO_CLIC}, ${2:EVENTO_TECLA}, ${3:EVENTO_SALIR} } ${4:TipoEvento};",
+      "typedef void (*${5:Manejador})(void);",
+      "",
+      "void ${6:on_clic}(void)  { printf(\"Clic detectado\\n\"); }",
+      "void ${7:on_tecla}(void) { printf(\"Tecla presionada\\n\"); }",
+      "void ${8:on_salir}(void) { printf(\"Saliendo...\\n\"); }",
+      "",
+      "// Tabla de dispatch: índice = valor del enum",
+      "${5:Manejador} ${9:handlers}[] = { ${6:on_clic}, ${7:on_tecla}, ${8:on_salir} };",
+      "",
+      "void ${10:disparar}(${4:TipoEvento} ${11:ev}) {",
+      "\t${9:handlers}[${11:ev}]();",
+      "}",
+      "",
+      "int main(void) {",
+      "\t${10:disparar}(${1:EVENTO_CLIC});",
+      "\t${10:disparar}(${2:EVENTO_TECLA});",
+      "\t${10:disparar}(${3:EVENTO_SALIR});",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "Sistema de eventos con tabla de punteros a función (patrón dispatcher)"
+  },
+  "Máquina de estados con punteros a función": {
+    "scope": "c,cpp",
+    "prefix": [
+      "maquina_estados",
+      "state_machine"
+    ],
+    "body": [
+      "/*",
+      " * MÁQUINA DE ESTADOS CON PUNTEROS A FUNCIÓN",
+      " * ------------------------------------------",
+      " * Cada estado es una función. Cada función decide a qué estado ir después.",
+      " * Patrón muy usado en parsers, protocolos, UI, videojuegos.",
+      " *",
+      " * VENTAJA: elimina switch/case gigantes y facilita añadir estados.",
+      " */",
+      "",
+      "typedef struct ${1:Contexto} ${1:Contexto};",
+      "typedef void (*${2:EstadoFn})(${1:Contexto} *${3:ctx});",
+      "",
+      "struct ${1:Contexto} {",
+      "\t${2:EstadoFn} ${4:estado_actual};",
+      "\tint ${5:dato};",
+      "};",
+      "",
+      "void ${6:estado_inicio}(${1:Contexto} *${3:ctx});",
+      "void ${7:estado_proceso}(${1:Contexto} *${3:ctx});",
+      "void ${8:estado_fin}(${1:Contexto} *${3:ctx});",
+      "",
+      "void ${6:estado_inicio}(${1:Contexto} *${3:ctx}) {",
+      "\tprintf(\"Estado: INICIO\\n\");",
+      "\t${3:ctx}->${4:estado_actual} = ${7:estado_proceso};",
+      "}",
+      "void ${7:estado_proceso}(${1:Contexto} *${3:ctx}) {",
+      "\tprintf(\"Estado: PROCESO (dato=%d)\\n\", ${3:ctx}->${5:dato}++);",
+      "\tif (${3:ctx}->${5:dato} >= 3) ${3:ctx}->${4:estado_actual} = ${8:estado_fin};",
+      "}",
+      "void ${8:estado_fin}(${1:Contexto} *${3:ctx}) {",
+      "\tprintf(\"Estado: FIN\\n\");",
+      "\t${3:ctx}->${4:estado_actual} = NULL;",
+      "}",
+      "",
+      "int main(void) {",
+      "\t${1:Contexto} ctx = { ${6:estado_inicio}, 0 };",
+      "\twhile (ctx.${4:estado_actual} != NULL) {",
+      "\t\tctx.${4:estado_actual}(&ctx);",
+      "\t}",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "Máquina de estados finitos usando punteros a función (sin switch/case)"
+  },
+  "Puntero a función que retorna puntero (wrapper malloc)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "ptr_func_retorna_puntero"
+    ],
+    "body": [
+      "/*",
+      " * PUNTERO A FUNCIÓN QUE RETORNA UN PUNTERO",
+      " * -----------------------------------------",
+      " * Sintaxis: tipo_ret* (*nombre)(params);",
+      " * ¡El * del retorno va ANTES del (*nombre)!",
+      " *",
+      " * Ejemplo: envolver malloc/free en punteros para poder",
+      " * inyectar distintas estrategias de asignación en tiempo de ejecución.",
+      " */",
+      "",
+      "typedef void* (*${1:AllocFn})(size_t);",
+      "typedef void  (*${2:FreeFn})(void*);",
+      "",
+      "int main(void) {",
+      "\t// Asignar las funciones estándar a los punteros",
+      "\t${1:AllocFn} ${3:mi_alloc} = malloc;",
+      "\t${2:FreeFn}  ${4:mi_free}  = free;",
+      "",
+      "\tint *${5:arr} = (int*)${3:mi_alloc}(5 * sizeof(int));",
+      "\tif (${5:arr} == NULL) return 1;",
+      "",
+      "\tfor (int i = 0; i < 5; i++) ${5:arr}[i] = i * 10;",
+      "\tfor (int i = 0; i < 5; i++) printf(\"%d \", ${5:arr}[i]);",
+      "\tprintf(\"\\n\");",
+      "",
+      "\t${4:mi_free}(${5:arr});",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "Punteros a función con retorno de puntero (wrapper de malloc/free)"
+  },
+  "Tabla de punteros a función con Struct": {
+    "scope": "c,cpp",
+    "prefix": [
+      "tabla_ptr_func_struct",
+      "menu_ptr_func_struct"
+    ],
+    "body": [
+      "/*",
+      " * TABLA DE PUNTEROS A FUNCIÓN + STRUCT (MENÚ ROBUSTO)",
+      " * ----------------------------------------------------",
+      " * Cada opción del menú tiene:",
+      " *   - Un texto descriptivo.",
+      " *   - Una función asociada (mismo prototipo).",
+      " *",
+      " * VENTAJA: agregar opciones = añadir una línea a la tabla.",
+      " * NO se toca la lógica de dispatch (sin switch/if).",
+      " */",
+      "",
+      "typedef struct {",
+      "\t${1:char *nombre};",
+      "\t${2:void} (*${3:accion})(void);",
+      "} ${4:OpcionMenu};",
+      "",
+      "void ${5:opcion_saludar}(void) { printf(\"Hola!\\n\"); }",
+      "void ${6:opcion_despedir}(void){ printf(\"Adiós!\\n\"); }",
+      "void ${7:opcion_ayuda}(void)   { printf(\"Ayuda...\\n\"); }",
+      "",
+      "int main(void) {",
+      "\t${4:OpcionMenu} ${8:menu}[] = {",
+      "\t\t{ ${9:\"Saludar\"},  ${5:opcion_saludar}  },",
+      "\t\t{ ${10:\"Despedir\"}, ${6:opcion_despedir} },",
+      "\t\t{ ${11:\"Ayuda\"},    ${7:opcion_ayuda}   },",
+      "\t};",
+      "\tint ${12:n} = sizeof(${8:menu}) / sizeof(${8:menu}[0]);",
+      "",
+      "\t// Mostrar menú",
+      "\tfor (int i = 0; i < ${12:n}; i++) {",
+      "\t\tprintf(\"%d) %s\\n\", i + 1, ${8:menu}[i].${1:nombre});",
+      "\t}",
+      "",
+      "\t// Ejecutar opción (ejemplo: índice 0)",
+      "\t${8:menu}[0].${3:accion}();",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "Tabla de opciones con struct + puntero a función (menú escalable)"
+  },
+  "Callback para qsort genérico (typedef + comparador)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "qsort_typedef_generico",
+      "comparador_generico"
+    ],
+    "body": [
+      "/*",
+      " * QSORT CON TYPEDEF PARA EL COMPARADOR",
+      " * -------------------------------------",
+      " * qsort espera un callback con firma EXACTA:",
+      " *   int (*)(const void *, const void *)",
+      " *",
+      " * Definir un typedef hace el código MUCHO más legible",
+      " * y permite tener varios comparadores intercambiables.",
+      " *",
+      " * RETORNO del comparador:",
+      " *   < 0  → el primero va antes",
+      " *   0    → son iguales",
+      " *   > 0  → el primero va después",
+      " */",
+      "",
+      "typedef int (*${1:Comparador})(const void *, const void *);",
+      "",
+      "int ${2:comparar_asc}(const void *${3:a}, const void *${4:b}) {",
+      "\tint ${5:x} = *(const int*)${3:a};",
+      "\tint ${6:y} = *(const int*)${4:b};",
+      "\treturn ${5:x} - ${6:y};",
+      "}",
+      "",
+      "int ${7:comparar_desc}(const void *${3:a}, const void *${4:b}) {",
+      "\tint ${5:x} = *(const int*)${3:a};",
+      "\tint ${6:y} = *(const int*)${4:b};",
+      "\treturn ${6:y} - ${5:x};",
+      "}",
+      "",
+      "void ${8:ordenar}(int *${9:arr}, size_t ${10:n}, ${1:Comparador} ${11:cmp}) {",
+      "\tqsort(${9:arr}, ${10:n}, sizeof(int), ${11:cmp});",
+      "}",
+      "",
+      "int main(void) {",
+      "\tint datos[] = {5, 2, 8, 1, 9};",
+      "\t${8:ordenar}(datos, 5, ${2:comparar_asc});",
+      "\tfor (int i = 0; i < 5; i++) printf(\"%d \", datos[i]);",
+      "\tprintf(\"\\n\");",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "Comparador genérico para qsort usando typedef (permite múltiples criterios)"
+  },
   "printf (menú formato)": {
     "scope": "c,cpp",
     "prefix": [
@@ -1356,6 +2252,28 @@
       "while (getchar() != '\\n');"
     ],
     "description": "Limpiar buffer de entrada"
+  },
+  "Pausa del sistema": {
+    "scope": "c,cpp",
+    "prefix": [
+      "system_pause",
+      "pausa"
+    ],
+    "body": [
+      "system(\"pause\"); // Windows"
+    ],
+    "description": "Pausar la consola (Windows)"
+  },
+  "Limpiar pantalla": {
+    "scope": "c,cpp",
+    "prefix": [
+      "cls",
+      "limpiar_pantalla"
+    ],
+    "body": [
+      "system(\"clear\"); // Linux/Mac"
+    ],
+    "description": "Limpiar la pantalla (Linux/Mac)"
   },
   "Operación de string (menú)": {
     "scope": "c,cpp",
@@ -1558,6 +2476,135 @@
     ],
     "description": "Convertir cadena a double"
   },
+  "Contar vocales": {
+    "scope": "c,cpp",
+    "prefix": [
+      "contar_vocales",
+      "vocales"
+    ],
+    "body": [
+      "int contar_vocales(const char *cadena) {",
+      "\tint contador = 0;",
+      "\tfor (int i = 0; cadena[i] != '\\0'; i++) {",
+      "\t\tchar c = tolower(cadena[i]);",
+      "\t\tif (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') contador++;",
+      "\t}",
+      "\treturn contador;",
+      "}",
+      "",
+      "// Uso:",
+      "int total = contar_vocales(\"${1:hola mundo}\");"
+    ],
+    "description": "Cuenta las vocales en una cadena"
+  },
+  "Convertir a mayúsculas": {
+    "scope": "c,cpp",
+    "prefix": [
+      "toupper",
+      "mayusculas"
+    ],
+    "body": [
+      "void a_mayusculas(char *cadena) {",
+      "\tfor (int i = 0; cadena[i]; i++) {",
+      "\t\tcadena[i] = toupper(cadena[i]);",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "char texto[] = \"${1:hola}\";",
+      "a_mayusculas(texto);"
+    ],
+    "description": "Convierte una cadena a mayúsculas (requiere ctype.h)"
+  },
+  "Convertir a minúsculas": {
+    "scope": "c,cpp",
+    "prefix": [
+      "tolower",
+      "minusculas"
+    ],
+    "body": [
+      "void a_minusculas(char *cadena) {",
+      "\tfor (int i = 0; cadena[i]; i++) {",
+      "\t\tcadena[i] = tolower(cadena[i]);",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "char texto[] = \"${1:HOLA}\";",
+      "a_minusculas(texto);"
+    ],
+    "description": "Convierte una cadena a minúsculas"
+  },
+  "Palíndromo": {
+    "scope": "c,cpp",
+    "prefix": [
+      "palindromo",
+      "es_palindromo"
+    ],
+    "body": [
+      "int es_palindromo(const char *cadena) {",
+      "\tint izquierda = 0;",
+      "\tint derecha = strlen(cadena) - 1;",
+      "\twhile (izquierda < derecha) {",
+      "\t\tif (cadena[izquierda] != cadena[derecha]) return 0;",
+      "\t\tizquierda++;",
+      "\t\tderecha--;",
+      "\t}",
+      "\treturn 1;",
+      "}",
+      "",
+      "// Uso:",
+      "if (es_palindromo(\"${1:anilina}\")) printf(\"Es palíndromo\\n\");"
+    ],
+    "description": "Verifica si una cadena es palíndromo"
+  },
+  "strcspn": {
+    "scope": "c,cpp",
+    "prefix": [
+      "strcspn",
+      "longitud_hasta"
+    ],
+    "body": [
+      "size_t ${1:len} = strcspn(${2:cadena}, \"${3:reject}\");"
+    ],
+    "description": "Calcula longitud hasta encontrar caracteres dados"
+  },
+  "strpbrk": {
+    "scope": "c,cpp",
+    "prefix": [
+      "strpbrk",
+      "buscar_cualquiera"
+    ],
+    "body": [
+      "char *${1:pos} = strpbrk(${2:cadena}, \"${3:buscar}\");",
+      "if (${1:pos} != NULL) {",
+      "\t${4:// Encontrado}",
+      "}"
+    ],
+    "description": "Busca la primera ocurrencia de cualquier carácter de un conjunto"
+  },
+  "Invertir string": {
+    "scope": "c,cpp",
+    "prefix": [
+      "invertir_string",
+      "reverse_string"
+    ],
+    "body": [
+      "void invertir_string(char *str) {",
+      "\tint n = strlen(str);",
+      "\tfor (int i = 0; i < n/2; i++) {",
+      "\t\tchar temp = str[i];",
+      "\t\tstr[i] = str[n-1-i];",
+      "\t\tstr[n-1-i] = temp;",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "char texto[] = \"${1:hola}\";",
+      "invertir_string(texto);"
+    ],
+    "description": "Invierte una cadena in-place"
+  },
   "Abrir archivo (menú modo)": {
     "scope": "c,cpp",
     "prefix": [
@@ -1712,6 +2759,42 @@
     ],
     "description": "Renombrar archivo"
   },
+  "Leer archivo completo a string": {
+    "scope": "c,cpp",
+    "prefix": [
+      "leer_archivo_completo",
+      "file_readall"
+    ],
+    "body": [
+      "char* leer_archivo_completo(const char *nombre_archivo) {",
+      "\tFILE *fp = fopen(nombre_archivo, \"r\");",
+      "\tif (fp == NULL) return NULL;",
+      "",
+      "\tfseek(fp, 0, SEEK_END);",
+      "\tlong tamaño = ftell(fp);",
+      "\tfseek(fp, 0, SEEK_SET);",
+      "",
+      "\tchar *contenido = (char*)malloc(tamaño + 1);",
+      "\tif (contenido == NULL) {",
+      "\t\tfclose(fp);",
+      "\t\treturn NULL;",
+      "\t}",
+      "",
+      "\tfread(contenido, 1, tamaño, fp);",
+      "\tcontenido[tamaño] = '\\0';",
+      "\tfclose(fp);",
+      "\treturn contenido;",
+      "}",
+      "",
+      "// Uso:",
+      "char *texto = leer_archivo_completo(\"${1:archivo.txt}\");",
+      "if (texto) {",
+      "\tprintf(\"%s\\n\", texto);",
+      "\tfree(texto);",
+      "}"
+    ],
+    "description": "Lee todo el contenido de un archivo y lo devuelve como string"
+  },
   "pow": {
     "scope": "c,cpp",
     "prefix": [
@@ -1812,121 +2895,6 @@
       "int ${1:num} = ${2:min} + rand() % (${3:max} - ${2:min} + 1);"
     ],
     "description": "Generar aleatorio en rango [min, max]"
-  },
-  "perror": {
-    "scope": "c,cpp",
-    "prefix": [
-      "perror",
-      "error_sistema"
-    ],
-    "body": [
-      "perror(\"${1:mensaje_de_error}\");"
-    ],
-    "description": "Imprimir error del sistema"
-  },
-  "exit con código": {
-    "scope": "c,cpp",
-    "prefix": [
-      "exit",
-      "salir_programa"
-    ],
-    "body": [
-      "exit(${1:codigo_de_error});"
-    ],
-    "description": "Terminar programa con código de error"
-  },
-  "assert": {
-    "scope": "c,cpp",
-    "prefix": [
-      "assert",
-      "verificar_condicion"
-    ],
-    "body": [
-      "assert(${1:condicion});"
-    ],
-    "description": "Verificar condición (requiere assert.h)"
-  },
-  "errno check": {
-    "scope": "c,cpp",
-    "prefix": [
-      "errno",
-      "verificar_errno"
-    ],
-    "body": [
-      "if (errno != 0) {",
-      "\tperror(\"Error detectado\");",
-      "\t${1:// Manejar error}",
-      "}"
-    ],
-    "description": "Verificar errno"
-  },
-  "Define constante": {
-    "scope": "c,cpp",
-    "prefix": [
-      "#",
-      "#d",
-      "#de",
-      "#def",
-      "#defi",
-      "#defin",
-      "#define",
-      "constante_macro"
-    ],
-    "body": [
-      "#define ${1:NOMBRE} ${2:valor}"
-    ],
-    "description": "Definir macro constante"
-  },
-  "Define función macro": {
-    "scope": "c,cpp",
-    "prefix": [
-      "define_func",
-      "macro_funcion"
-    ],
-    "body": [
-      "#define ${1:NOMBRE}(${2:parametros}) (${3:expresion})"
-    ],
-    "description": "Definir macro tipo función"
-  },
-  "Ifdef": {
-    "scope": "c,cpp",
-    "prefix": [
-      "ifdef",
-      "condicional_compilacion"
-    ],
-    "body": [
-      "#ifdef ${1:NOMBRE}",
-      "\t${2:// Código}",
-      "#endif"
-    ],
-    "description": "Compilación condicional con ifdef"
-  },
-  "Ifndef": {
-    "scope": "c,cpp",
-    "prefix": [
-      "ifndef",
-      "guardia_header"
-    ],
-    "body": [
-      "#ifndef ${1:HEADER_H}",
-      "#define ${1:HEADER_H}",
-      "",
-      "${2:// Contenido}",
-      "",
-      "#endif"
-    ],
-    "description": "Guardia de header"
-  },
-  "Pragma once": {
-    "scope": "c,cpp",
-    "prefix": [
-      "pragma_once",
-      "header_once"
-    ],
-    "body": [
-      "#pragma once"
-    ],
-    "description": "Alternativa a guardia de header"
   },
   "Cast explícito": {
     "scope": "c,cpp",
@@ -2029,148 +2997,111 @@
     ],
     "description": "Intercambiar valores de dos variables"
   },
-  "Pausa del sistema": {
+  "memset": {
     "scope": "c,cpp",
     "prefix": [
-      "system_pause",
-      "pausa"
+      "memset",
+      "llenar_memoria"
     ],
     "body": [
-      "system(\"pause\"); // Windows"
+      "memset(${1:ptr}, ${2:valor}, ${3:num_bytes});"
     ],
-    "description": "Pausar la consola (Windows)"
+    "description": "Llena un bloque de memoria con un valor"
   },
-  "Limpiar pantalla": {
+  "memcpy": {
     "scope": "c,cpp",
     "prefix": [
-      "cls",
-      "limpiar_pantalla"
+      "memcpy",
+      "copiar_memoria"
     ],
     "body": [
-      "system(\"clear\"); // Linux/Mac"
+      "memcpy(${1:destino}, ${2:origen}, ${3:num_bytes});"
     ],
-    "description": "Limpiar la pantalla (Linux/Mac)"
+    "description": "Copia un bloque de memoria"
   },
-  "Lista enlazada simple (int)": {
+  "memmove": {
     "scope": "c,cpp",
     "prefix": [
-      "list",
-      "lista",
-      "linked"
+      "memmove",
+      "mover_memoria"
     ],
     "body": [
-      "typedef struct Nodo {",
-      "\tint dato;",
-      "\tstruct Nodo *siguiente;",
-      "} Nodo;",
-      "",
-      "// Insertar al inicio",
-      "void insertar_inicio(Nodo **cabeza, int valor) {",
-      "\tNodo *nuevo = (Nodo*)malloc(sizeof(Nodo));",
-      "\tnuevo->dato = valor;",
-      "\tnuevo->siguiente = *cabeza;",
-      "\t*cabeza = nuevo;",
-      "}",
-      "",
-      "// Imprimir lista",
-      "void imprimir_lista(Nodo *cabeza) {",
-      "\tNodo *actual = cabeza;",
-      "\twhile (actual != NULL) {",
-      "\t\tprintf(\"%d -> \", actual->dato);",
-      "\t\tactual = actual->siguiente;",
-      "\t}",
-      "\tprintf(\"NULL\\n\");",
-      "}",
-      "",
-      "// Liberar lista",
-      "void liberar_lista(Nodo *cabeza) {",
-      "\tNodo *actual = cabeza;",
-      "\twhile (actual != NULL) {",
-      "\t\tNodo *temp = actual;",
-      "\t\tactual = actual->siguiente;",
-      "\t\tfree(temp);",
-      "\t}",
-      "}",
-      "",
-      "// Uso:",
-      "Nodo *miLista = NULL;",
-      "insertar_inicio(&miLista, ${1:10});",
-      "insertar_inicio(&miLista, ${2:20});",
-      "imprimir_lista(miLista);",
-      "liberar_lista(miLista);"
+      "memmove(${1:destino}, ${2:origen}, ${3:num_bytes});"
     ],
-    "description": "Lista enlazada de enteros con funciones básicas"
+    "description": "Copia memoria incluso si se solapan"
   },
-  "Lista enlazada con menú de tipo": {
+  "memcmp": {
     "scope": "c,cpp",
     "prefix": [
-      "list",
-      "lista",
-      "linked"
+      "memcmp",
+      "comparar_memoria"
     ],
     "body": [
-      "${1|int,float,double,char*|}",
-      "typedef struct Nodo {",
-      "\t${1} dato;",
-      "\tstruct Nodo *siguiente;",
-      "} Nodo;",
-      "",
-      "// Insertar al inicio",
-      "void insertar_inicio(Nodo **cabeza, ${1} valor) {",
-      "\tNodo *nuevo = (Nodo*)malloc(sizeof(Nodo));",
-      "\tnuevo->dato = valor;",
-      "\tnuevo->siguiente = *cabeza;",
-      "\t*cabeza = nuevo;",
-      "}",
-      "",
-      "// Recorrer e imprimir",
-      "void imprimir_lista(Nodo *cabeza) {",
-      "\tNodo *actual = cabeza;",
-      "\twhile (actual != NULL) {",
-      "\t\tprintf(\"%${2|d,f,s|} -> \", actual->dato);",
-      "\t\tactual = actual->siguiente;",
-      "\t}",
-      "\tprintf(\"NULL\\n\");",
-      "}",
-      "",
-      "// Uso:",
-      "Nodo *miLista = NULL;",
-      "insertar_inicio(&miLista, ${3:valor1});",
-      "insertar_inicio(&miLista, ${4:valor2});",
-      "imprimir_lista(miLista);"
+      "int ${1:res} = memcmp(${2:ptr1}, ${3:ptr2}, ${4:num_bytes});"
     ],
-    "description": "Lista enlazada con tipo de dato seleccionable"
+    "description": "Compara bloques de memoria"
   },
-  "For anidado (matriz)": {
+  "Obtener fecha y hora actual": {
     "scope": "c,cpp",
     "prefix": [
-      "foranidado",
-      "for2d",
-      "for_matriz"
+      "fecha",
+      "hora",
+      "time_now"
     ],
     "body": [
-      "for (int i = 0; i < ${1:filas}; i++) {",
-      "\tfor (int j = 0; j < ${2:columnas}; j++) {",
-      "\t\t${3:// Acceder a matriz[i][j]}",
-      "\t}",
+      "time_t ahora = time(NULL);",
+      "struct tm *tiempo = localtime(&ahora);",
+      "printf(\"Fecha: %04d-%02d-%02d\\n\", tiempo->tm_year + 1900, tiempo->tm_mon + 1, tiempo->tm_mday);",
+      "printf(\"Hora: %02d:%02d:%02d\\n\", tiempo->tm_hour, tiempo->tm_min, tiempo->tm_sec);"
+    ],
+    "description": "Muestra la fecha y hora actual"
+  },
+  "perror": {
+    "scope": "c,cpp",
+    "prefix": [
+      "perror",
+      "error_sistema"
+    ],
+    "body": [
+      "perror(\"${1:mensaje_de_error}\");"
+    ],
+    "description": "Imprimir error del sistema"
+  },
+  "exit con código": {
+    "scope": "c,cpp",
+    "prefix": [
+      "exit",
+      "salir_programa"
+    ],
+    "body": [
+      "exit(${1:codigo_de_error});"
+    ],
+    "description": "Terminar programa con código de error"
+  },
+  "assert": {
+    "scope": "c,cpp",
+    "prefix": [
+      "assert",
+      "verificar_condicion"
+    ],
+    "body": [
+      "assert(${1:condicion});"
+    ],
+    "description": "Verificar condición (requiere assert.h)"
+  },
+  "errno check": {
+    "scope": "c,cpp",
+    "prefix": [
+      "errno",
+      "verificar_errno"
+    ],
+    "body": [
+      "if (errno != 0) {",
+      "\tperror(\"Error detectado\");",
+      "\t${1:// Manejar error}",
       "}"
     ],
-    "description": "Doble bucle for para recorrer matrices"
-  },
-  "For anidado con inicialización": {
-    "scope": "c,cpp",
-    "prefix": [
-      "foranidado_init",
-      "matriz_init_for"
-    ],
-    "body": [
-      "for (int i = 0; i < ${1:filas}; i++) {",
-      "\tfor (int j = 0; j < ${2:columnas}; j++) {",
-      "\t\t${3:matriz}[i][j] = ${4:valor};",
-      "\t}",
-      "}"
-    ],
-    "description": "Inicializa una matriz con un valor usando fors anidados"
+    "description": "Verificar errno"
   },
   "Figuras con asteriscos (menú)": {
     "scope": "c,cpp",
@@ -2227,140 +3158,6 @@
       "}"
     ],
     "description": "Genera código para dibujar figuras con asteriscos"
-  },
-  "Inicializar matriz 2D": {
-    "scope": "c,cpp",
-    "prefix": [
-      "matriz_init",
-      "init_matriz"
-    ],
-    "body": [
-      "${1:int} ${2:matriz}[${3:filas}][${4:columnas}];",
-      "for (int i = 0; i < ${3:filas}; i++) {",
-      "\tfor (int j = 0; j < ${4:columnas}; j++) {",
-      "\t\t${2:matriz}[i][j] = ${5:0};",
-      "\t}",
-      "}"
-    ],
-    "description": "Declara e inicializa una matriz con un valor"
-  },
-  "Imprimir matriz": {
-    "scope": "c,cpp",
-    "prefix": [
-      "matriz_print",
-      "imprimir_matriz"
-    ],
-    "body": [
-      "void imprimir_matriz(${1:int} matriz[][${2:columnas}], int filas) {",
-      "\tfor (int i = 0; i < filas; i++) {",
-      "\t\tfor (int j = 0; j < ${2:columnas}; j++) {",
-      "\t\t\tprintf(\"%d \", matriz[i][j]);",
-      "\t\t}",
-      "\t\tprintf(\"\\n\");",
-      "\t}",
-      "}",
-      "",
-      "// Uso:",
-      "imprimir_matriz(${3:matriz}, ${4:filas});"
-    ],
-    "description": "Función para imprimir una matriz de enteros"
-  },
-  "Suma de matrices": {
-    "scope": "c,cpp",
-    "prefix": [
-      "matriz_suma",
-      "suma_matrices"
-    ],
-    "body": [
-      "void sumar_matrices(${1:int} A[][${2:cols}], ${1:int} B[][${2:cols}], ${1:int} C[][${2:cols}], int filas) {",
-      "\tfor (int i = 0; i < filas; i++) {",
-      "\t\tfor (int j = 0; j < ${2:cols}; j++) {",
-      "\t\t\tC[i][j] = A[i][j] + B[i][j];",
-      "\t\t}",
-      "\t}",
-      "}",
-      "",
-      "// Uso:",
-      "sumar_matrices(A, B, C, ${3:filas});"
-    ],
-    "description": "Función para sumar dos matrices"
-  },
-  "Multiplicación de matrices": {
-    "scope": "c,cpp",
-    "prefix": [
-      "matriz_multiplicar",
-      "multiplicar_matrices"
-    ],
-    "body": [
-      "void multiplicar_matrices(${1:int} A[][${2:k}], ${1:int} B[][${3:n}], ${1:int} C[][${3:n}], int m, int k, int n) {",
-      "\tfor (int i = 0; i < m; i++) {",
-      "\t\tfor (int j = 0; j < n; j++) {",
-      "\t\t\tC[i][j] = 0;",
-      "\t\t\tfor (int x = 0; x < k; x++) {",
-      "\t\t\t\tC[i][j] += A[i][x] * B[x][j];",
-      "\t\t\t}",
-      "\t\t}",
-      "\t}",
-      "}",
-      "",
-      "// Uso:",
-      "multiplicar_matrices(A, B, C, ${4:m}, ${2:k}, ${3:n});"
-    ],
-    "description": "Función para multiplicar dos matrices"
-  },
-  "Vector dinámico simple": {
-    "scope": "c,cpp",
-    "prefix": [
-      "vector",
-      "lista_simple"
-    ],
-    "body": [
-      "typedef struct {",
-      "\t${1|int,float,double,char*|} *datos;",
-      "\tint tamaño;",
-      "\tint capacidad;",
-      "} Vector;",
-      "",
-      "// Inicializar vector",
-      "void vector_init(Vector *v, int capacidad_inicial) {",
-      "\tv->datos = (${1}*)malloc(capacidad_inicial * sizeof(${1}));",
-      "\tv->tamaño = 0;",
-      "\tv->capacidad = capacidad_inicial;",
-      "}",
-      "",
-      "// Agregar elemento",
-      "void vector_agregar(Vector *v, ${1} valor) {",
-      "\tif (v->tamaño >= v->capacidad) {",
-      "\t\tv->capacidad *= 2;",
-      "\t\tv->datos = (${1}*)realloc(v->datos, v->capacidad * sizeof(${1}));",
-      "\t}",
-      "\tv->datos[v->tamaño++] = valor;",
-      "}",
-      "",
-      "// Obtener elemento",
-      "${1} vector_obtener(Vector *v, int indice) {",
-      "\tif (indice >= 0 && indice < v->tamaño) {",
-      "\t\treturn v->datos[indice];",
-      "\t}",
-      "\treturn (${1})0;",
-      "}",
-      "",
-      "// Liberar vector",
-      "void vector_liberar(Vector *v) {",
-      "\tfree(v->datos);",
-      "\tv->datos = NULL;",
-      "\tv->tamaño = v->capacidad = 0;",
-      "}",
-      "",
-      "// Uso:",
-      "Vector vec;",
-      "vector_init(&vec, 4);",
-      "vector_agregar(&vec, ${2:valor1});",
-      "vector_agregar(&vec, ${3:valor2});",
-      "printf(\"Elemento 0: %${4|d,f,s|}\\n\", vector_obtener(&vec, 0));",
-      "vector_liberar(&vec);"
-    ],
-    "description": "Vector dinámico genérico con funciones básicas"
   },
   "Ordenamiento burbuja (menú dirección)": {
     "scope": "c,cpp",
@@ -2502,141 +3299,168 @@
     ],
     "description": "Verifica si un número es primo"
   },
-  "Contar vocales": {
+  "Ordenamiento por inserción": {
     "scope": "c,cpp",
     "prefix": [
-      "contar_vocales",
-      "vocales"
+      "insertion_sort",
+      "ordenar_insercion"
     ],
     "body": [
-      "int contar_vocales(const char *cadena) {",
-      "\tint contador = 0;",
-      "\tfor (int i = 0; cadena[i] != '\\0'; i++) {",
-      "\t\tchar c = tolower(cadena[i]);",
-      "\t\tif (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') contador++;",
-      "\t}",
-      "\treturn contador;",
-      "}",
-      "",
-      "// Uso:",
-      "int total = contar_vocales(\"${1:hola mundo}\");"
-    ],
-    "description": "Cuenta las vocales en una cadena"
-  },
-  "Convertir a mayúsculas": {
-    "scope": "c,cpp",
-    "prefix": [
-      "toupper",
-      "mayusculas"
-    ],
-    "body": [
-      "void a_mayusculas(char *cadena) {",
-      "\tfor (int i = 0; cadena[i]; i++) {",
-      "\t\tcadena[i] = toupper(cadena[i]);",
+      "void insertion_sort(${1|int,float,double|} arr[], int n) {",
+      "\tfor (int i = 1; i < n; i++) {",
+      "\t\t${1} clave = arr[i];",
+      "\t\tint j = i - 1;",
+      "\t\twhile (j >= 0 && arr[j] > clave) {",
+      "\t\t\tarr[j + 1] = arr[j];",
+      "\t\t\tj--;",
+      "\t\t}",
+      "\t\tarr[j + 1] = clave;",
       "\t}",
       "}",
       "",
       "// Uso:",
-      "char texto[] = \"${1:hola}\";",
-      "a_mayusculas(texto);"
+      "${1} datos[] = {${2:5, 2, 8, 1, 9}};",
+      "insertion_sort(datos, 5);"
     ],
-    "description": "Convierte una cadena a mayúsculas (requiere ctype.h)"
+    "description": "Ordena un array con el método de inserción"
   },
-  "Convertir a minúsculas": {
+  "Ordenamiento por selección": {
     "scope": "c,cpp",
     "prefix": [
-      "tolower",
-      "minusculas"
+      "selection_sort",
+      "ordenar_seleccion"
     ],
     "body": [
-      "void a_minusculas(char *cadena) {",
-      "\tfor (int i = 0; cadena[i]; i++) {",
-      "\t\tcadena[i] = tolower(cadena[i]);",
+      "void selection_sort(${1|int,float,double|} arr[], int n) {",
+      "\tfor (int i = 0; i < n-1; i++) {",
+      "\t\tint min_idx = i;",
+      "\t\tfor (int j = i+1; j < n; j++) {",
+      "\t\t\tif (arr[j] < arr[min_idx]) min_idx = j;",
+      "\t\t}",
+      "\t\t${1} temp = arr[min_idx];",
+      "\t\tarr[min_idx] = arr[i];",
+      "\t\tarr[i] = temp;",
       "\t}",
       "}",
       "",
       "// Uso:",
-      "char texto[] = \"${1:HOLA}\";",
-      "a_minusculas(texto);"
+      "${1} datos[] = {${2:5, 2, 8, 1, 9}};",
+      "selection_sort(datos, 5);"
     ],
-    "description": "Convierte una cadena a minúsculas"
+    "description": "Ordena un array con el método de selección"
   },
-  "Palíndromo": {
+  "Patrón mariposa": {
     "scope": "c,cpp",
     "prefix": [
-      "palindromo",
-      "es_palindromo"
+      "mariposa",
+      "butterfly"
     ],
     "body": [
-      "int es_palindromo(const char *cadena) {",
-      "\tint izquierda = 0;",
-      "\tint derecha = strlen(cadena) - 1;",
-      "\twhile (izquierda < derecha) {",
-      "\t\tif (cadena[izquierda] != cadena[derecha]) return 0;",
-      "\t\tizquierda++;",
-      "\t\tderecha--;",
-      "\t}",
-      "\treturn 1;",
+      "int n = ${1:5}; // mitad",
+      "for (int i = 1; i <= n; i++) {",
+      "\tfor (int j = 1; j <= i; j++) printf(\"*\");",
+      "\tfor (int j = 1; j <= 2*(n-i); j++) printf(\" \");",
+      "\tfor (int j = 1; j <= i; j++) printf(\"*\");",
+      "\tprintf(\"\\n\");",
       "}",
-      "",
-      "// Uso:",
-      "if (es_palindromo(\"${1:anilina}\")) printf(\"Es palíndromo\\n\");"
-    ],
-    "description": "Verifica si una cadena es palíndromo"
-  },
-  "Intercambio con punteros": {
-    "scope": "c,cpp",
-    "prefix": [
-      "swap_ptr",
-      "intercambiar_ptr"
-    ],
-    "body": [
-      "void swap(${1|int,float,double,char*} *a, ${1} *b) {",
-      "\t${1} temp = *a;",
-      "\t*a = *b;",
-      "\t*b = temp;",
-      "}",
-      "",
-      "// Uso:",
-      "swap(&x, &y);"
-    ],
-    "description": "Función de intercambio usando punteros"
-  },
-  "Leer archivo completo a string": {
-    "scope": "c,cpp",
-    "prefix": [
-      "leer_archivo_completo",
-      "file_readall"
-    ],
-    "body": [
-      "char* leer_archivo_completo(const char *nombre_archivo) {",
-      "\tFILE *fp = fopen(nombre_archivo, \"r\");",
-      "\tif (fp == NULL) return NULL;",
-      "",
-      "\tfseek(fp, 0, SEEK_END);",
-      "\tlong tamaño = ftell(fp);",
-      "\tfseek(fp, 0, SEEK_SET);",
-      "",
-      "\tchar *contenido = (char*)malloc(tamaño + 1);",
-      "\tif (contenido == NULL) {",
-      "\t\tfclose(fp);",
-      "\t\treturn NULL;",
-      "\t}",
-      "",
-      "\tfread(contenido, 1, tamaño, fp);",
-      "\tcontenido[tamaño] = '\\0';",
-      "\tfclose(fp);",
-      "\treturn contenido;",
-      "}",
-      "",
-      "// Uso:",
-      "char *texto = leer_archivo_completo(\"${1:archivo.txt}\");",
-      "if (texto) {",
-      "\tprintf(\"%s\\n\", texto);",
-      "\tfree(texto);",
+      "for (int i = n; i >= 1; i--) {",
+      "\tfor (int j = 1; j <= i; j++) printf(\"*\");",
+      "\tfor (int j = 1; j <= 2*(n-i); j++) printf(\" \");",
+      "\tfor (int j = 1; j <= i; j++) printf(\"*\");",
+      "\tprintf(\"\\n\");",
       "}"
     ],
-    "description": "Lee todo el contenido de un archivo y lo devuelve como string"
+    "description": "Dibuja un patrón de mariposa con asteriscos"
+  },
+  "Lista enlazada simple (int)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "list",
+      "lista",
+      "linked"
+    ],
+    "body": [
+      "typedef struct Nodo {",
+      "\tint dato;",
+      "\tstruct Nodo *siguiente;",
+      "} Nodo;",
+      "",
+      "// Insertar al inicio",
+      "void insertar_inicio(Nodo **cabeza, int valor) {",
+      "\tNodo *nuevo = (Nodo*)malloc(sizeof(Nodo));",
+      "\tnuevo->dato = valor;",
+      "\tnuevo->siguiente = *cabeza;",
+      "\t*cabeza = nuevo;",
+      "}",
+      "",
+      "// Imprimir lista",
+      "void imprimir_lista(Nodo *cabeza) {",
+      "\tNodo *actual = cabeza;",
+      "\twhile (actual != NULL) {",
+      "\t\tprintf(\"%d -> \", actual->dato);",
+      "\t\tactual = actual->siguiente;",
+      "\t}",
+      "\tprintf(\"NULL\\n\");",
+      "}",
+      "",
+      "// Liberar lista",
+      "void liberar_lista(Nodo *cabeza) {",
+      "\tNodo *actual = cabeza;",
+      "\twhile (actual != NULL) {",
+      "\t\tNodo *temp = actual;",
+      "\t\tactual = actual->siguiente;",
+      "\t\tfree(temp);",
+      "\t}",
+      "}",
+      "",
+      "// Uso:",
+      "Nodo *miLista = NULL;",
+      "insertar_inicio(&miLista, ${1:10});",
+      "insertar_inicio(&miLista, ${2:20});",
+      "imprimir_lista(miLista);",
+      "liberar_lista(miLista);"
+    ],
+    "description": "Lista enlazada de enteros con funciones básicas"
+  },
+  "Lista enlazada con menú de tipo": {
+    "scope": "c,cpp",
+    "prefix": [
+      "list",
+      "lista",
+      "linked"
+    ],
+    "body": [
+      "${1|int,float,double,char*|}",
+      "typedef struct Nodo {",
+      "\t${1} dato;",
+      "\tstruct Nodo *siguiente;",
+      "} Nodo;",
+      "",
+      "// Insertar al inicio",
+      "void insertar_inicio(Nodo **cabeza, ${1} valor) {",
+      "\tNodo *nuevo = (Nodo*)malloc(sizeof(Nodo));",
+      "\tnuevo->dato = valor;",
+      "\tnuevo->siguiente = *cabeza;",
+      "\t*cabeza = nuevo;",
+      "}",
+      "",
+      "// Recorrer e imprimir",
+      "void imprimir_lista(Nodo *cabeza) {",
+      "\tNodo *actual = cabeza;",
+      "\twhile (actual != NULL) {",
+      "\t\tprintf(\"%${2|d,f,s|} -> \", actual->dato);",
+      "\t\tactual = actual->siguiente;",
+      "\t}",
+      "\tprintf(\"NULL\\n\");",
+      "}",
+      "",
+      "// Uso:",
+      "Nodo *miLista = NULL;",
+      "insertar_inicio(&miLista, ${3:valor1});",
+      "insertar_inicio(&miLista, ${4:valor2});",
+      "imprimir_lista(miLista);"
+    ],
+    "description": "Lista enlazada con tipo de dato seleccionable"
   },
   "Lista doblemente enlazada": {
     "scope": "c,cpp",
@@ -2869,416 +3693,6 @@
     ],
     "description": "Árbol binario de búsqueda con inserción y recorrido"
   },
-  "Operaciones con bits (menú)": {
-    "scope": "c,cpp",
-    "prefix": [
-      "bits",
-      "bitwise"
-    ],
-    "body": [
-      "${1|set,clear,toggle,check|}",
-      "// Función para ${1} bit",
-      "unsigned int ${1}_bit(unsigned int num, int pos) {",
-      "\tswitch (${1}) {",
-      "\t\tcase \"set\": return num | (1 << pos);",
-      "\t\tcase \"clear\": return num & ~(1 << pos);",
-      "\t\tcase \"toggle\": return num ^ (1 << pos);",
-      "\t\tcase \"check\": return (num & (1 << pos)) != 0;",
-      "\t}",
-      "\treturn num;",
-      "}",
-      "",
-      "// Uso:",
-      "unsigned int x = ${2:0};",
-      "x = set_bit(x, 3); // poner bit 3",
-      "if (check_bit(x, 3)) printf(\"Bit 3 activo\\n\");"
-    ],
-    "description": "Operaciones de manipulación de bits"
-  },
-  "Ordenamiento por inserción": {
-    "scope": "c,cpp",
-    "prefix": [
-      "insertion_sort",
-      "ordenar_insercion"
-    ],
-    "body": [
-      "void insertion_sort(${1|int,float,double|} arr[], int n) {",
-      "\tfor (int i = 1; i < n; i++) {",
-      "\t\t${1} clave = arr[i];",
-      "\t\tint j = i - 1;",
-      "\t\twhile (j >= 0 && arr[j] > clave) {",
-      "\t\t\tarr[j + 1] = arr[j];",
-      "\t\t\tj--;",
-      "\t\t}",
-      "\t\tarr[j + 1] = clave;",
-      "\t}",
-      "}",
-      "",
-      "// Uso:",
-      "${1} datos[] = {${2:5, 2, 8, 1, 9}};",
-      "insertion_sort(datos, 5);"
-    ],
-    "description": "Ordena un array con el método de inserción"
-  },
-  "Ordenamiento por selección": {
-    "scope": "c,cpp",
-    "prefix": [
-      "selection_sort",
-      "ordenar_seleccion"
-    ],
-    "body": [
-      "void selection_sort(${1|int,float,double|} arr[], int n) {",
-      "\tfor (int i = 0; i < n-1; i++) {",
-      "\t\tint min_idx = i;",
-      "\t\tfor (int j = i+1; j < n; j++) {",
-      "\t\t\tif (arr[j] < arr[min_idx]) min_idx = j;",
-      "\t\t}",
-      "\t\t${1} temp = arr[min_idx];",
-      "\t\tarr[min_idx] = arr[i];",
-      "\t\tarr[i] = temp;",
-      "\t}",
-      "}",
-      "",
-      "// Uso:",
-      "${1} datos[] = {${2:5, 2, 8, 1, 9}};",
-      "selection_sort(datos, 5);"
-    ],
-    "description": "Ordena un array con el método de selección"
-  },
-  "Macros MIN, MAX, SWAP": {
-    "scope": "c,cpp",
-    "prefix": [
-      "macros",
-      "min_max_swap"
-    ],
-    "body": [
-      "#define MIN(a, b) ((a) < (b) ? (a) : (b))",
-      "#define MAX(a, b) ((a) > (b) ? (a) : (b))",
-      "#define SWAP(a, b) do { __typeof__(a) temp = a; a = b; b = temp; } while(0)"
-    ],
-    "description": "Define macros útiles MIN, MAX y SWAP"
-  },
-  "memset": {
-    "scope": "c,cpp",
-    "prefix": [
-      "memset",
-      "llenar_memoria"
-    ],
-    "body": [
-      "memset(${1:ptr}, ${2:valor}, ${3:num_bytes});"
-    ],
-    "description": "Llena un bloque de memoria con un valor"
-  },
-  "memcpy": {
-    "scope": "c,cpp",
-    "prefix": [
-      "memcpy",
-      "copiar_memoria"
-    ],
-    "body": [
-      "memcpy(${1:destino}, ${2:origen}, ${3:num_bytes});"
-    ],
-    "description": "Copia un bloque de memoria"
-  },
-  "memmove": {
-    "scope": "c,cpp",
-    "prefix": [
-      "memmove",
-      "mover_memoria"
-    ],
-    "body": [
-      "memmove(${1:destino}, ${2:origen}, ${3:num_bytes});"
-    ],
-    "description": "Copia memoria incluso si se solapan"
-  },
-  "memcmp": {
-    "scope": "c,cpp",
-    "prefix": [
-      "memcmp",
-      "comparar_memoria"
-    ],
-    "body": [
-      "int ${1:res} = memcmp(${2:ptr1}, ${3:ptr2}, ${4:num_bytes});"
-    ],
-    "description": "Compara bloques de memoria"
-  },
-  "strcspn": {
-    "scope": "c,cpp",
-    "prefix": [
-      "strcspn",
-      "longitud_hasta"
-    ],
-    "body": [
-      "size_t ${1:len} = strcspn(${2:cadena}, \"${3:reject}\");"
-    ],
-    "description": "Calcula longitud hasta encontrar caracteres dados"
-  },
-  "strpbrk": {
-    "scope": "c,cpp",
-    "prefix": [
-      "strpbrk",
-      "buscar_cualquiera"
-    ],
-    "body": [
-      "char *${1:pos} = strpbrk(${2:cadena}, \"${3:buscar}\");",
-      "if (${1:pos} != NULL) {",
-      "\t${4:// Encontrado}",
-      "}"
-    ],
-    "description": "Busca la primera ocurrencia de cualquier carácter de un conjunto"
-  },
-  "Obtener fecha y hora actual": {
-    "scope": "c,cpp",
-    "prefix": [
-      "fecha",
-      "hora",
-      "time_now"
-    ],
-    "body": [
-      "time_t ahora = time(NULL);",
-      "struct tm *tiempo = localtime(&ahora);",
-      "printf(\"Fecha: %04d-%02d-%02d\\n\", tiempo->tm_year + 1900, tiempo->tm_mon + 1, tiempo->tm_mday);",
-      "printf(\"Hora: %02d:%02d:%02d\\n\", tiempo->tm_hour, tiempo->tm_min, tiempo->tm_sec);"
-    ],
-    "description": "Muestra la fecha y hora actual"
-  },
-  "Patrón mariposa": {
-    "scope": "c,cpp",
-    "prefix": [
-      "mariposa",
-      "butterfly"
-    ],
-    "body": [
-      "int n = ${1:5}; // mitad",
-      "for (int i = 1; i <= n; i++) {",
-      "\tfor (int j = 1; j <= i; j++) printf(\"*\");",
-      "\tfor (int j = 1; j <= 2*(n-i); j++) printf(\" \");",
-      "\tfor (int j = 1; j <= i; j++) printf(\"*\");",
-      "\tprintf(\"\\n\");",
-      "}",
-      "for (int i = n; i >= 1; i--) {",
-      "\tfor (int j = 1; j <= i; j++) printf(\"*\");",
-      "\tfor (int j = 1; j <= 2*(n-i); j++) printf(\" \");",
-      "\tfor (int j = 1; j <= i; j++) printf(\"*\");",
-      "\tprintf(\"\\n\");",
-      "}"
-    ],
-    "description": "Dibuja un patrón de mariposa con asteriscos"
-  },
-  "Invertir string": {
-    "scope": "c,cpp",
-    "prefix": [
-      "invertir_string",
-      "reverse_string"
-    ],
-    "body": [
-      "void invertir_string(char *str) {",
-      "\tint n = strlen(str);",
-      "\tfor (int i = 0; i < n/2; i++) {",
-      "\t\tchar temp = str[i];",
-      "\t\tstr[i] = str[n-1-i];",
-      "\t\tstr[n-1-i] = temp;",
-      "\t}",
-      "}",
-      "",
-      "// Uso:",
-      "char texto[] = \"${1:hola}\";",
-      "invertir_string(texto);"
-    ],
-    "description": "Invierte una cadena in-place"
-  },
-  "Invertir array": {
-    "scope": "c,cpp",
-    "prefix": [
-      "invertir_array",
-      "reverse_array"
-    ],
-    "body": [
-      "void invertir_array(${1|int,float,double|} arr[], int n) {",
-      "\tfor (int i = 0; i < n/2; i++) {",
-      "\t\t${1} temp = arr[i];",
-      "\t\tarr[i] = arr[n-1-i];",
-      "\t\tarr[n-1-i] = temp;",
-      "\t}",
-      "}",
-      "",
-      "// Uso:",
-      "${1} datos[] = {${2:1, 2, 3, 4, 5}};",
-      "invertir_array(datos, 5);"
-    ],
-    "description": "Invierte un array de cualquier tipo"
-  },
-  "Eliminar duplicados (array ordenado)": {
-    "scope": "c,cpp",
-    "prefix": [
-      "eliminar_duplicados",
-      "unique_array"
-    ],
-    "body": [
-      "int eliminar_duplicados(${1|int,float,double|} arr[], int n) {",
-      "\tif (n == 0 || n == 1) return n;",
-      "\tint j = 0;",
-      "\tfor (int i = 0; i < n-1; i++) {",
-      "\t\tif (arr[i] != arr[i+1]) arr[j++] = arr[i];",
-      "\t}",
-      "\tarr[j++] = arr[n-1];",
-      "\treturn j;",
-      "}",
-      "",
-      "// Uso (requiere array ordenado):",
-      "${1} datos[] = {${2:1, 1, 2, 2, 3}};",
-      "int nuevo_tam = eliminar_duplicados(datos, 5);"
-    ],
-    "description": "Elimina duplicados en un array ordenado"
-  },
-  "Rotar array a la izquierda": {
-    "scope": "c,cpp",
-    "prefix": [
-      "rotar_izquierda",
-      "rotate_left"
-    ],
-    "body": [
-      "void rotar_izquierda(${1|int,float,double|} arr[], int n, int k) {",
-      "\tk = k % n;",
-      "\t${1} temp[k];",
-      "\tfor (int i = 0; i < k; i++) temp[i] = arr[i];",
-      "\tfor (int i = 0; i < n-k; i++) arr[i] = arr[i+k];",
-      "\tfor (int i = 0; i < k; i++) arr[n-k+i] = temp[i];",
-      "}",
-      "",
-      "// Uso:",
-      "${1} datos[] = {${2:1, 2, 3, 4, 5}};",
-      "rotar_izquierda(datos, 5, ${3:2});"
-    ],
-    "description": "Rota un array a la izquierda k posiciones"
-  },
-  "React useState": {
-    "prefix": "usestate",
-    "body": [
-      "const [${1:estado}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:valorInicial});"
-    ],
-    "description": "Hook useState de React: [estado, setEstado] = useState(valorInicial)"
-  },
-  "React useState con tipo TypeScript": {
-    "prefix": "usestatets",
-    "body": [
-      "const [${1:estado}, set${1/(.*)/${1:/capitalize}/}] = useState<${2:tipo}>(${3:valorInicial});"
-    ],
-    "description": "Hook useState de React con tipo TypeScript"
-  },
-  "React useState booleano": {
-    "prefix": "usestatebool",
-    "body": [
-      "const [${1:activo}, set${1/(.*)/${1:/capitalize}/}] = useState<boolean>(${2:false});"
-    ],
-    "description": "Hook useState de React para booleanos"
-  },
-  "React useState objeto": {
-    "prefix": "usestateobj",
-    "body": [
-      "const [${1:datos}, set${1/(.*)/${1:/capitalize}/}] = useState<${2:Tipo}>(${3:{\n\t$4\n}});"
-    ],
-    "description": "Hook useState de React para objetos con tipo"
-  },
-  "Malloc Avanzado (Array + Recorrido)": {
-    "scope": "c,cpp",
-    "prefix": [
-      "malloc_avanzado"
-    ],
-    "body": [
-      "// TODO: Definir el tipo de dato y la cantidad de elementos necesarios",
-      "${1:tipo} *${2:array} = (${1:tipo}*)malloc(${3:cantidad} * sizeof(${1:tipo}));",
-      "if (${2:array} == NULL) {",
-      "\tperror(\"Error asignando memoria para $2\");",
-      "\texit(EXIT_FAILURE);",
-      "}",
-      "",
-      "// TODO: Llenar o procesar los datos del array",
-      "for (size_t i = 0; i < ${3:cantidad}; i++) {",
-      "\t${2:array}[i] = ${4:0}; // Inicialización por defecto",
-      "}",
-      "",
-      "// TODO: No olvidar liberar la memoria cuando ya no se use",
-      "// free(${2:array});"
-    ],
-    "description": "Malloc avanzado con verificación y recorrido inicial"
-  },
-  "Realloc Seguro Avanzado": {
-    "scope": "c,cpp",
-    "prefix": [
-      "realloc_avanzado"
-    ],
-    "body": [
-      "// TODO: Especificar la nueva cantidad de elementos requerida",
-      "${1:tipo} *temp = (${1:tipo}*)realloc(${2:ptr_existente}, ${3:nueva_cantidad} * sizeof(${1:tipo}));",
-      "if (temp == NULL) {",
-      "\tperror(\"Error al redimensionar memoria para $2\");",
-      "\t// TODO: Manejar el error (el puntero original $2 sigue intacto, liberarlo si es necesario)",
-      "\t// free(${2:ptr_existente});",
-      "\texit(EXIT_FAILURE);",
-      "}",
-      "${2:ptr_existente} = temp;"
-    ],
-    "description": "Realloc con puntero temporal para evitar fugas de memoria"
-  },
-  "Punteros: Aritmética": {
-    "scope": "c,cpp",
-    "prefix": [
-      "puntero_aritmetica"
-    ],
-    "body": [
-      "/*",
-      " * ARITMÉTICA DE PUNTEROS",
-      " * ----------------------",
-      " * En lugar de usar índices como array[i], sumamos directamente",
-      " * posiciones a la dirección de memoria: *(ptr + i).",
-      " * El compilador sabe cuántos bytes saltar según el TIPO del puntero.",
-      " */",
-      "// TODO: Reemplazar el tamaño y los tipos por los reales",
-      "${1:tipo} array[${2:5}] = {0};",
-      "${1:tipo} *ptr = array;",
-      "for (int i = 0; i < ${2:5}; i++) {",
-      "\t// TODO: Realizar operaciones utilizando aritmética de punteros",
-      "\t*(ptr + i) = ${3:i + 1};",
-      "\tprintf(\"Elemento %d: %d\\n\", i, *(ptr + i));",
-      "}"
-    ],
-    "description": "Ejemplo de aritmética de punteros para recorrer arreglos"
-  },
-  "Punteros: Matriz Dinámica 2D (Doble Puntero)": {
-    "scope": "c,cpp",
-    "prefix": [
-      "matriz_dinamica_2d"
-    ],
-    "body": [
-      "/*",
-      " * MATRIZ DINÁMICA 2D (DOBLE PUNTERO **)",
-      " * -------------------------------------",
-      " * Un array de arrays. Primero reservamos memoria para un array",
-      " * de punteros (las filas). Luego, para cada fila, reservamos",
-      " * memoria para sus elementos (las columnas).",
-      " */",
-      "// TODO: Especificar número de filas y columnas",
-      "int filas = ${1:3}, columnas = ${2:4};",
-      "${3:int} **matriz = (${3:int}**)malloc(filas * sizeof(${3:int}*));",
-      "if (matriz == NULL) {",
-      "\tperror(\"Error reservando filas\");",
-      "\texit(EXIT_FAILURE);",
-      "}",
-      "",
-      "for (int i = 0; i < filas; i++) {",
-      "\tmatriz[i] = (${3:int}*)malloc(columnas * sizeof(${3:int}));",
-      "\tif (matriz[i] == NULL) {",
-      "\t\tperror(\"Error reservando columnas\");",
-      "\t\t// TODO: Liberar memoria previamente reservada para evitar fugas",
-      "\t\texit(EXIT_FAILURE);",
-      "\t}",
-      "}",
-      "",
-      "// TODO: No olvides crear una función para liberar la matriz (usando free por cada fila y luego la matriz en sí)"
-    ],
-    "description": "Reserva de memoria para matriz bidimensional usando puntero doble"
-  },
   "Lista Simple (Estructura y Nodo)": {
     "scope": "c,cpp",
     "prefix": [
@@ -3470,439 +3884,58 @@
     ],
     "description": "Imprime la lista doble hacia adelante y hacia atrás"
   },
-  "Puntero a función con Struct (por valor)": {
+  "Operaciones con bits (menú)": {
     "scope": "c,cpp",
-    "prefix": ["ptr_func_struct_valor", "puntero_funcion_struct"],
-    "body": [
-      "/*",
-      " * PUNTERO A FUNCIÓN CON STRUCT (PASO POR VALOR)",
-      " * ---------------------------------------------",
-      " * La función recibe una COPIA de la struct.",
-      " * Útil cuando solo necesitas LEER sus datos.",
-      " *",
-      " * REGLAS:",
-      " * 1. La firma del puntero debe coincidir EXACTAMENTE con la función:",
-      " *    tipo_retorno (*nombre)(tipos_de_parametros);",
-      " * 2. Al invocar, se pasa la struct COMPLETA, NO sus campos sueltos.",
-      " * 3. Los paréntesis alrededor de (*nombre) son OBLIGATORIOS.",
-      " */",
-      "",
-      "typedef struct {",
-      "\t${1:char *nombre};",
-      "\t${2:int edad};",
-      "} ${3:Persona};",
-      "",
-      "// Función compatible",
-      "${4:void} ${5:mostrar}(${3:Persona} ${6:p}) {",
-      "\tprintf(\"Nombre: %s | Edad: %d\\n\", ${6:p}.${1:nombre}, ${6:p}.${2:edad});",
-      "}",
-      "",
-      "int main(void) {",
-      "\t${3:Persona} ${7:persona1} = {${8:\"Ana\"}, ${9:25}};",
-      "\t${4:void} (*${10:ptr})(${3:Persona}) = ${5:mostrar};",
-      "\t${10:ptr}(${7:persona1}); // ¡Se pasa la struct completa, no los campos!",
-      "\treturn 0;",
-      "}"
+    "prefix": [
+      "bits",
+      "bitwise"
     ],
-    "description": "Puntero a función que recibe una struct por valor (copia). Caso típico del problema de Elvis."
-  },
-  "Puntero a función con Struct (por puntero)": {
-    "scope": "c,cpp",
-    "prefix": ["ptr_func_struct_ptr", "puntero_funcion_struct_ptr"],
     "body": [
-      "/*",
-      " * PUNTERO A FUNCIÓN CON STRUCT (PASO POR PUNTERO)",
-      " * -----------------------------------------------",
-      " * La función recibe la DIRECCIÓN de la struct.",
-      " * Permite MODIFICAR sus campos desde dentro.",
-      " * Dentro se usa el operador flecha (->) para acceder a los miembros.",
-      " *",
-      " * VENTAJA: no se copia la struct (más eficiente en structs grandes).",
-      " */",
-      "",
-      "typedef struct {",
-      "\t${1:char *nombre};",
-      "\t${2:int edad};",
-      "} ${3:Persona};",
-      "",
-      "${4:void} ${5:cumplir_anios}(${3:Persona} *${6:p}) {",
-      "\t${6:p}->${2:edad}++;",
-      "\tprintf(\"%s ahora tiene %d\\n\", ${6:p}->${1:nombre}, ${6:p}->${2:edad});",
-      "}",
-      "",
-      "int main(void) {",
-      "\t${3:Persona} ${7:p1} = {${8:\"Elvis\"}, ${9:18}};",
-      "\t${4:void} (*${10:ptr})(${3:Persona} *) = ${5:cumplir_anios};",
-      "\t${10:ptr}(&${7:p1}); // Se pasa la DIRECCIÓN",
-      "\treturn 0;",
-      "}"
-    ],
-    "description": "Puntero a función que recibe puntero a struct (permite modificar campos)"
-  },
-  "Puntero a función vs Typedef (comparación)": {
-    "scope": "c,cpp",
-    "prefix": ["ptr_func_vs_typedef", "comparar_ptr_func"],
-    "body": [
-      "/*",
-      " * PUNTERO A FUNCIÓN: SIN TYPEDEF vs CON TYPEDEF",
-      " * ---------------------------------------------",
-      " * Ambas formas son equivalentes. La versión con typedef es",
-      " * MUCHO más legible cuando se repite muchas veces.",
-      " *",
-      " * Sintaxis SIN typedef: tipo_ret (*nombre)(params);",
-      " * Sintaxis CON typedef: typedef tipo_ret (*Alias)(params);",
-      " *                       Alias nombre;",
-      " */",
-      "",
-      "// Función de ejemplo",
-      "${1:int} ${2:sumar}(${3:int a, int b}) { return a + b; }",
-      "",
-      "// --- Forma 1: SIN typedef (verbosa) ---",
-      "${1:int} (*${4:ptr1})(${3:int, int}) = ${2:sumar};",
-      "",
-      "// --- Forma 2: CON typedef (recomendada) ---",
-      "typedef ${1:int} (*${5:Operacion})(int, int);",
-      "${5:Operacion} ${6:ptr2} = ${2:sumar};",
-      "",
-      "// Ambas invocaciones son idénticas",
-      "printf(\"%d\\n\", ${4:ptr1}(2, 3));",
-      "printf(\"%d\\n\", ${6:ptr2}(2, 3));"
-    ],
-    "description": "Comparación clara entre declarar un puntero a función con y sin typedef"
-  },
-  "Función que recibe un Callback": {
-    "scope": "c,cpp",
-    "prefix": ["funcion_recibe_callback", "orden_superior", "higher_order"],
-    "body": [
-      "/*",
-      " * FUNCIÓN DE ORDEN SUPERIOR (recibe un callback)",
-      " * ----------------------------------------------",
-      " * Una función que recibe OTRA función como parámetro.",
-      " * Permite inyectar comportamiento dinámicamente.",
-      " *",
-      " * USO TÍPICO: procesar cada elemento de un array",
-      " * sin saber de antemano QUÉ hacer con cada uno.",
-      " *",
-      " * PASOS:",
-      " * 1. Definir un typedef para el callback (más limpio).",
-      " * 2. Escribir la función que recibe el callback.",
-      " * 3. Pasar funciones compatibles al invocar.",
-      " */",
-      "",
-      "// 1. Firma del callback",
-      "typedef ${1:void} (*${2:Accion})(int ${3:elemento});",
-      "",
-      "// 2. Función de orden superior",
-      "void ${4:procesar_array}(int *${5:arr}, size_t ${6:n}, ${2:Accion} ${7:callback}) {",
-      "\tfor (size_t i = 0; i < ${6:n}; i++) {",
-      "\t\t${7:callback}(${5:arr}[i]); // Se ejecuta el callback en cada elemento",
+      "${1|set,clear,toggle,check|}",
+      "// Función para ${1} bit",
+      "unsigned int ${1}_bit(unsigned int num, int pos) {",
+      "\tswitch (${1}) {",
+      "\t\tcase \"set\": return num | (1 << pos);",
+      "\t\tcase \"clear\": return num & ~(1 << pos);",
+      "\t\tcase \"toggle\": return num ^ (1 << pos);",
+      "\t\tcase \"check\": return (num & (1 << pos)) != 0;",
       "\t}",
+      "\treturn num;",
       "}",
       "",
-      "// 3. Callbacks concretos",
-      "void ${8:imprimir}(int x)  { printf(\"%d \", x); }",
-      "void ${9:duplicar}(int x)  { printf(\"%d \", x * 2); }",
-      "",
-      "int main(void) {",
-      "\tint datos[] = {1, 2, 3, 4, 5};",
-      "\t${4:procesar_array}(datos, 5, ${8:imprimir});",
-      "\tprintf(\"\\n\");",
-      "\t${4:procesar_array}(datos, 5, ${9:duplicar});",
-      "\tprintf(\"\\n\");",
-      "\treturn 0;",
-      "}"
+      "// Uso:",
+      "unsigned int x = ${2:0};",
+      "x = set_bit(x, 3); // poner bit 3",
+      "if (check_bit(x, 3)) printf(\"Bit 3 activo\\n\");"
     ],
-    "description": "Función de orden superior que recibe un callback para inyectar comportamiento"
+    "description": "Operaciones de manipulación de bits"
   },
-  "Callback con contexto (void *user_data)": {
-    "scope": "c,cpp",
-    "prefix": ["callback_contexto", "callback_user_data"],
+  "React useState": {
+    "prefix": "usestate",
     "body": [
-      "/*",
-      " * CALLBACK CON CONTEXTO (void *user_data)",
-      " * ----------------------------------------",
-      " * A veces el callback necesita datos externos (configuración, acumulador, etc.).",
-      " * Se le pasa un void* que el callback castea al tipo real.",
-      " *",
-      " * Es el patrón usado por librerías como GTK, libcurl, pthread, etc.",
-      " *",
-      " * VENTAJA: la misma función callback puede usarse con distinto contexto.",
-      " */",
-      "",
-      "typedef void (*${1:Callback})(int ${2:elemento}, void *${3:contexto});",
-      "",
-      "void ${4:procesar}(int *${5:arr}, size_t ${6:n}, ${1:Callback} ${7:cb}, void *${8:ctx}) {",
-      "\tfor (size_t i = 0; i < ${6:n}; i++) {",
-      "\t\t${7:cb}(${5:arr}[i], ${8:ctx});",
-      "\t}",
-      "}",
-      "",
-      "// Callback que usa el contexto para acumular",
-      "void ${9:acumular}(int x, void *${10:ctx}) {",
-      "\tint *${11:suma} = (int*)${10:ctx};",
-      "\t*${11:suma} += x;",
-      "}",
-      "",
-      "int main(void) {",
-      "\tint datos[] = {1, 2, 3, 4, 5};",
-      "\tint total = 0;",
-      "\t${4:procesar}(datos, 5, ${9:acumular}, &total);",
-      "\tprintf(\"Total: %d\\n\", total);",
-      "\treturn 0;",
-      "}"
+      "const [${1:estado}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:valorInicial});"
     ],
-    "description": "Callback con void *user_data para pasar contexto (patrón de librerías reales)"
+    "description": "Hook useState de React: [estado, setEstado] = useState(valorInicial)"
   },
-  "Función que RETORNA un puntero a función": {
-    "scope": "c,cpp",
-    "prefix": ["funcion_retorna_ptr_func", "factory_puntero_funcion"],
+  "React useState con tipo TypeScript": {
+    "prefix": "usestatets",
     "body": [
-      "/*",
-      " * FUNCIÓN QUE RETORNA UN PUNTERO A FUNCIÓN",
-      " * -----------------------------------------",
-      " * Sintaxis complicada de leer, por eso conviene usar typedef.",
-      " *",
-      " * SIN typedef: tipo_ret (*nombre(params_selector))(params_funcion);",
-      " * CON typedef: Alias seleccionar(params_selector);",
-      " *",
-      " * Se usa para FÁBRICAS (factory): elegir qué función devolver según",
-      " * una condición (ej. operación matemática según un carácter).",
-      " */",
-      "",
-      "// 1. Typedef para simplificar",
-      "typedef ${1:double} (*${2:Operacion})(double, double);",
-      "",
-      "double ${3:sumar}(double a, double b) { return a + b; }",
-      "double ${4:restar}(double a, double b) { return a - b; }",
-      "",
-      "// 2. Función que devuelve un puntero a función",
-      "${2:Operacion} ${5:elegir_operacion}(char ${6:op}) {",
-      "\tswitch (${6:op}) {",
-      "\t\tcase '+': return ${3:sumar};",
-      "\t\tcase '-': return ${4:restar};",
-      "\t\tdefault:  return NULL;",
-      "\t}",
-      "}",
-      "",
-      "int main(void) {",
-      "\t${2:Operacion} ${7:op} = ${5:elegir_operacion}('+');",
-      "\tif (${7:op} != NULL) {",
-      "\t\tprintf(\"Resultado: %.2f\\n\", ${7:op}(10, 3));",
-      "\t}",
-      "\treturn 0;",
-      "}"
+      "const [${1:estado}, set${1/(.*)/${1:/capitalize}/}] = useState<${2:tipo}>(${3:valorInicial});"
     ],
-    "description": "Función que devuelve un puntero a función (patrón factory)"
+    "description": "Hook useState de React con tipo TypeScript"
   },
-  "Manejador de eventos con punteros a función": {
-    "scope": "c,cpp",
-    "prefix": ["manejador_eventos", "event_handler"],
+  "React useState booleano": {
+    "prefix": "usestatebool",
     "body": [
-      "/*",
-      " * MANEJADOR DE EVENTOS (Event Handler)",
-      " * -------------------------------------",
-      " * Simula un sistema de eventos (clic, tecla, etc.) usando punteros",
-      " * a función almacenados en una tabla.",
-      " *",
-      " * VENTAJA: agregar eventos nuevos = solo añadir una función y una entrada.",
-      " * NO se modifica la lógica de dispatch.",
-      " */",
-      "",
-      "typedef enum { ${1:EVENTO_CLIC}, ${2:EVENTO_TECLA}, ${3:EVENTO_SALIR} } ${4:TipoEvento};",
-      "typedef void (*${5:Manejador})(void);",
-      "",
-      "void ${6:on_clic}(void)  { printf(\"Clic detectado\\n\"); }",
-      "void ${7:on_tecla}(void) { printf(\"Tecla presionada\\n\"); }",
-      "void ${8:on_salir}(void) { printf(\"Saliendo...\\n\"); }",
-      "",
-      "// Tabla de dispatch: índice = valor del enum",
-      "${5:Manejador} ${9:handlers}[] = { ${6:on_clic}, ${7:on_tecla}, ${8:on_salir} };",
-      "",
-      "void ${10:disparar}(${4:TipoEvento} ${11:ev}) {",
-      "\t${9:handlers}[${11:ev}]();",
-      "}",
-      "",
-      "int main(void) {",
-      "\t${10:disparar}(${1:EVENTO_CLIC});",
-      "\t${10:disparar}(${2:EVENTO_TECLA});",
-      "\t${10:disparar}(${3:EVENTO_SALIR});",
-      "\treturn 0;",
-      "}"
+      "const [${1:activo}, set${1/(.*)/${1:/capitalize}/}] = useState<boolean>(${2:false});"
     ],
-    "description": "Sistema de eventos con tabla de punteros a función (patrón dispatcher)"
+    "description": "Hook useState de React para booleanos"
   },
-  "Máquina de estados con punteros a función": {
-    "scope": "c,cpp",
-    "prefix": ["maquina_estados", "state_machine"],
+  "React useState objeto": {
+    "prefix": "usestateobj",
     "body": [
-      "/*",
-      " * MÁQUINA DE ESTADOS CON PUNTEROS A FUNCIÓN",
-      " * ------------------------------------------",
-      " * Cada estado es una función. Cada función decide a qué estado ir después.",
-      " * Patrón muy usado en parsers, protocolos, UI, videojuegos.",
-      " *",
-      " * VENTAJA: elimina switch/case gigantes y facilita añadir estados.",
-      " */",
-      "",
-      "typedef struct ${1:Contexto} ${1:Contexto};",
-      "typedef void (*${2:EstadoFn})(${1:Contexto} *${3:ctx});",
-      "",
-      "struct ${1:Contexto} {",
-      "\t${2:EstadoFn} ${4:estado_actual};",
-      "\tint ${5:dato};",
-      "};",
-      "",
-      "void ${6:estado_inicio}(${1:Contexto} *${3:ctx});",
-      "void ${7:estado_proceso}(${1:Contexto} *${3:ctx});",
-      "void ${8:estado_fin}(${1:Contexto} *${3:ctx});",
-      "",
-      "void ${6:estado_inicio}(${1:Contexto} *${3:ctx}) {",
-      "\tprintf(\"Estado: INICIO\\n\");",
-      "\t${3:ctx}->${4:estado_actual} = ${7:estado_proceso};",
-      "}",
-      "void ${7:estado_proceso}(${1:Contexto} *${3:ctx}) {",
-      "\tprintf(\"Estado: PROCESO (dato=%d)\\n\", ${3:ctx}->${5:dato}++);",
-      "\tif (${3:ctx}->${5:dato} >= 3) ${3:ctx}->${4:estado_actual} = ${8:estado_fin};",
-      "}",
-      "void ${8:estado_fin}(${1:Contexto} *${3:ctx}) {",
-      "\tprintf(\"Estado: FIN\\n\");",
-      "\t${3:ctx}->${4:estado_actual} = NULL;",
-      "}",
-      "",
-      "int main(void) {",
-      "\t${1:Contexto} ctx = { ${6:estado_inicio}, 0 };",
-      "\twhile (ctx.${4:estado_actual} != NULL) {",
-      "\t\tctx.${4:estado_actual}(&ctx);",
-      "\t}",
-      "\treturn 0;",
-      "}"
+      "const [${1:datos}, set${1/(.*)/${1:/capitalize}/}] = useState<${2:Tipo}>(${3:{\n\t$4\n}});"
     ],
-    "description": "Máquina de estados finitos usando punteros a función (sin switch/case)"
-  },
-  "Puntero a función que retorna puntero (wrapper malloc)": {
-    "scope": "c,cpp",
-    "prefix": ["ptr_func_retorna_puntero"],
-    "body": [
-      "/*",
-      " * PUNTERO A FUNCIÓN QUE RETORNA UN PUNTERO",
-      " * -----------------------------------------",
-      " * Sintaxis: tipo_ret* (*nombre)(params);",
-      " * ¡El * del retorno va ANTES del (*nombre)!",
-      " *",
-      " * Ejemplo: envolver malloc/free en punteros para poder",
-      " * inyectar distintas estrategias de asignación en tiempo de ejecución.",
-      " */",
-      "",
-      "typedef void* (*${1:AllocFn})(size_t);",
-      "typedef void  (*${2:FreeFn})(void*);",
-      "",
-      "int main(void) {",
-      "\t// Asignar las funciones estándar a los punteros",
-      "\t${1:AllocFn} ${3:mi_alloc} = malloc;",
-      "\t${2:FreeFn}  ${4:mi_free}  = free;",
-      "",
-      "\tint *${5:arr} = (int*)${3:mi_alloc}(5 * sizeof(int));",
-      "\tif (${5:arr} == NULL) return 1;",
-      "",
-      "\tfor (int i = 0; i < 5; i++) ${5:arr}[i] = i * 10;",
-      "\tfor (int i = 0; i < 5; i++) printf(\"%d \", ${5:arr}[i]);",
-      "\tprintf(\"\\n\");",
-      "",
-      "\t${4:mi_free}(${5:arr});",
-      "\treturn 0;",
-      "}"
-    ],
-    "description": "Punteros a función con retorno de puntero (wrapper de malloc/free)"
-  },
-  "Tabla de punteros a función con Struct": {
-    "scope": "c,cpp",
-    "prefix": ["tabla_ptr_func_struct", "menu_ptr_func_struct"],
-    "body": [
-      "/*",
-      " * TABLA DE PUNTEROS A FUNCIÓN + STRUCT (MENÚ ROBUSTO)",
-      " * ----------------------------------------------------",
-      " * Cada opción del menú tiene:",
-      " *   - Un texto descriptivo.",
-      " *   - Una función asociada (mismo prototipo).",
-      " *",
-      " * VENTAJA: agregar opciones = añadir una línea a la tabla.",
-      " * NO se toca la lógica de dispatch (sin switch/if).",
-      " */",
-      "",
-      "typedef struct {",
-      "\t${1:char *nombre};",
-      "\t${2:void} (*${3:accion})(void);",
-      "} ${4:OpcionMenu};",
-      "",
-      "void ${5:opcion_saludar}(void) { printf(\"Hola!\\n\"); }",
-      "void ${6:opcion_despedir}(void){ printf(\"Adiós!\\n\"); }",
-      "void ${7:opcion_ayuda}(void)   { printf(\"Ayuda...\\n\"); }",
-      "",
-      "int main(void) {",
-      "\t${4:OpcionMenu} ${8:menu}[] = {",
-      "\t\t{ ${9:\"Saludar\"},  ${5:opcion_saludar}  },",
-      "\t\t{ ${10:\"Despedir\"}, ${6:opcion_despedir} },",
-      "\t\t{ ${11:\"Ayuda\"},    ${7:opcion_ayuda}   },",
-      "\t};",
-      "\tint ${12:n} = sizeof(${8:menu}) / sizeof(${8:menu}[0]);",
-      "",
-      "\t// Mostrar menú",
-      "\tfor (int i = 0; i < ${12:n}; i++) {",
-      "\t\tprintf(\"%d) %s\\n\", i + 1, ${8:menu}[i].${1:nombre});",
-      "\t}",
-      "",
-      "\t// Ejecutar opción (ejemplo: índice 0)",
-      "\t${8:menu}[0].${3:accion}();",
-      "\treturn 0;",
-      "}"
-    ],
-    "description": "Tabla de opciones con struct + puntero a función (menú escalable)"
-  },
-  "Callback para qsort genérico (typedef + comparador)": {
-    "scope": "c,cpp",
-    "prefix": ["qsort_typedef_generico", "comparador_generico"],
-    "body": [
-      "/*",
-      " * QSORT CON TYPEDEF PARA EL COMPARADOR",
-      " * -------------------------------------",
-      " * qsort espera un callback con firma EXACTA:",
-      " *   int (*)(const void *, const void *)",
-      " *",
-      " * Definir un typedef hace el código MUCHO más legible",
-      " * y permite tener varios comparadores intercambiables.",
-      " *",
-      " * RETORNO del comparador:",
-      " *   < 0  → el primero va antes",
-      " *   0    → son iguales",
-      " *   > 0  → el primero va después",
-      " */",
-      "",
-      "typedef int (*${1:Comparador})(const void *, const void *);",
-      "",
-      "int ${2:comparar_asc}(const void *${3:a}, const void *${4:b}) {",
-      "\tint ${5:x} = *(const int*)${3:a};",
-      "\tint ${6:y} = *(const int*)${4:b};",
-      "\treturn ${5:x} - ${6:y};",
-      "}",
-      "",
-      "int ${7:comparar_desc}(const void *${3:a}, const void *${4:b}) {",
-      "\tint ${5:x} = *(const int*)${3:a};",
-      "\tint ${6:y} = *(const int*)${4:b};",
-      "\treturn ${6:y} - ${5:x};",
-      "}",
-      "",
-      "void ${8:ordenar}(int *${9:arr}, size_t ${10:n}, ${1:Comparador} ${11:cmp}) {",
-      "\tqsort(${9:arr}, ${10:n}, sizeof(int), ${11:cmp});",
-      "}",
-      "",
-      "int main(void) {",
-      "\tint datos[] = {5, 2, 8, 1, 9};",
-      "\t${8:ordenar}(datos, 5, ${2:comparar_asc});",
-      "\tfor (int i = 0; i < 5; i++) printf(\"%d \", datos[i]);",
-      "\tprintf(\"\\n\");",
-      "\treturn 0;",
-      "}"
-    ],
-    "description": "Comparador genérico para qsort usando typedef (permite múltiples criterios)"
+    "description": "Hook useState de React para objetos con tipo"
   }
 }
