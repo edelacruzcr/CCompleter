@@ -1087,12 +1087,177 @@
     "scope": "c,cpp",
     "prefix": [
       "ptr_func",
-      "puntero_a_funcion"
+      "puntero_a_funcion",
+      "puntero_funcion"
     ],
     "body": [
-      "${1:tipo_retorno} (*${2:nombre})(${3:parametros}) = ${4:&funcion};"
+      "/* Declaración de puntero a función: tipo_retorno (*nombre)(parametros) */",
+      "${1|int,void,float,double,char*|} (*${2:nombre_puntero})(${3:int, int}) = ${4:nombre_funcion};",
+      "",
+      "// Invocación a través del puntero",
+      "${5:resultado = }${2:nombre_puntero}(${6:arg1, arg2});"
     ],
-    "description": "Declarar puntero a función"
+    "description": "Declarar e invocar puntero a función básico"
+  },
+  "Puntero a función (Guía Detallada)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "puntero_funcion_explicado",
+      "ptr_func_guia",
+      "puntero_funcion_completo"
+    ],
+    "body": [
+      "/*",
+      " * PUNTERO A FUNCIÓN (Explicación y Guía Completa)",
+      " * ----------------------------------------------",
+      " * Un puntero a función almacena la dirección de memoria del código ejecutable.",
+      " *",
+      " * Sintaxis: tipo_retorno (*nombre_puntero)(tipos_de_parametros);",
+      " *   - Los paréntesis alrededor de (*nombre_puntero) son OBLIGATORIOS.",
+      " *   - Sin paréntesis, se interpretaría como una función que retorna un puntero.",
+      " *",
+      " * Pasos:",
+      " * 1. Declarar o disponer de una función con la misma firma.",
+      " * 2. Asignar la función al puntero (el operador '&' es opcional).",
+      " * 3. Invocación directa a través del puntero.",
+      " */",
+      "",
+      "// 1. Función compatible",
+      "${1:int} ${2:mi_funcion}(${3:int a, int b}) {",
+      "\treturn ${4:a + b};",
+      "}",
+      "",
+      "// 2. Declaración e inicialización del puntero",
+      "${1:int} (*${5:ptr_func})(${6:int, int}) = ${2:mi_funcion};",
+      "",
+      "// 3. Invocación mediante el puntero",
+      "${7:int resultado = }${5:ptr_func}(${8:10, 20});"
+    ],
+    "description": "Guía explicativa completa de uso, asignación e invocación de punteros a funciones"
+  },
+  "Puntero a función con Typedef": {
+    "scope": "c,cpp",
+    "prefix": [
+      "typedef_puntero_funcion",
+      "typedef_ptr_func",
+      "ptr_func_typedef"
+    ],
+    "body": [
+      "/*",
+      " * TYPEDEF PARA PUNTEROS A FUNCIONES",
+      " * ---------------------------------",
+      " * Crear un alias de tipo con 'typedef' simplifica notablemente la sintaxis",
+      " * y evita código ilegible al declarar variables o parámetros.",
+      " *",
+      " * Sintaxis: typedef tipo_retorno (*NombreTipo)(parametros);",
+      " */",
+      "typedef ${1:int} (*${2:OperacionFunc})(${3:int, int});",
+      "",
+      "// Declaración limpia usando el alias de tipo",
+      "${2:OperacionFunc} ${4:mi_operacion} = ${5:nombre_funcion};",
+      "${6:int res = }${4:mi_operacion}(${7:arg1, arg2});"
+    ],
+    "description": "Definir un alias de tipo (typedef) para punteros a funciones (Limpio y Reutilizable)"
+  },
+  "Puntero a función como Callback": {
+    "scope": "c,cpp",
+    "prefix": [
+      "callback_funcion",
+      "ptr_func_callback",
+      "puntero_funcion_parametro"
+    ],
+    "body": [
+      "/*",
+      " * PUNTERO A FUNCIÓN COMO CALLBACK (Parámetro)",
+      " * ------------------------------------------",
+      " * Permite pasar comportamiento o lógica como parámetro a otra función.",
+      " * Esencial para procesamiento de listas, filtrado, mapas o eventos.",
+      " */",
+      "typedef ${1:void} (*${2:CallbackFunc})(${3:int elemento});",
+      "",
+      "// Función que recibe el Callback por argumento",
+      "void ${4:procesar_arreglo}(${5:int} *${6:arreglo}, size_t ${7:tamano}, ${2:CallbackFunc} ${8:callback}) {",
+      "\tfor (size_t i = 0; i < ${7:tamano}; i++) {",
+      "\t\t${8:callback}(${6:arreglo}[i]); // Ejecución dinámica del callback",
+      "\t}",
+      "}"
+    ],
+    "description": "Pasar una función como parámetro (mecanismo Callback)"
+  },
+  "Arreglo de Punteros a Funciones (Tabla de Saltos)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "tabla_punteros_funciones",
+      "dispatch_table_func",
+      "arreglo_punteros_funciones"
+    ],
+    "body": [
+      "/*",
+      " * TABLA DE PUNTEROS A FUNCIONES (Dispatch Table)",
+      " * -----------------------------------------------",
+      " * Permite ejecutar funciones dinámicamente mediante un índice.",
+      " * Reemplaza estructuras complejas de switch-case o múltiples if-else.",
+      " */",
+      "typedef ${1:int} (*${2:FuncOperacion})(${3:int, int});",
+      "",
+      "// Tabla/Arreglo de funciones compatibles",
+      "${2:FuncOperacion} ${4:tabla_operaciones}[] = {",
+      "\t${5:suma},",
+      "\t${6:resta},",
+      "\t${7:multiplicacion}",
+      "};",
+      "",
+      "// Seleccionar e invocar por índice de opción",
+      "int ${8:opcion} = ${9:0};",
+      "${10:int res = }${4:tabla_operaciones}[${8:opcion}](${11:val1, val2});"
+    ],
+    "description": "Tabla/Arreglo de punteros a funciones para dispatch dinámico o menú"
+  },
+  "Puntero a función en Estructura (POO en C)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "struct_puntero_funcion",
+      "poo_c_puntero_funcion"
+    ],
+    "body": [
+      "/*",
+      " * PUNTERO A FUNCIÓN EN ESTRUCTURAS (POO en C)",
+      " * -------------------------------------------",
+      " * Encapsula datos y métodos dentro de una misma estructura C,",
+      " * emulando el comportamiento de clases y objetos.",
+      " */",
+      "typedef struct ${1:Objeto} {",
+      "\t${2:int} ${3:valor};",
+      "\t// Método (puntero a función dentro de la struct)",
+      "\tvoid (*${4:ejecutar})(struct ${1:Objeto} *self);",
+      "} ${1:Objeto};"
+    ],
+    "description": "Estructura con puntero a función (Simulación de métodos POO en C)"
+  },
+  "Callback para qsort (Comparador)": {
+    "scope": "c,cpp",
+    "prefix": [
+      "qsort_callback",
+      "comparar_qsort",
+      "puntero_funcion_qsort"
+    ],
+    "body": [
+      "/*",
+      " * CALLBACK DE COMPARACIÓN PARA QSORT (stdlib.h)",
+      " * ---------------------------------------------",
+      " * Firma requerida por qsort: int (*)(const void*, const void*)",
+      " * Retorna: < 0 (menor), 0 (igual), > 0 (mayor)",
+      " */",
+      "int ${1:comparar_enteros}(const void *${2:a}, const void *${3:b}) {",
+      "\t${4:int} val_a = *((${4:int}*)${2:a});",
+      "\t${4:int} val_b = *((${4:int}*)${3:b});",
+      "\treturn (val_a - val_b); // Orden ascendente",
+      "}",
+      "",
+      "// Invocación típica de qsort:",
+      "// qsort(${5:arreglo}, ${6:tamano}, sizeof(${4:int}), ${1:comparar_enteros});"
+    ],
+    "description": "Función comparadora Callback para ordenar datos con qsort"
   },
   "printf (menú formato)": {
     "scope": "c,cpp",

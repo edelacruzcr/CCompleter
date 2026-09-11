@@ -85,7 +85,13 @@ Si prefieres agregarlos manualmente a VS Code:
 | `struct` | Definición de estructura con `typedef` |
 | `enum` | Definición de enumeración con `typedef` |
 | `ptr` | Puntero básico asignado a la dirección de una variable |
-| `ptr_func` | Puntero a función |
+| `ptr_func` | Puntero a función básico |
+| `puntero_funcion_explicado` | Guía detallada y completa sobre punteros a funciones |
+| `typedef_puntero_funcion` | Alias de tipo (`typedef`) para punteros a funciones |
+| `callback_funcion` | Pasar puntero a función como Callback (parámetro) |
+| `tabla_punteros_funciones` | Arreglo / Tabla de punteros a funciones (Dispatch Table) |
+| `struct_puntero_funcion` | Método en estructura usando puntero a función (POO en C) |
+| `qsort_callback` | Función de comparación Callback para `qsort` |
 
 ### Entrada / Salida y Archivos
 | Prefijo | Descripción |
